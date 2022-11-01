@@ -1,0 +1,481 @@
+
+#:import os os
+#:import get_hex_from_color kivy.utils.get_hex_from_color
+#:import IconLeftWidget kivymd.uix.list.IconLeftWidget
+#:import TopBar View.TopBar
+#:import colors kivymd.color_definitions.colors
+#:import Window kivy.core.window.Window
+
+<TooltipMDIconButton@MDIconButton+MDTooltip>
+
+<TooltipLabel@MDLabel+MDTooltip>
+
+# <TouchHoverArea@MDFlatButton+MDTooltip>
+
+<EventSnackBar>
+    bg_color: app.theme_cls.bg_normal
+    MDBoxLayout:
+        orientation: "vertical"
+        size_hint_y: None
+        height: root.height - 5
+        pos_hint: {'center_y': .5}
+        # spacing: "2dp"
+        adaptive_height: True
+
+        MDLabel:
+            id: header
+            text: root.header
+            font_size: root.font_size
+            theme_text_color: 'Primary'
+            shorten: True
+            shorten_from: 'right'
+        
+        MDLabel:
+            id: text
+            text: root.text
+            font_size: root.font_size
+            theme_text_color: 'Hint'
+            shorten: True
+            shorten_from: 'right'
+
+<EventsList>:
+    id: event_list
+    orientation: "vertical"
+    # size_hint_x: None
+    size_hint_y: None
+    # height: self.height
+    height: Window.height // 2 + dp(100)
+    width: self.width
+
+    AnchorLayout:
+        
+        MDScrollView:
+            
+            MDList:
+                id: scroll
+
+<CommandInterface>
+    orientation: "vertical"
+    # spacing: "12dp"
+    size_hint_y: None
+    # height: self.height
+    height: Window.height // 2 + dp(100)
+    width: self.width
+    
+    Label:
+        text: root.event_str
+        adaptive_height: True
+        size_hint_y: None
+        height: 50
+    
+    GridLayout:
+        id: keypad
+        cols: 1
+        height: root.height
+        width: root.width
+        adaptive_height: True
+        adaptive_width: True
+
+<SimulatorScreenView>
+    
+    MDBoxLayout:
+        id: box
+        orientation: "vertical"
+        spacing: "2dp"
+        pos_hint: {"top": 1}
+    
+        TopBar:
+            id: toolbar
+            screen: app.tr._("Simulator")
+
+        ScrollView:
+            MDFloatLayout:
+                id: background
+                md_bg_color: app.theme_cls.accent_light
+                d: 10
+                Image:
+                    id: image
+                    pos_hint: {"top": 1}
+                    allow_stretch: True
+                    source: f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\mnemo_bare.png"
+                    
+                MDRelativeLayout:
+
+                    # Flow Labels
+                    TooltipLabel:
+                        text: "I"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.25, "center_y": 0.195}
+                        tooltip_text: app.tr._("Crude Diesel Feed")
+
+                    TooltipLabel:
+                        text: "II"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.305, "center_y": 0.125}
+                        tooltip_text: app.tr._("Hydrogen-containing Gas Feed")
+
+                    TooltipLabel:
+                        text: "III"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.355, "center_y": 0.125}
+                        tooltip_text: app.tr._("Hydrogen-containing Gas\nCirculation from cleaning")
+                    
+                    TooltipLabel:
+                        text: "IV"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.501, "center_y": 0.37}
+                        tooltip_text: app.tr._("Cold Water\nFeed")
+                    
+                    TooltipLabel:
+                        text: "V"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.56, "center_y": 0.56}
+                        tooltip_text: app.tr._("Hydrogen-containing Gas Output")
+                    
+                    TooltipLabel:
+                        text: "VI"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.58, "center_y": 0.63}
+                        tooltip_text: app.tr._("Water steam")
+                    
+                    TooltipLabel:
+                        text: "VII"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.765, "center_y": 0.45}
+                        tooltip_text: app.tr._("Water to plant\nsewage")
+                    
+                    TooltipLabel:
+                        text: "VIII"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.9, "center_y": 0.9}
+                        tooltip_text: app.tr._("Hydrocarbon Gas\nOutput")
+                    
+                    TooltipLabel:
+                        text: "IX"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.9, "center_y": 0.8}
+                        tooltip_text: app.tr._("Distilled Gasoline\nOutput")
+                    
+                    TooltipLabel:
+                        text: "X"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.95, "center_y": 0.73}
+                        tooltip_text: app.tr._("Sulfide Gas\nOutput")
+
+                    TooltipLabel:
+                        text: "XI"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.9, "center_y": 0.45}
+                        tooltip_text: app.tr._("Water to plant\nsewage")
+
+                    TooltipLabel:
+                        text: "XII"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.94, "center_y": 0.38}
+                        tooltip_text: app.tr._("Water Steam")
+                    
+                    TooltipLabel:
+                        text: "XIII"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.94, "center_y": 0.28}
+                        tooltip_text: app.tr._("Hydrogen-purified\nDiesel Output")
+                    
+                    TooltipLabel:
+                        text: "XIV"
+                        size_hint: 0.005, 0.05
+                        adaptive_height: True
+                        adaptive_width: True
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        font_style: "H5"
+                        pos_hint: {"center_x": 0.9, "center_y": 0.03}
+                        tooltip_text: app.tr._("Water to plant\nsewage")
+
+                    # Touch areas
+                    TouchHoverArea:
+                        id: BLOB1
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB1"
+                        tooltip_text:app. tr._("Separator S1")
+                        size_hint: 0.06, 0.03
+                        pos_hint: {"center_x": 0.53, "center_y": 0.475}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [11, 12, 41, 42, 23]
+
+                    TouchHoverArea:
+                        id: BLOB2
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB2"
+                        tooltip_text: app.tr._("Tower T1")
+                        size_hint: 0.05, 0.45
+                        pos_hint: {"center_x": 0.607, "center_y": 0.66}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [7, 8, 15, 16, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB3
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB3"
+                        tooltip_text: app.tr._("Reactor R1")
+                        size_hint: 0.04, 0.356
+                        pos_hint: {"center_x": 0.297, "center_y": 0.68}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [23]
+                    
+                    TouchHoverArea:
+                        id: BLOB4
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB4"
+                        tooltip_text: app.tr._("Furnace F1")
+                        size_hint: 0.12, 0.28
+                        pos_hint: {"center_x": 0.182, "center_y": 0.64}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [1, 2, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB5
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB5"
+                        tooltip_text: app.tr._("Deodorator tower T2")
+                        size_hint: 0.01, 0.33
+                        pos_hint: {"center_x": 0.816, "center_y": 0.465}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [19, 20, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB6
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB6"
+                        tooltip_text: app.tr._("Vessel E1")
+                        size_hint: 0.06, 0.03
+                        pos_hint: {"center_x": 0.715, "center_y": 0.865}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [7, 8, 13, 14, 45, 46, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB7
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB7"
+                        tooltip_text: app.tr._("Coalescer CO1")
+                        size_hint: 0.06, 0.03
+                        pos_hint: {"center_x": 0.785, "center_y": 0.178}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [3, 4, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB8
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB8"
+                        tooltip_text: app.tr._("Coalescer CO2")
+                        size_hint: 0.06, 0.03
+                        pos_hint: {"center_x": 0.885, "center_y": 0.175}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [5, 6, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB9
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB9"
+                        tooltip_text: app.tr._("Separator S2")
+                        size_hint: 0.06, 0.03
+                        pos_hint: {"center_x": 0.878, "center_y": 0.585}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [24, 25, 43, 44, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB10
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB10"
+                        tooltip_text: app.tr._("Pump P1")
+                        size_hint: 0.02, 0.08
+                        pos_hint: {"center_x": 0.16, "center_y": 0.195}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [27, 28, 21, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB11
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB11"
+                        tooltip_text: app.tr._("Compressor C1")
+                        size_hint: 0.02, 0.08
+                        pos_hint: {"center_x": 0.265, "center_y": 0.205}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [31, 32, 22, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB12
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB12"
+                        tooltip_text: app.tr._("Compressor C2")
+                        size_hint: 0.02, 0.08
+                        pos_hint: {"center_x": 0.32, "center_y": 0.205}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [33, 34, 22, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB13
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB13"
+                        tooltip_text: app.tr._("Pump P2")
+                        size_hint: 0.02, 0.08
+                        pos_hint: {"center_x": 0.661, "center_y": 0.208}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [29, 30, 21, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB14
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB14"
+                        tooltip_text: app.tr._("Air Cooler AC1")
+                        size_hint: 0.02, 0.08
+                        pos_hint: {"center_x": 0.43, "center_y": 0.425}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [35, 36, 26, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB15
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB15"
+                        tooltip_text: app.tr._("Air Cooler AC2")
+                        size_hint: 0.02, 0.08
+                        pos_hint: {"center_x": 0.638, "center_y": 0.895}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [37, 38, 26, 23]
+                    
+                    TouchHoverArea:
+                        id: BLOB16
+                        background_color: 0, 0, 0, 0
+                        # text: "BLOB16"
+                        tooltip_text: app.tr._("Air Cooler AC3")
+                        size_hint: 0.02, 0.08
+                        pos_hint: {"center_x": 0.617, "center_y": 0.25}
+                        center: self.parent.center
+                        disabled: True
+                        controls: [39, 40, 26, 23]
+        
+        MDBoxLayout:
+            orientation: "horizontal"
+            height: 10
+            adaptive_height: True
+            size_hint_y: None
+            TooltipMDIconButton:
+                id: button_start
+                icon: "run"
+                tooltip_text: app.tr._("Run Simulation")
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: lambda x: root.run_sim()
+            
+            TooltipMDIconButton:
+                id: button_pause
+                icon: "pause"
+                tooltip_text: app.tr._("Pause Simulation")
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: lambda x: self.pause_sim()
+            
+            TooltipMDIconButton:
+                id: button_restart
+                icon: "restart"
+                tooltip_text: app.tr._("Restart Simulation")
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: lambda x: root.restart_sim()
+
+            TooltipMDIconButton:
+                id: button_stop
+                icon: "stop"
+                tooltip_text: app.tr._("Stop simulation")
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: lambda x: root.stop_sim()
+            
+            MDLabel:
+                id: clock
+                theme_text_color: 'Primary'
+                halign: "center"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                text: app.tr._("Ellapsed Time: 00:00:00")
+
+            TooltipMDIconButton:
+                id: button_tray
+                icon: "tray-full"
+                tooltip_text: app.tr._("Show Track Record")
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: lambda x: root.show_track_record()

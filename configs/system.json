@@ -1,0 +1,13 @@
+{
+    {
+        "type": "title",
+        "title": "System"
+    },
+    {
+        "type": "string",
+        "title": "Locale",
+        "desc": "Set the locale of the interfaces",
+        "section": "System",
+        "key": "locale"
+    }
+}

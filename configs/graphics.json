@@ -1,0 +1,20 @@
+[
+    {
+        "type": "title",
+        "title": "Graphics"
+    },
+    {
+        "type": "bool",
+        "title": "Fullscreen",
+        "desc": "Set the window in windowed or fullscreen",
+        "section": "Graphics",
+        "key": "fullscreen"
+    },
+    {
+        "type": "bool",
+        "title": "Dark Mode",
+        "desc": "Switch to Dark Mode",
+        "section": "Graphics",
+        "key": "darkmode"
+    }
+]

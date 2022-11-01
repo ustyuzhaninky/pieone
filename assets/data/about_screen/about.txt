@@ -1,0 +1,11 @@
+P.I.E. ONE is a GUI application demonstrating a simple Section 300 Imitator for students of Technological 
+Department of Ufa State Petroleum Technological University [ref=https//rusoil.net][color=#0000FF]rusoil.net[/color][/ref].
+
+P.I.E. ONE exists as an example what Kivy with KivyMD can do and is a template for educational projects.
+
+Currently we're in [b]alpha[/b] status, so things are changing all the time and we cannot promise any kind of API stability.
+
+The KivyMD library uses the Kivy framework as a backend. Kivy framework uses as a backend:
+
+[color=#888888]- OpenGL ES 2.0[/color]
+[color=#888888]- SDL2[/color]

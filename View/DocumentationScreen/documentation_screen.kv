@@ -1,0 +1,56 @@
+
+#:import os os
+#:import markdown markdown
+#:import get_hex_from_color kivy.utils.get_hex_from_color
+#:import IconLeftWidget kivymd.uix.list.IconLeftWidget
+#:import TopBar View.TopBar
+#:import BottomBar View.BottomBar
+#:import RstDocument kivy.uix.rst.RstDocument
+
+<DocumentationScreenView>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        
+        TopBar:
+            screen: app.tr._("Documentation")
+
+        MDNavigationLayout:
+            
+            MDScreenManager:
+
+                MDScreen:
+                    id: box
+                            
+                    MDBoxLayout:
+                        orientation: "vertical"
+                            
+                        MDSegmentedControl:
+                            id: lang_segments
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                                
+                            MDSegmentedControlItem:
+                                text: "en"
+                                
+                            MDSegmentedControlItem:
+                                text: "ru"
+
+                        MDScrollView:
+                            id: browser
+
+            MDNavigationDrawer:
+                radius: (0, 16, 16, 0)
+                padding: 0, 56, 12, 16
+                state: "close"
+                id: nav_drawer
+
+                MDNavigationDrawerMenu:
+                    id: nav_drawer_menu
+                    
+                    MDNavigationDrawerHeader:
+                        title: app.tr._("Documentation")
+                        title_font_size: "27sp"
+                        source: f"{os.environ['PIEONE_ROOT']}\\assets\\images\\logo256.png"
+                        text: app.tr._("P.I.E. ONE intergrated\nuser manual")
+                        spacing: "4dp"
+                        padding: "12dp", 0, 0, "56dp"

@@ -1,0 +1,134 @@
+
+#:import os os
+#:import get_hex_from_color kivy.utils.get_hex_from_color
+#:import IconLeftWidget kivymd.uix.list.IconLeftWidget
+#:import TopBar View.TopBar
+#:import BottomBar View.BottomBar
+#:import cos math.cos
+#:import sin math.sin
+#:import radians math.radians
+#:import Window kivy.core.window.Window
+
+<ContactItem@OneLineAvatarListItem>
+    icon: ""
+    _txt_top_pad: "8dp"
+    _txt_bot_pad: "8dp"
+    height: "36dp"
+
+    IconLeftWidget:
+        icon: root.icon
+        user_font_size: "18sp"
+
+<TooltipLabel@MDLabel+MDTooltip>
+
+<SchematicScreenView>
+    
+    MDBoxLayout:
+        orientation: "vertical"
+    
+        TopBar:
+            screen: app.tr._("Schematic")
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "2dp"
+                MDBoxLayout:
+                    orientation: "vertical"
+                    spacing: "2dp"
+                    md_bg_color: app.theme_cls.accent_light
+                    MDFloatLayout:
+                        Image:
+                            id: image
+                            pos_hint: {"top": 1}
+                            allow_stretch: False
+                            source: f"{os.environ['PIEONE_ROOT']}\\assets\\images\\schematic_screen\\mnemo_st0.png"
+
+                MDBottomNavigation:
+                    size_hint_y: None
+                    height: 250
+                    width: Window.width
+                    adaptive_height: True
+                    MDBottomNavigationItem:
+                        name: "screen 1"
+                        icon: "flag-checkered"
+                        text: app.tr._("Beginning")
+                        on_tab_release: root.set_stage_image(0)
+                        
+                        MDLabel:
+                            id: screen_1_label
+                            markup: True
+                            halign: 'center'
+                            walign: 'top'
+
+                    MDBottomNavigationItem:
+                        name: "screen 2"
+                        icon: "numeric-1-circle"
+                        text: app.tr._("Step 1")
+                        on_tab_release: root.set_stage_image(1)
+                                
+                        MDLabel:
+                            id: screen_2_label
+                            markup: True
+                            halign: 'left'
+                            walign: 'top'
+
+                    MDBottomNavigationItem:
+                        name: "screen 3"
+                        icon: "numeric-2-circle"
+                        text: app.tr._("Step 2")
+                        on_tab_release: root.set_stage_image(2)
+
+                        MDLabel:
+                            id: screen_3_label
+                            markup: True
+                            halign: 'left'
+                            walign: 'top'
+
+                    MDBottomNavigationItem:
+                        name: "screen 4"
+                        icon: "numeric-3-circle"
+                        text: app.tr._("Step 3")
+                        on_tab_release: root.set_stage_image(3)
+                                
+                        MDLabel:
+                            id: screen_4_label
+                            markup: True
+                            halign: 'left'
+                            walign: 'top'
+                            
+                    MDBottomNavigationItem:
+                        name: "screen 5"
+                        icon: "numeric-4-circle"
+                        text: app.tr._("Step 4")
+                        on_tab_release: root.set_stage_image(4)
+                                
+                        MDLabel:
+                            id: screen_5_label
+                            markup: True
+                            halign: 'left'
+                            walign: 'top'
+                            
+                    MDBottomNavigationItem:
+                        name: "screen 6"
+                        icon: "numeric-5-circle"
+                        text: app.tr._("Step 5")
+                        on_tab_release: root.set_stage_image(5)
+                                
+                        MDLabel:
+                            id: screen_6_label
+                            markup: True
+                            halign: 'left'
+                            walign: 'top'
+                            
+                    MDBottomNavigationItem:
+                        name: "screen 7"
+                        icon: "numeric-6-circle"
+                        text: app.tr._("Step 6")
+                        on_tab_release: root.set_stage_image(6)
+                                
+                        MDLabel:
+                            id: screen_7_label
+                            markup: True
+                            halign: 'left'
+                            walign: 'top'

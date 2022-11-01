@@ -1,0 +1,822 @@
+# Petrochem Imitator Example, version ONE.
+# Copyright (C) 2022
+# This file is distributed under the same license as the PACKAGE package.
+# Konstantin Ustiuzhanin ustyuzhaninky@hotmail.com, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-29 14:59+0500\n"
+"PO-Revision-Date: 2022-09-29 3:01+GRM+6\n"
+"Last-Translator: Konstantin Ustiuzhanin ustyuzhaninky@hotmail.com\n"
+"Language-Team: Konstantin Ustiuzhanin ustyuzhaninky@hotmail.com\n"
+"Language: English-US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app.py:204
+msgid "No"
+msgstr "No"
+
+#: app.py:207 View/common/bars/top_bar.py:38
+msgid "Yes"
+msgstr "Yes"
+
+#: app.py:211
+msgid "Exit"
+msgstr "Exit"
+
+#: app.py:212
+msgid "Do you wish to close the application?"
+msgstr "Do you wish to close the application?"
+
+#: app.py:229
+msgid "Ok"
+msgstr "Ok"
+
+#: app.py:233 app.py:238 View/SimulatorScreen/simulator_screen.py:51
+#: View/common/bars/top_bar.py:35
+msgid "Cancel"
+msgstr "Cancel"
+
+#: app.py:241
+msgid "Settings"
+msgstr "Settings"
+
+#: app.py:306
+msgid "Restart required"
+msgstr "Restart required"
+
+#: app.py:309
+msgid "For changes to take effect application has to restart."
+msgstr "For changes to take effect application has to restart."
+
+#: View/AboutScreen/about_screen.kv:26
+msgid "About"
+msgstr "About"
+
+#: View/AboutScreen/about_screen.kv:67
+msgid "Open source simulator example"
+msgstr "Open source simulator example"
+
+#: View/AboutScreen/about_screen.kv:82
+msgid "Contaсts"
+msgstr "Contaсts"
+
+#: View/AboutScreen/about_screen.kv:91
+msgid "[size=14]Official YouTube channel[/size]"
+msgstr "[size=14]Official YouTube channel[/size]"
+
+#: View/AboutScreen/about_screen.kv:95
+msgid "[size=14]Twitter channel[/size]"
+msgstr "[size=14]Twitter channel[/size]"
+
+#: View/AboutScreen/about_screen.kv:99
+msgid "[size=14]ustyuzhaninky@hotmail.com[/size]"
+msgstr "[size=14]ustyuzhaninky@hotmail.com[/size]"
+
+#: View/MenuScreen/menu_screen.kv:11
+msgid "Menu"
+msgstr "Menu"
+
+#: View/DocumentationScreen/documentation_screen.kv:17
+#: View/DocumentationScreen/documentation_screen.kv:52
+msgid "Documentation"
+msgstr "Documentation"
+
+#: View/DocumentationScreen/documentation_screen.kv:55
+msgid ""
+"P.I.E. ONE intergrated\n"
+"user manual"
+msgstr ""
+"P.I.E. ONE intergrated\n"
+"user manual"
+
+#: View/SchematicScreen/schematic_screen.kv:31
+msgid "Schematic"
+msgstr "Schematic"
+
+#: View/SchematicScreen/schematic_screen.kv:56
+msgid "Beginning"
+msgstr "Beginning"
+
+#: View/SchematicScreen/schematic_screen.kv:68
+msgid "Step 1"
+msgstr "Step 1"
+
+#: View/SchematicScreen/schematic_screen.kv:80
+msgid "Step 2"
+msgstr "Step 2"
+
+#: View/SchematicScreen/schematic_screen.kv:92
+msgid "Step 3"
+msgstr "Step 3"
+
+#: View/SchematicScreen/schematic_screen.kv:104
+msgid "Step 4"
+msgstr "Step 4"
+
+#: View/SchematicScreen/schematic_screen.kv:116
+msgid "Step 5"
+msgstr "Step 5"
+
+#: View/SchematicScreen/schematic_screen.kv:128
+msgid "Step 6"
+msgstr "Step 6"
+
+#: View/SimulatorScreen/simulator_screen.kv:90
+msgid "Simulator"
+msgstr "Simulator"
+
+#: View/SimulatorScreen/simulator_screen.kv:115
+msgid "Crude Diesel Feed"
+msgstr "Crude Diesel Feed"
+
+#: View/SimulatorScreen/simulator_screen.kv:126
+msgid "Hydrogen-containing Gas Feed"
+msgstr "Hydrogen-containing Gas Feed"
+
+#: View/SimulatorScreen/simulator_screen.kv:137
+msgid ""
+"Hydrogen-containing Gas\n"
+"Circulation from cleaning"
+msgstr ""
+"Hydrogen-containing Gas\n"
+"Circulation from cleaning"
+
+#: View/SimulatorScreen/simulator_screen.kv:148
+msgid ""
+"Cold Water\n"
+"Feed"
+msgstr ""
+"Cold Water\n"
+"Feed"
+
+#: View/SimulatorScreen/simulator_screen.kv:159
+msgid "Hydrogen-containing Gas Output"
+msgstr "Hydrogen-containing Gas Output"
+
+#: View/SimulatorScreen/simulator_screen.kv:170
+msgid "Water steam"
+msgstr "Water steam"
+
+#: View/SimulatorScreen/simulator_screen.kv:181
+#: View/SimulatorScreen/simulator_screen.kv:225
+#: View/SimulatorScreen/simulator_screen.kv:258
+msgid ""
+"Water to plant\n"
+"sewage"
+msgstr ""
+"Water to plant\n"
+"sewage"
+
+#: View/SimulatorScreen/simulator_screen.kv:192
+msgid ""
+"Hydrocarbon Gas\n"
+"Output"
+msgstr ""
+"Hydrocarbon Gas\n"
+"Output"
+
+#: View/SimulatorScreen/simulator_screen.kv:203
+msgid ""
+"Distilled Gasoline\n"
+"Output"
+msgstr ""
+"Distilled Gasoline\n"
+"Output"
+
+#: View/SimulatorScreen/simulator_screen.kv:214
+msgid ""
+"Sulfide Gas\n"
+"Output"
+msgstr ""
+"Sulfide Gas\n"
+"Output"
+
+#: View/SimulatorScreen/simulator_screen.kv:236
+msgid "Water Steam"
+msgstr "Water Steam"
+
+#: View/SimulatorScreen/simulator_screen.kv:247
+msgid ""
+"Hydrogen-purified\n"
+"Diesel Output"
+msgstr ""
+"Hydrogen-purified\n"
+"Diesel Output"
+
+#: View/SimulatorScreen/simulator_screen.kv:265
+msgid "Separator S1"
+msgstr "Separator S1"
+
+#: View/SimulatorScreen/simulator_screen.kv:276
+msgid "Tower T1"
+msgstr "Tower T1"
+
+#: View/SimulatorScreen/simulator_screen.kv:287
+msgid "Reactor R1"
+msgstr "Reactor R1"
+
+#: View/SimulatorScreen/simulator_screen.kv:298
+msgid "Furnace F1"
+msgstr "Furnace F1"
+
+#: View/SimulatorScreen/simulator_screen.kv:309
+msgid "Deodorator tower T2"
+msgstr "Deodorator tower T2"
+
+#: View/SimulatorScreen/simulator_screen.kv:320
+msgid "Vessel E1"
+msgstr "Vessel E1"
+
+#: View/SimulatorScreen/simulator_screen.kv:331
+msgid "Coalescer CO1"
+msgstr "Coalescer CO1"
+
+#: View/SimulatorScreen/simulator_screen.kv:342
+msgid "Coalescer CO2"
+msgstr "Coalescer CO2"
+
+#: View/SimulatorScreen/simulator_screen.kv:353
+msgid "Separator S2"
+msgstr "Separator S2"
+
+#: View/SimulatorScreen/simulator_screen.kv:364
+msgid "Pump P1"
+msgstr "Pump P1"
+
+#: View/SimulatorScreen/simulator_screen.kv:375
+msgid "Compressor C1"
+msgstr "Compressor C1"
+
+#: View/SimulatorScreen/simulator_screen.kv:386
+msgid "Compressor C2"
+msgstr "Compressor C2"
+
+#: View/SimulatorScreen/simulator_screen.kv:397
+msgid "Pump P2"
+msgstr "Pump P2"
+
+#: View/SimulatorScreen/simulator_screen.kv:408
+msgid "Air Cooler AC1"
+msgstr "Air Cooler AC1"
+
+#: View/SimulatorScreen/simulator_screen.kv:419
+msgid "Air Cooler AC2"
+msgstr "Air Cooler AC2"
+
+#: View/SimulatorScreen/simulator_screen.kv:430
+msgid "Air Cooler AC3"
+msgstr "Air Cooler AC3"
+
+#: View/SimulatorScreen/simulator_screen.kv:445
+msgid "Run Simulation"
+msgstr "Run Simulation"
+
+#: View/SimulatorScreen/simulator_screen.kv:452
+msgid "Pause Simulation"
+msgstr "Pause Simulation"
+
+#: View/SimulatorScreen/simulator_screen.kv:459
+msgid "Restart Simulation"
+msgstr "Restart Simulation"
+
+#: View/SimulatorScreen/simulator_screen.kv:466
+msgid "Stop simulation"
+msgstr "Stop simulation"
+
+#: View/SimulatorScreen/simulator_screen.kv:472
+#: View/SimulatorScreen/simulator_screen.py:406
+msgid "Ellapsed Time: 00:00:00"
+msgstr "Ellapsed Time: 00:00:00"
+
+#: View/SimulatorScreen/simulator_screen.kv:477
+msgid "Show Track Record"
+msgstr "Show Track Record"
+
+#: View/SimulatorScreen/simulator_screen.py:42
+#: View/SimulatorScreen/simulator_screen.py:98
+msgid "Unexpected malfunction"
+msgstr "Unexpected malfunction"
+
+#: View/SimulatorScreen/simulator_screen.py:49
+#, python-brace-format
+msgid ""
+"{self.tooltip_text}\n"
+"Event: {event_text}"
+msgstr "{self.tooltip_text}\nEvent: {event_text}"
+
+#: View/SimulatorScreen/simulator_screen.py:54
+msgid "Skip"
+msgstr "Skip"
+
+#: View/SimulatorScreen/simulator_screen.py:59
+msgid "Controls"
+msgstr "Controls"
+
+#: View/SimulatorScreen/simulator_screen.py:270
+#: View/SimulatorScreen/simulator_screen.py:427
+msgid "OK"
+msgstr "OK"
+
+#: View/SimulatorScreen/simulator_screen.py:273
+#: View/SimulatorScreen/simulator_screen.py:430
+msgid "Track Record"
+msgstr "Track Record"
+
+#: View/SimulatorScreen/simulator_screen.py:276
+msgid "Statistics"
+msgstr "Statistics"
+
+#: View/SimulatorScreen/simulator_screen.py:279
+#: View/SimulatorScreen/simulator_screen.py:302
+msgid ""
+"Your work is over. Your estimates are following: \n"
+"\n"
+msgstr ""
+"Your work is over. Your estimates are following: \n"
+"\n"
+
+#: View/SimulatorScreen/simulator_screen.py:336
+msgid "SKIP"
+msgstr "SKIP"
+
+#: View/SimulatorScreen/simulator_screen.py:341
+msgid "CLOSE"
+msgstr "CLOSE"
+
+#: View/SimulatorScreen/simulator_screen.py:352
+msgid "Ellapsed Time: {time.strftime('%H:%M:%S', ellapsed_time)}"
+msgstr "Ellapsed Time: {time.strftime('%H:%M:%S', ellapsed_time)}"
+
+#: View/SimulatorScreen/simulator_screen.py:437
+#, python-brace-format
+msgid "Result: {event.tertiary_text}"
+msgstr "Result: {event.tertiary_text}"
+
+#: View/SimulatorScreen/simulator_screen.py:438
+#, python-brace-format
+msgid "Answered: {event.answer}"
+msgstr "Answered: {event.answer}"
+
+#: View/common/bars/top_bar.py:23
+msgid "Dark Mode"
+msgstr "Dark Mode"
+
+#: View/common/bars/top_bar.py:24
+msgid "Language"
+msgstr "Language"
+
+#: app.py:309
+msgid "Application language"
+msgstr "Application language"
+
+#: View/common/bars/top_bar.py:28
+msgid "Return"
+msgstr "Return"
+
+#: View/common/bars/top_bar.py:42
+msgid "Leaving simulation"
+msgstr "Leaving simulation"
+
+#: View/common/bars/top_bar.py:43
+msgid "Do you wish to leave the screen? All progress will be lost."
+msgstr "Do you wish to leave the screen? All progress will be lost."
+
+#: View/SimulatorScreen/events.py:49
+msgid "NOT ATTEMPTED and wasted "
+msgstr "NOT ATTEMPTED and wasted "
+
+#: View/SimulatorScreen/events.py:52
+msgid "SOLVED in "
+msgstr "SOLVED in "
+
+#: View/SimulatorScreen/events.py:54
+msgid "FAILED in "
+msgstr "FAILED in "
+
+#: View/SimulatorScreen/events.py:55
+msgid " seconds"
+msgstr " seconds"
+
+#: View/SimulatorScreen/events.py:59
+msgid "High Level in Reactor R1"
+msgstr "High Level in Reactor R1"
+
+#: View/SimulatorScreen/events.py:60
+msgid "Reactor R1 is overflowing"
+msgstr "Reactor R1 is overflowing"
+
+#: View/SimulatorScreen/events.py:66
+msgid "Low Level in reactor R1"
+msgstr "Low Level in reactor R1"
+
+#: View/SimulatorScreen/events.py:67
+msgid "Reactor is running dry"
+msgstr "Reactor is running dry"
+
+#: View/SimulatorScreen/events.py:73
+msgid "High Temperature in the Furnace F1"
+msgstr "High Temperature in the Furnace F1"
+
+#: View/SimulatorScreen/events.py:74
+msgid "Feed line is overheating in the furnace F1"
+msgstr "Feed line is overheating in the furnace F1"
+
+#: View/SimulatorScreen/events.py:80
+msgid "Low Temperature in the Furnace F1"
+msgstr "Low Temperature in the Furnace F1"
+
+#: View/SimulatorScreen/events.py:81
+msgid "Output stream of the furnace F1 is too cold"
+msgstr "Output stream of the furnace F1 is too cold"
+
+#: View/SimulatorScreen/events.py:87
+msgid "Insufficient crude diesel flow"
+msgstr "Insufficient crude diesel flow"
+
+#: View/SimulatorScreen/events.py:88
+msgid "Pump P1 does not recieve enough liquid in the input"
+msgstr "Pump P1 does not recieve enough liquid in the input"
+
+#: View/SimulatorScreen/events.py:94
+msgid "Pump P1 had been shut down"
+msgstr "Pump P1 had been shut down"
+
+#: View/SimulatorScreen/events.py:95
+msgid "Pump P1 stopped unexpectedly"
+msgstr "Pump P1 stopped unexpectedly"
+
+#: View/SimulatorScreen/events.py:101
+msgid "High water level in Coalescer CO1"
+msgstr "High water level in Coalescer CO1"
+
+#: View/SimulatorScreen/events.py:102
+msgid "CO1 is overflowing with water"
+msgstr "CO1 is overflowing with water"
+
+#: View/SimulatorScreen/events.py:108
+msgid "Low water level in Coalescer CO1"
+msgstr "Low water level in Coalescer CO1"
+
+#: View/SimulatorScreen/events.py:109
+msgid "CO1 recieves insufficient feed or feed stream is mostly water"
+msgstr "CO1 recieves insufficient feed or feed stream is mostly water"
+
+#: View/SimulatorScreen/events.py:115
+msgid "High water level in Coalescer CO2"
+msgstr "High water level in Coalescer CO2"
+
+#: View/SimulatorScreen/events.py:116
+msgid "CO2 is overflowing with water"
+msgstr "CO2 is overflowing with water"
+
+#: View/SimulatorScreen/events.py:122
+msgid "Low water level in Coalescer CO2"
+msgstr "Low water level in Coalescer CO2"
+
+#: View/SimulatorScreen/events.py:123
+msgid "CO2 recieves insufficient feed or feed stream is mostly diesel"
+msgstr "CO2 recieves insufficient feed or feed stream is mostly diesel"
+
+#: View/SimulatorScreen/events.py:129
+msgid "Compressor C1 malfunction"
+msgstr "Compressor C1 malfunction"
+
+#: View/SimulatorScreen/events.py:130
+msgid "Alarm on C1 due to insufficient pressure or liquid on the intake"
+msgstr "Alarm on C1 due to insufficient pressure or liquid on the intake"
+
+#: View/SimulatorScreen/events.py:136
+msgid "Compressor C2 malfunction"
+msgstr "Compressor C2 malfunction"
+
+#: View/SimulatorScreen/events.py:137
+msgid "Alarm on C2 due to insufficient pressure or liquid on the intake"
+msgstr "Alarm on C2 due to insufficient pressure or liquid on the intake"
+
+#: View/SimulatorScreen/events.py:143
+msgid "Pump 2 had been shut down"
+msgstr "Pump 2 had been shut down"
+
+#: View/SimulatorScreen/events.py:144
+msgid "Pump P2 stopped unexpectedly"
+msgstr "Pump P2 stopped unexpectedly"
+
+#: View/SimulatorScreen/events.py:150
+msgid "Air Cooler AC1 does not spin"
+msgstr "Air Cooler AC1 does not spin"
+
+#: View/SimulatorScreen/events.py:151
+msgid "AC1's turbine malfunctions"
+msgstr "AC1's turbine malfunctions"
+
+#: View/SimulatorScreen/events.py:157
+msgid "Air Cooler AC2 does not spin"
+msgstr "Air Cooler AC2 does not spin"
+
+#: View/SimulatorScreen/events.py:158
+msgid "AC2's turbine malfunctions"
+msgstr "AC2's turbine malfunctions"
+
+#: View/SimulatorScreen/events.py:164
+msgid "Air Cooler AC3 does not spin"
+msgstr "Air Cooler AC3 does not spin"
+
+#: View/SimulatorScreen/events.py:165
+msgid "AC3's turbine malfunctions"
+msgstr "AC3's turbine malfunctions"
+
+#: View/SimulatorScreen/events.py:171
+msgid "High Level in Deodorator tower T2"
+msgstr "High Level in Deodorator tower T2"
+
+#: View/SimulatorScreen/events.py:172
+msgid "Deodorator tower T2 is overflowing"
+msgstr "Deodorator tower T2 is overflowing"
+
+#: View/SimulatorScreen/events.py:178
+msgid "Low Level in Deodorator tower T2"
+msgstr "Low Level in Deodorator tower T2"
+
+#: View/SimulatorScreen/events.py:179
+msgid "Deodorator tower T2 is running dry"
+msgstr "Deodorator tower T2 is running dry"
+
+#: View/SimulatorScreen/events.py:185
+msgid "High Level in Distillation Tower T1"
+msgstr "High Level in Distillation Tower T1"
+
+#: View/SimulatorScreen/events.py:186
+msgid "Distillation tower T1 is overflowing"
+msgstr "Distillation tower T1 is overflowing"
+
+#: View/SimulatorScreen/events.py:192
+msgid "Low Level in Distillation tower T1"
+msgstr "Low Level in Distillation tower T1"
+
+#: View/SimulatorScreen/events.py:193
+msgid "Distillation tower T1 is running dry"
+msgstr "Distillation tower T1 is running dry"
+
+#: View/SimulatorScreen/events.py:199
+msgid "Dangerously high pressure in separator S1"
+msgstr "Dangerously high pressure in separator S1"
+
+#: View/SimulatorScreen/events.py:200
+msgid "Too much gas in separator S1"
+msgstr "Too much gas in separator S1"
+
+#: View/SimulatorScreen/events.py:206
+msgid "Dangerously high pressure in separator S2"
+msgstr "Dangerously high pressure in separator S2"
+
+#: View/SimulatorScreen/events.py:207
+msgid "Too much gas in separator S2"
+msgstr "Too much gas in separator S2"
+
+#: View/SimulatorScreen/events.py:213
+msgid "Dangerously high pressure in vessel E1"
+msgstr "Dangerously high pressure in vessel E1"
+
+#: View/SimulatorScreen/events.py:214
+msgid "Too much gas in vessel E1"
+msgstr "Too much gas in vessel E1"
+
+#: View/SimulatorScreen/events.py:220
+msgid "Low liquid level in separator S1"
+msgstr "Low liquid level in separator S1"
+
+#: View/SimulatorScreen/events.py:221
+msgid "Separator S1 has no liquid"
+msgstr "Separator S1 has no liquid"
+
+#: View/SimulatorScreen/events.py:227
+msgid "High liquid level in separator S1"
+msgstr "High liquid level in separator S1"
+
+#: View/SimulatorScreen/events.py:228
+msgid "Separator S1 is overflowing"
+msgstr "Separator S1 is overflowing"
+
+#: View/SimulatorScreen/events.py:234
+msgid "High liquid level in separator S2"
+msgstr "High liquid level in separator S2"
+
+#: View/SimulatorScreen/events.py:235
+msgid "Separator S2 is overflowing"
+msgstr "Separator S2 is overflowing"
+
+#: View/SimulatorScreen/events.py:241
+msgid "Low liquid level in separator S2"
+msgstr "Low liquid level in separator S2"
+
+#: View/SimulatorScreen/events.py:242
+msgid "Separator S2 has no liquid"
+msgstr "Separator S2 has no liquid"
+
+#: View/SimulatorScreen/events.py:248
+msgid "Low liquid level in vessel E1"
+msgstr "Low liquid level in vessel E1"
+
+#: View/SimulatorScreen/events.py:249
+msgid "Vessel E1 has no liquid"
+msgstr "Vessel E1 has no liquid"
+
+#: View/SimulatorScreen/events.py:255
+msgid "High liquid level in vessel E1"
+msgstr "High liquid level in vessel E1"
+
+#: View/SimulatorScreen/events.py:256
+msgid "Vessel E1 is overflowing"
+msgstr "Vessel E1 is overflowing"
+
+#: View/SimulatorScreen/events.py:264
+msgid "Increase fuel feed to furnace F1"
+msgstr "Increase fuel feed to furnace F1"
+
+#: View/SimulatorScreen/events.py:265
+msgid "Decrease fuel feed to furnace F1"
+msgstr "Decrease fuel feed to furnace F1"
+
+#: View/SimulatorScreen/events.py:266
+msgid "Increase water removal from coalescer CO1"
+msgstr "Increase water removal from coalescer CO1"
+
+#: View/SimulatorScreen/events.py:267
+msgid "Decrease water removal from coalescer CO1"
+msgstr "Decrease water removal from coalescer CO1"
+
+#: View/SimulatorScreen/events.py:268
+msgid "Increase water removal from coalescer CO2"
+msgstr "Increase water removal from coalescer CO2"
+
+#: View/SimulatorScreen/events.py:269
+msgid "Decrease water removal from coalescer CO2"
+msgstr "Decrease water removal from coalescer CO2"
+
+#: View/SimulatorScreen/events.py:270
+msgid "Increase reflux feed to feed line of tower T1 from vessel E1"
+msgstr "Increase reflux feed to feed line of tower T1 from vessel E1"
+
+#: View/SimulatorScreen/events.py:271
+msgid "Decrease reflux feed to feed line of tower T1 from vessel E1"
+msgstr "Decrease reflux feed to feed line of tower T1 from vessel E1"
+
+#: View/SimulatorScreen/events.py:272
+msgid "Increase cold hydrogen-containing gas feed from compressor C1 output"
+msgstr "Increase cold hydrogen-containing gas feed from compressor C1 output"
+
+#: View/SimulatorScreen/events.py:273
+msgid "Decrease cold hydrogen-containing gas feed from compressor C1 output"
+msgstr "Decrease cold hydrogen-containing gas feed from compressor C1 output"
+
+#: View/SimulatorScreen/events.py:274
+msgid "Increase hydrogen-containing gas removal from separator S1"
+msgstr "Increase hydrogen-containing gas removal from separator S1"
+
+#: View/SimulatorScreen/events.py:275
+msgid "Decrease hydrogen-containing gas removal from separator S1"
+msgstr "Decrease hydrogen-containing gas removal from separator S1"
+
+#: View/SimulatorScreen/events.py:276
+msgid "Increase hydrocarbon gas removal from vessel E1"
+msgstr "Increase hydrocarbon gas removal from vessel E1"
+
+#: View/SimulatorScreen/events.py:277
+msgid "Decrease hydrocarbon gas removal from vessel E1"
+msgstr "Decrease hydrocarbon gas removal from vessel E1"
+
+#: View/SimulatorScreen/events.py:278
+msgid ""
+"Increase hydrogen-enriched diesel fraction removal from the Tower T1 bottom"
+msgstr "Increase hydrogen-enriched diesel fraction removal from the Tower T1 bottom"
+
+#: View/SimulatorScreen/events.py:279
+msgid ""
+"Decrease hydrogen-enriched diesel fraction removal from the Tower T1 bottom"
+msgstr "Decrease hydrogen-enriched diesel fraction removal from the Tower T1 bottom"
+
+#: View/SimulatorScreen/events.py:280
+msgid "Increase distilled gasoline removal by pump P2"
+msgstr "Increase distilled gasoline removal by pump P2"
+
+#: View/SimulatorScreen/events.py:281
+msgid "Decrease distilled gasoline removal by pump P2"
+msgstr "Decrease distilled gasoline removal by pump P2"
+
+#: View/SimulatorScreen/events.py:282
+msgid "Increase water removal from Deodorator tower T2"
+msgstr "Increase water removal from Deodorator tower T2"
+
+#: View/SimulatorScreen/events.py:283
+msgid "Decrease water removal from Deodorator tower T2"
+msgstr "Decrease water removal from Deodorator tower T2"
+
+#: View/SimulatorScreen/events.py:284
+msgid "Engage a reserve pump"
+msgstr "Engage a reserve pump"
+
+#: View/SimulatorScreen/events.py:285
+msgid "Engage a reserve compressor"
+msgstr "Engage a reserve compressor"
+
+#: View/SimulatorScreen/events.py:286
+msgid "Emergency Stop"
+msgstr "Emergency Stop"
+
+#: View/SimulatorScreen/events.py:287
+msgid "Increase hydrogen sulfide gas removal from separator S2"
+msgstr "Increase hydrogen sulfide gas removal from separator S2"
+
+#: View/SimulatorScreen/events.py:288
+msgid "Decrease hydrogen sulfide gas removal from separator S2"
+msgstr "Decrease hydrogen sulfide gas removal from separator S2"
+
+#: View/SimulatorScreen/events.py:289
+msgid "Engage a reserve cooler"
+msgstr "Engage a reserve cooler"
+
+#: View/SimulatorScreen/events.py:290
+msgid "Increase Pump P1 speed"
+msgstr "Increase Pump P1 speed"
+
+#: View/SimulatorScreen/events.py:291
+msgid "Decrease Pump P1 speed"
+msgstr "Decrease Pump P1 speed"
+
+#: View/SimulatorScreen/events.py:292
+msgid "Increase Pump P2 speed"
+msgstr "Increase Pump P2 speed"
+
+#: View/SimulatorScreen/events.py:293
+msgid "Decrease Pump P2 speed"
+msgstr "Decrease Pump P2 speed"
+
+#: View/SimulatorScreen/events.py:294
+msgid "Increase Compressor C1 speed"
+msgstr "Increase Compressor C1 speed"
+
+#: View/SimulatorScreen/events.py:295
+msgid "Decrease Compressor C1 speed"
+msgstr "Decrease Compressor C1 speed"
+
+#: View/SimulatorScreen/events.py:296
+msgid "Increase Compressor C2 speed"
+msgstr "Increase Compressor C2 speed"
+
+#: View/SimulatorScreen/events.py:297
+msgid "Decrease Compressor C2 speed"
+msgstr "Decrease Compressor C2 speed"
+
+#: View/SimulatorScreen/events.py:298
+msgid "Increase Cooler AC1 speed"
+msgstr "Increase Cooler AC1 speed"
+
+#: View/SimulatorScreen/events.py:299
+msgid "Decrease Cooler AC1 speed"
+msgstr "Decrease Cooler AC1 speed"
+
+#: View/SimulatorScreen/events.py:300
+msgid "Increase Cooler AC2 speed"
+msgstr "Increase Cooler AC2 speed"
+
+#: View/SimulatorScreen/events.py:301
+msgid "Decrease Cooler AC2 speed"
+msgstr "Decrease Cooler AC2 speed"
+
+#: View/SimulatorScreen/events.py:302
+msgid "Increase Cooler AC3 speed"
+msgstr "Increase Cooler AC3 speed"
+
+#: View/SimulatorScreen/events.py:303
+msgid "Decrease Cooler AC3 speed"
+msgstr "Decrease Cooler AC3 speed"
+
+#: View/SimulatorScreen/events.py:304
+msgid "Increase water removal from separator S1"
+msgstr "Increase water removal from separator S1"
+
+#: View/SimulatorScreen/events.py:305
+msgid "Decrease water removal from separator S1"
+msgstr "Decrease water removal from separator S1"
+
+#: View/SimulatorScreen/events.py:306
+msgid "Increase water removal from separator S2"
+msgstr "Increase water removal from separator S2"
+
+#: View/SimulatorScreen/events.py:307
+msgid "Decrease water removal from separator S2"
+msgstr "Decrease water removal from separator S2"
+
+#: View/SimulatorScreen/events.py:308
+msgid "Increase water removal from vessel E1"
+msgstr "Increase water removal from vessel E1"
+
+#: View/SimulatorScreen/events.py:309
+msgid "Decrease water removal from vessel E1"
+msgstr "Decrease water removal from vessel E1"
