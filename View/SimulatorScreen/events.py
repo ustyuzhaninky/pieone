@@ -76,8 +76,6 @@ class EventManager(MDWidget):
         self.app = MDApp.get_running_app()
 
     def build(self):
-        print(self.choises)
-        print(self.event_headers)
         self.events = [
             Event(
                 self.event_headers[0],
