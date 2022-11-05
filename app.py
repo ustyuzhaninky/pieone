@@ -187,10 +187,14 @@ class SimulatorApp(MDApp):
 
     # Multi-session savables
     darkmode = ConfigParserProperty(
-        True, 'Graphics', 'darkmode',
-        'simulator', val_type=bool, errorvalue=False)
+        False,
+        'Graphics', 'darkmode',
+        'simulator',
+        val_type=bool,
+        errorvalue=False)
     locale = ConfigParserProperty(
-        'ru', 'System', 'locale',
+        'ru',
+        'System', 'locale',
         'simulator',
         val_type=str,
         errorvalue='en',
@@ -204,6 +208,7 @@ class SimulatorApp(MDApp):
     restart_dialog_buttons = ListProperty([])
     language_dialog_buttons = ListProperty([])
     leave_simulation_dialog_buttons = ListProperty([])
+    language_items = ListProperty([])
     leave_simulation_dialog = ObjectProperty()
     settings_dialog = ObjectProperty()
     language_dialog = ObjectProperty()
@@ -245,24 +250,20 @@ class SimulatorApp(MDApp):
         Window.set_icon(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png")
         Window.maximize()
 
+        self.config = ConfigParser(name='simulator')
         if not os.path.exists(
             f"{os.environ['PIEONE_ROOT']}/simulator.ini"):
             self.config = self.build_config(
-                ConfigParser(name='simulator'))
+                self.config)
             self.config.read(
                 f"{os.environ['PIEONE_ROOT']}/configs/default.ini")
-            self.config.update_config(
-                f"{os.environ['PIEONE_ROOT']}/simulator.ini", overwrite=True)
             self.config.read(
                 f"{os.environ['PIEONE_ROOT']}/simulator.ini")
         else:
             self.config.read(
                 f"{os.environ['PIEONE_ROOT']}/simulator.ini")
 
-        self.locale = self.config.get('System', 'locale')
-        self.tr.switch_lang(self.locale)
-        self.darkmode = self.config.get('Graphics', 'darkmode')
-        self.set_theme_style(self.darkmode)
+        self._restore_app_state()
         
         return self.manager_screen
     
@@ -323,6 +324,16 @@ class SimulatorApp(MDApp):
             dg.dismiss()
         except AttributeError:
             pass # Settings popup doesn't exist
+    
+    def _restore_app_state(self):
+        self.darkmode = self.config.get('Graphics', 'darkmode')
+        self.locale = self.config.get('System', 'locale')
+
+        if self.darkmode==True:
+            self.theme_cls.primary_palette = "Orange"
+            self.theme_cls.theme_style = "Dark"
+            self.theme_cls.accent_palette = "Yellow"
+        self.tr.switch_lang(self.locale)
 
     def set_theme_style(self, darkmode):
         if darkmode:
@@ -335,12 +346,17 @@ class SimulatorApp(MDApp):
             self.theme_cls.accent_palette = "LightBlue"
 
     def switch_theme_style(self):
-        self.theme_cls.primary_palette = (
-            "Orange" if self.theme_cls.primary_palette == "Blue" else "Blue"
-        )
-        self.theme_cls.theme_style = (
-            "Dark" if self.theme_cls.theme_style == "Light" else "Light"
-        )
+        if self.darkmode==True:
+            self.theme_cls.primary_palette = "Blue"
+            self.theme_cls.theme_style = "Light"
+            self.theme_cls.accent_palette = "LightBlue"
+            self.darkmode = False
+        else:
+            self.theme_cls.primary_palette = "Orange"
+            self.theme_cls.theme_style = "Dark"
+            self.theme_cls.accent_palette = "Yellow"
+            self.darkmode = True
+        self.config.set('Graphics', 'darkmode', self.darkmode)
     
     def open_restart_dialog(self):
         if not self.restart_dialog:
@@ -359,11 +375,12 @@ class SimulatorApp(MDApp):
             def set_language(lang):
                 self.locale = lang
                 self.tr.switch_lang(self.locale)
-            self.language_dialog = LanguageDialog(
-                items=[
-                    ItemConfirm(text="English (USA)", on_release=lambda x=None: set_language("en")),
-                    ItemConfirm(text="Русский (Россия)", on_release=lambda x=None: set_language("ru")),
+            self.language_items = [
+                ItemConfirm(text="English (USA)", on_release=lambda x=None: set_language("en")),
+                ItemConfirm(text="Русский (Россия)", on_release=lambda x=None: set_language("ru")),
                 ]
+            self.language_dialog = LanguageDialog(
+                items=self.language_items
             )
         self.language_dialog.open()
 
@@ -389,31 +406,10 @@ class SimulatorApp(MDApp):
             self.config,
             filename=os.path.join(os.environ['PIEONE_ROOT'], "configs", "system.json"))
         return settings
-    
-    def on_config_change(self, config, section, key, value):
-        """
-        Respond to changes in the configuration.
-        """
-        Logger.info("main.py: App.on_config_change: {0}, {1}, {2}, {3}".format(
-            config, section, key, value))
-        if section == "Graphics":
-            if key == "darkmode":
-                self.config.set('Graphics', 'darkmode', value)
-                self.darkmode = value
-                self.set_theme_style(self.darkmode)
-        if section == "System":
-            if key == "locale":
-                self.locale = value
-                self.config.set('System', 'locale', value)
-                self.tr.switch_lang(self.locale)
-        self.config.write()
 
     def on_stop(self):
         self.config.set('Graphics', 'darkmode', self.darkmode)
         self.config.set('System', 'locale', self.locale)
-        # self.config.update_config(
-            # f"{os.environ['PIEONE_ROOT']}/simulator.ini", overwrite=True)
-        # with open(f"{os.environ['PIEONE_ROOT']}/simulator.ini", "wt") as config_file:
         self.config.write()
             
     def wait_interval(self, interval):
