@@ -28,20 +28,17 @@ import os
 import gettext
 from pathlib import Path
 from random import random
+from functools import partial
 os.environ["KIVY_GL_BACKEND"]= "angle_sdl2"
 import kivy
 kivy.require('2.1.0')
 
 from random import randint
-from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.widget import Widget
-from kivy.uix.button import Button
 from kivy.graphics import Color, Ellipse, Line
 from kivy.properties import (
     ConfigParserProperty, ConfigParser, OptionProperty,
     StringProperty, ObjectProperty, NumericProperty,
-    BooleanProperty)
+    BooleanProperty, ListProperty)
 from kivy.core.window import Window
 from kivymd.app import MDApp
 from kivymd.uix.snackbar import Snackbar
@@ -114,6 +111,11 @@ class Lang(Observable):
 class ItemConfirm(OneLineAvatarIconListItem):
     divider = None
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app = MDApp.get_running_app()
+        self.ids.check.on_release =  kwargs['on_release']
+
     def set_icon(self, instance_check):
         instance_check.active = True
         check_list = instance_check.get_widgets(instance_check.group)
@@ -121,13 +123,72 @@ class ItemConfirm(OneLineAvatarIconListItem):
             if check != instance_check:
                 check.active = False
 
+class YesAndStopButton(MDFlatButton):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app = MDApp.get_running_app()
+        self.on_release = lambda: self.app.stop()
+
+class NoAndKeepButton(MDRaisedButton):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app = MDApp.get_running_app()
+        self.on_release = lambda: self.app.close_application_dialog.dismiss()
+
+class CloseApplicationDialog(MDDialog):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app = MDApp.get_running_app()
+
+class RestartLaterButton(MDFlatButton):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app = MDApp.get_running_app()
+        self.on_release = lambda: self.app.restart_dialog.dismiss()
+
+class RestartNowButton(MDRaisedButton):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app = MDApp.get_running_app()
+        self.on_release = lambda: self.app.stop()
+
+class RestartDialog(MDDialog):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app = MDApp.get_running_app()
+
+class OkLanguageDialogButton(MDRaisedButton):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app = MDApp.get_running_app()
+
+class LanguageDialog(MDDialog):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app = MDApp.get_running_app()
+
+class YesLeaveSimulationDialogButton(MDFlatButton):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app = MDApp.get_running_app()
+
+class CloseLeaveSimulationDialogButton(MDRaisedButton):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app = MDApp.get_running_app()
+        self.on_release = lambda: self.app.leave_simulation_dialog.dismiss()
+
+class LeaveSimulationDialog(MDDialog):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app = MDApp.get_running_app()
+
 class SimulatorApp(MDApp):
 
-    # darkmode = BooleanProperty(True)
+    # Multi-session savables
     darkmode = ConfigParserProperty(
         True, 'Graphics', 'darkmode',
         'simulator', val_type=bool, errorvalue=False)
-    # locale = OptionProperty('ru', options=['en', 'ru'])
     locale = ConfigParserProperty(
         'ru', 'System', 'locale',
         'simulator',
@@ -135,10 +196,19 @@ class SimulatorApp(MDApp):
         errorvalue='en',
         verify=lambda x: True if (isinstance(x, str)) and (x in ['en', 'ru']) else False)
 
+    # One-session properties and objects
     unsaved_progress = BooleanProperty(False)
+        
+    # UI suppliments
+    close_dialog_buttons = ListProperty([])
+    restart_dialog_buttons = ListProperty([])
+    language_dialog_buttons = ListProperty([])
+    leave_simulation_dialog_buttons = ListProperty([])
+    leave_simulation_dialog = ObjectProperty()
     settings_dialog = ObjectProperty()
     language_dialog = ObjectProperty()
     restart_dialog = ObjectProperty()
+    close_application_dialog = ObjectProperty()
     tr = ObjectProperty()
 
     def __init__(self, **kwargs):
@@ -169,12 +239,6 @@ class SimulatorApp(MDApp):
         self.use_kivy_settings = False
 
         self.load_kv(os.path.join(self.directory, "app.kv"))
-        self.load_all_kv_files(
-                os.path.join(self.directory, "View", "common", "bars", "top_bar.kv")
-            )
-        self.load_all_kv_files(
-                os.path.join(self.directory, "View", "common", "bars", "bottom_bar.kv")
-            )
         self.manager_screen.add_widget(self.manager_screen.create_screen("menu"))
         # Window.custom_titlebar = True
         # Window.set_custom_titlebar(TopBar())
@@ -203,28 +267,9 @@ class SimulatorApp(MDApp):
         return self.manager_screen
     
     def stop_callback(self):
-        button_no = MDRaisedButton(
-            text=self.tr._("No"),
-            )
-        button_yes = MDFlatButton(
-            text=self.tr._("Yes"),
-            text_color=self.theme_cls.primary_color,
-            )
-        leave_simulation_dialog = MDDialog(
-            title=self.tr._("Exit"),
-            text=self.tr._("Do you wish to close the application?"),
-            type="simple",
-            buttons=[
-                button_yes,
-                button_no,
-            ],
-            radius=[20, 7, 20, 7],
-        )
-        def yes_callback(*args):
-            self.stop()
-        button_no.on_release = lambda: leave_simulation_dialog.dismiss()
-        button_yes.on_release = yes_callback
-        leave_simulation_dialog.open()
+        self.close_dialog_buttons = [YesAndStopButton(), NoAndKeepButton()]
+        self.close_application_dialog = CloseApplicationDialog()
+        self.close_application_dialog.open()
 
     def display_settings(self, settings):
         if not self.settings_dialog:
@@ -299,69 +344,27 @@ class SimulatorApp(MDApp):
     
     def open_restart_dialog(self):
         if not self.restart_dialog:
-            button_ok = MDFlatButton(
-                text=self.tr._("Ok"),
-                text_color=self.theme_cls.primary_color,
-                )
-            button_cancel= MDRaisedButton(
-                text=self.tr._("Cancel"),
-                )
-            self.restart_dialog = MDDialog(
-                title=self.tr._('Restart required'),
-                type="simple",
-                text=self.tr._("For changes to take effect application has to restart."),
-                buttons=[
-                    button_ok,
-                    button_cancel,
-                ],
-                radius=[20, 7, 20, 7],
-                auto_dismiss=False,
-            )
-            def ok_callback(*args):
-                self.restart_dialog.dismiss()
-                # self.restart(self)
-            def cancel_callback(*args):
-                self.restart_dialog.dismiss()
-            button_ok.on_release=ok_callback
-            button_cancel.on_release=cancel_callback
+            self.restart_dialog_buttons = [RestartLaterButton(), RestartNowButton()]
+            self.restart_dialog = RestartDialog()
         self.restart_dialog.open()
     
     def open_language_dialog(self):
         if not self.language_dialog:
-            button_ok = MDFlatButton(
-                text=self.tr._("Ok"),
-                text_color=self.theme_cls.primary_color,
-                )
-            # button_cancel= MDRaisedButton(
-            #     text=self.tr._("Cancel"),
-            #     )
-            temp_lang_selector = self.tr.lang
-            def set_language(lang):
-                self.locale = lang
-                self.tr.switch_lang(self.locale)
-            self.language_dialog = MDDialog(
-                title=self.tr._('Application language'),
-                type="confirmation",
-                size_hint=(0.8, 0.8),
-                items=[
-                    ItemConfirm(text="English (USA)", on_release=lambda x: set_language("en")),
-                    ItemConfirm(text="Русский (Россия)", on_release=lambda x: set_language("ru")),
-                ],
-                buttons=[
-                    button_ok,
-                    # button_cancel,
-                ],
-                radius=[20, 7, 20, 7],
-                auto_dismiss=False,
-                height=Window.height + dp(10),
-            )
+            ok_button = OkLanguageDialogButton()
             def ok_callback(*args):
                 self.language_dialog.dismiss()
                 self.open_restart_dialog()
-            # def cancel_callback(*args):
-            #     self.language_dialog.dismiss()
-            button_ok.on_release=ok_callback
-            # button_cancel.on_release=cancel_callback
+            ok_button.on_release=ok_callback
+            self.language_dialog_buttons = [ok_button]
+            def set_language(lang):
+                self.locale = lang
+                self.tr.switch_lang(self.locale)
+            self.language_dialog = LanguageDialog(
+                items=[
+                    ItemConfirm(text="English (USA)", on_release=lambda x=None: set_language("en")),
+                    ItemConfirm(text="Русский (Россия)", on_release=lambda x=None: set_language("ru")),
+                ]
+            )
         self.language_dialog.open()
 
     def build_config(self, config):
@@ -444,6 +447,37 @@ class SimulatorApp(MDApp):
                 ),
             ]
         self.snackbar.open()
+
+    def return_callback(self, widget):
+        if self.unsaved_progress == True:
+            if not self.leave_simulation_dialog:
+                yes_button = YesLeaveSimulationDialogButton()
+                self.leave_simulation_dialog_buttons = [
+                    yes_button,
+                    CloseLeaveSimulationDialogButton()
+                ]
+                self.leave_simulation_dialog = LeaveSimulationDialog()
+                
+                def yes_callback(*args):
+                    self.leave_simulation_dialog.dismiss()
+                yes_button.on_release = yes_callback
+            
+            self.leave_simulation_dialog.open()
+            self.manager_screen.switch_screen("menu")
+            return self.manager_screen.current
+        else:
+            self.manager_screen.switch_screen("menu")
+            return self.manager_screen.current
+
+    def maximize_callback(self):
+        if self.is_maximized == self.is_maximized:
+            self.is_maximized = not self.is_maximized
+            Window.maximize()
+        else:
+            Window.restore()
+
+    def menu_callback(self):
+        pass
 
 def main(*args, **kwargs):
     SimulatorApp().run()

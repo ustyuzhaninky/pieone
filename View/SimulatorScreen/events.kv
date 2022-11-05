@@ -1,0 +1,172 @@
+<EventManager>
+
+    failed_text: app.tr._('FAILED in ')
+    solved_text: app.tr._('SOLVED in ')
+    skipped_text: app.tr._('NOT ATTEMPTED and wasted ')
+    time_measure_text: app.tr._(' seconds')
+    
+    event_headers:
+        [
+        app.tr._('High Level in Reactor R1'),
+        app.tr._('Low Level in reactor R1'),
+        app.tr._('High Temperature in the Furnace F1'),
+        app.tr._('Low Temperature in the Furnace F1'),
+        app.tr._('Insufficient crude diesel flow'),
+        app.tr._('Pump P1 had been shut down'),
+        app.tr._('High water level in Coalescer CO1'),
+        app.tr._('Low water level in Coalescer CO1'),
+        app.tr._('High water level in Coalescer CO2'),
+        app.tr._('Low water level in Coalescer CO2'),
+        app.tr._('Compressor C1 malfunction'),
+        app.tr._('Compressor C2 malfunction'),
+        app.tr._('Pump 2 had been shut down'),
+        app.tr._('Air Cooler AC1 does not spin'),
+        app.tr._('Air Cooler AC2 does not spin'),
+        app.tr._("Air Cooler AC3 does not spin"),
+        app.tr._('High Level in Deodorator tower T2'),
+        app.tr._('Low Level in Deodorator tower T2'),
+        app.tr._('High Level in Distillation Tower T1'),
+        app.tr._('Low Level in Distillation tower T1'),
+        app.tr._('Dangerously high pressure in separator S1'),
+        app.tr._('Dangerously high pressure in separator S2'),
+        app.tr._('Dangerously high pressure in vessel E1'),
+        app.tr._('Low liquid level in separator S1'),
+        app.tr._('High liquid level in separator S1'),
+        app.tr._('High liquid level in separator S2'),
+        app.tr._('Low liquid level in separator S2'),
+        app.tr._('Low liquid level in vessel E1'),
+        app.tr._('High liquid level in vessel E1'),
+        ]
+
+    event_subheaders:
+        [
+        app.tr._('Reactor R1 is overflowing'),
+        app.tr._('Reactor is running dry'),
+        app.tr._('Feed line is overheating in the furnace F1'),
+        app.tr._('Output stream of the furnace F1 is too cold'),
+        app.tr._('Pump P1 does not recieve enough liquid in the input'),
+        app.tr._('Pump P1 stopped unexpectedly'),
+        app.tr._('CO1 is overflowing with water'),
+        app.tr._('CO1 recieves insufficient feed or feed stream is mostly water'),
+        app.tr._('CO2 is overflowing with water'),
+        app.tr._('CO2 recieves insufficient feed or feed stream is mostly diesel'),
+        app.tr._('Alarm on C1 due to insufficient pressure or liquid on the intake'),
+        app.tr._('Alarm on C2 due to insufficient pressure or liquid on the intake'),
+        app.tr._('Pump P2 stopped unexpectedly'),
+        app.tr._("AC1's turbine malfunctions"),
+        app.tr._("AC2's turbine malfunctions"),
+        app.tr._("AC3's turbine malfunctions"),
+        app.tr._('Deodorator tower T2 is overflowing'),
+        app.tr._('Deodorator tower T2 is running dry'),
+        app.tr._('Distillation tower T1 is overflowing'),
+        app.tr._('Distillation tower T1 is running dry'),
+        app.tr._('Too much gas in separator S1'),
+        app.tr._('Too much gas in separator S2'),
+        app.tr._('Too much gas in vessel E1'),
+        app.tr._('Separator S1 has no liquid'),
+        app.tr._('Separator S1 is overflowing'),
+        app.tr._('Separator S2 is overflowing'),
+        app.tr._('Separator S2 has no liquid'),
+        app.tr._('Vessel E1 has no liquid'),
+        app.tr._('Vessel E1 is overflowing'),
+        ]
+
+    choises:
+        [
+        app.tr._("Increase fuel feed to furnace F1"), # 1
+        app.tr._("Decrease fuel feed to furnace F1"), # 2
+        app.tr._("Increase water removal from coalescer CO1"), # 3
+        app.tr._("Decrease water removal from coalescer CO1"), # 4
+        app.tr._("Increase water removal from coalescer CO2"), # 5
+        app.tr._("Decrease water removal from coalescer CO2"), # 6
+        app.tr._("Increase reflux feed to feed line of tower T1 from vessel E1"), # 7
+        app.tr._("Decrease reflux feed to feed line of tower T1 from vessel E1"), # 8
+        app.tr._("Increase cold hydrogen-containing gas feed from compressor C1 output"), # 9
+        app.tr._("Decrease cold hydrogen-containing gas feed from compressor C1 output"), # 10
+        app.tr._("Increase hydrogen-containing gas removal from separator S1"), # 11
+        app.tr._("Decrease hydrogen-containing gas removal from separator S1"), # 12
+        app.tr._("Increase hydrocarbon gas removal from vessel E1"), # 13
+        app.tr._("Decrease hydrocarbon gas removal from vessel E1"), # 14
+        app.tr._("Increase hydrogen-enriched diesel fraction removal from the Tower T1 bottom"), # 15
+        app.tr._("Decrease hydrogen-enriched diesel fraction removal from the Tower T1 bottom"), # 16
+        app.tr._("Increase distilled gasoline removal by pump P2"), # 17
+        app.tr._("Decrease distilled gasoline removal by pump P2"), # 18
+        app.tr._("Increase water removal from Deodorator tower T2"), # 19
+        app.tr._("Decrease water removal from Deodorator tower T2"), # 20
+        app.tr._("Engage a reserve pump"), # 21
+        app.tr._("Engage a reserve compressor"), # 22
+        app.tr._("Emergency Stop"), # 23
+        app.tr._("Increase hydrogen sulfide gas removal from separator S2"), # 24
+        app.tr._("Decrease hydrogen sulfide gas removal from separator S2"), # 25
+        app.tr._("Engage a reserve cooler"), # 26
+        app.tr._("Increase Pump P1 speed"), # 27
+        app.tr._("Decrease Pump P1 speed"), # 28
+        app.tr._("Increase Pump P2 speed"), # 29
+        app.tr._("Decrease Pump P2 speed"), # 30
+        app.tr._("Increase Compressor C1 speed"), # 31
+        app.tr._("Decrease Compressor C1 speed"), # 32
+        app.tr._("Increase Compressor C2 speed"), # 33
+        app.tr._("Decrease Compressor C2 speed"), # 34
+        app.tr._("Increase Cooler AC1 speed"), # 35
+        app.tr._("Decrease Cooler AC1 speed"), # 36
+        app.tr._("Increase Cooler AC2 speed"), # 37
+        app.tr._("Decrease Cooler AC2 speed"), # 38
+        app.tr._("Increase Cooler AC3 speed"), # 39
+        app.tr._("Decrease Cooler AC3 speed"), # 40
+        app.tr._("Increase water removal from separator S1"), # 41
+        app.tr._("Decrease water removal from separator S1"), # 42
+        app.tr._("Increase water removal from separator S2"), # 43
+        app.tr._("Decrease water removal from separator S2"), # 44
+        app.tr._("Increase water removal from vessel E1"), # 45
+        app.tr._("Decrease water removal from vessel E1") # 46
+        ]
+
+    commands:
+        [
+        ["fuel", "more"], # 1
+        ["fuel", "less"], # 2
+        ["water_co1", "open"], # 3
+        ["water_co1", "close"], # 4
+        ["water_co2", "open"], # 5
+        ["water_co2", "close"], # 6
+        ["reflux", "open"], # 7
+        ["reflux", "close"], # 8
+        ["hcg_c1", "open"], # 9
+        ["hcg_c1", "close"], # 10
+        ["hcg_s1", "open"], # 11
+        ["hcg_s1", "close"], # 12
+        ["e1_gas", "open"], # 13
+        ["e1_gas", "close",], # 14
+        ["t1_bottom", "open"], # 15
+        ["t1_bottom", "close"], # 16
+        ["gasoline", "open"], # 17
+        ["gasoline", "close"], # 18
+        ["water_t2", "open"], # 19
+        ["water_t2", "close"], # 20
+        ["reserve_pump", "engage"], # 21
+        ["reserve_compressor", "engage"], # 22
+        ["all", "stop"], # 23
+        ["sulfide_s2", "open"], # 24
+        ["sulfide_s2", "close"], # 25
+        ["reserve_cooler", "engage"], # 26
+        ["p1_feed", "faster"], # 27
+        ["p1_feed", "slower"], # 28
+        ["p2_feed", "faster"], # 29
+        ["p2_feed", "slower"], # 30
+        ["c1_feed", "faster"], # 31
+        ["c1_feed", "slower"], # 32
+        ["c2_feed", "faster"], # 33
+        ["c2_feed", "slower"], # 34
+        ["cooler_ac1", "faster"], # 35
+        ["cooler_ac1", "slower"], # 36
+        ["cooler_ac2", "faster"], # 37
+        ["cooler_ac2", "slower"], # 38
+        ["cooler_ac3", "faster"], # 39
+        ["cooler_ac3", "slower"], # 40
+        ["water_s1", "open"], # 41
+        ["water_s1", "close"], # 42
+        ["water_s2", "open"], # 43
+        ["water_s2", "close"], # 44
+        ["e1_water", "open"], # 45
+        ["e1_water", "close"] # 46
+        ]

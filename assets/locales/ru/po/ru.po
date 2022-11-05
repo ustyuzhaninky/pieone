@@ -46,6 +46,14 @@ msgstr "Отмена"
 msgid "Settings"
 msgstr "Настройки"
 
+#: app.kv:26
+msgid "Later"
+msgstr "Позже"
+
+#: app.kv:30
+msgid "Yes, restart now"
+msgstr "Да, перезагрузить сейчас"
+
 #: app.py:306
 msgid "Restart required"
 msgstr "Необходима перезагрузка"

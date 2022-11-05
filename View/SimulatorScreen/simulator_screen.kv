@@ -2,7 +2,6 @@
 #:import os os
 #:import get_hex_from_color kivy.utils.get_hex_from_color
 #:import IconLeftWidget kivymd.uix.list.IconLeftWidget
-#:import TopBar View.TopBar
 #:import colors kivymd.color_definitions.colors
 #:import Window kivy.core.window.Window
 
@@ -11,6 +10,9 @@
 <TooltipLabel@MDLabel+MDTooltip>
 
 # <TouchHoverArea@MDFlatButton+MDTooltip>
+
+<TextClock>
+    text: app.tr._("Ellapsed Time: ") +  self.time
 
 <EventSnackBar>
     bg_color: app.theme_cls.bg_normal
@@ -54,6 +56,9 @@
             MDList:
                 id: scroll
 
+<ControlButton>
+    text: app.tr._(self.raw_text_str)
+
 <CommandInterface>
     orientation: "vertical"
     # spacing: "12dp"
@@ -63,7 +68,7 @@
     width: self.width
     
     Label:
-        text: root.event_str
+        text: app.tr._("Case: ") + root.event_str[0] + app.tr._("\nEvent: ") + root.event_str[1]
         adaptive_height: True
         size_hint_y: None
         height: 50
@@ -76,6 +81,56 @@
         adaptive_height: True
         adaptive_width: True
 
+<EventListItem>
+    text: self.header
+    secondary_text: app.tr._("Result: ") + self.result
+    tertiary_text: app.tr._("Answered: ") + self.answer
+
+<OkTrackRecordDialogButton>
+    text: app.tr._("Ok")
+
+<TrackRecordDialog>
+    title: app.tr._("Track Record")
+    type: "custom"
+    radius: [20, 7, 20, 7]
+    auto_dismiss: False
+    height: Window.height - dp(40)
+    buttons: self.parent_widget.track_record_dialog_buttons
+
+<SaveDialogButton>
+    text: app.tr._("Save results")
+    text_color: app.theme_cls.primary_color
+
+<PrintFinishDialogButton>
+    text: app.tr._("Print results")
+    theme_text_color: "Custom"
+    text_color: app.theme_cls.primary_color
+
+<OkFinishDialogButton>
+    text: app.tr._("Ok")
+
+<FinishDialog>
+    title: app.tr._("Statistics")
+    type: "simple"
+    radius: [20, 7, 20, 7]
+    auto_dismiss: False
+    buttons: self.parent_widget.finish_dialog_buttons
+    text: app.tr._("Your work is over. Your estimates are following: \n\n") + app.tr._(f"Total cases solved is {self.events_solved}\n") + app.tr._(f"Test time {self.total_time}\n") + app.tr._(f"Mean response time is {round(self.mean_time, 2)} seconds\n") + app.tr._(f"Accuracy is {round(self.accuracy, 2)}%\n") + app.tr._(f"Confidence is {round(self.confidence, 2)}%")
+
+<SkipDecisionDialogButton>
+    text: app.tr._("Skip")
+
+<CancelDecisionDialogButton>
+    text: app.tr._("Cancel")
+
+<DecisionDialog>
+    title: app.tr._("Controls")
+    type: "custom"
+    radius: [20, 7, 20, 7]
+    auto_dismiss: False
+    height: Window.height - dp(40)
+    buttons: self.parent_widget.decisions_dialog_buttons
+
 <SimulatorScreenView>
     
     MDBoxLayout:
@@ -84,9 +139,29 @@
         spacing: "2dp"
         pos_hint: {"top": 1}
     
-        TopBar:
-            id: toolbar
-            screen: app.tr._("Simulator")
+        MDTopAppBar:
+            id: bar
+            title: "P.I.E. ONE " + app.tr._("Menu")
+            anchor_title: "center"
+            icon: f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png"
+            elevation: 12
+            adaptive_size: True
+            opposite_colors: True
+            use_overflow: True
+            right_action_items:
+                [
+                # ["cog", lambda x: app.open_settings(), app.tr._("Settings"), app.tr._("Settings")],
+                ["theme-light-dark", lambda x: app.switch_theme_style(), app.tr._("Dark Mode"), app.tr._("Dark Mode")],
+                ["translate-variant", lambda x: app.open_language_dialog(), app.tr._("Language"), app.tr._("Language")],
+                # ["window-minimize", lambda x: Window.minimize(), app.tr._("Minimize"), app.tr._("Minimize")],
+                # ["window-maximize", lambda x: self.maximize_callback(), app.tr._("Maximize"), app.tr._("Maximize")],
+                ["close", lambda x: app.stop_callback(), app.tr._("Exit"), app.tr._("Exit")]
+                ]
+                        
+            left_action_items:
+                [
+                ["arrow-left", lambda x: app.return_callback(x), app.tr._("Return"), app.tr._("Return")]
+                ]
 
         ScrollView:
             MDFloatLayout:
@@ -261,7 +336,7 @@
                         id: BLOB1
                         background_color: 0, 0, 0, 0
                         # text: "BLOB1"
-                        tooltip_text:app. tr._("Separator S1")
+                        tooltip_text: app.tr._("Separator S1")
                         size_hint: 0.06, 0.03
                         pos_hint: {"center_x": 0.53, "center_y": 0.475}
                         center: self.parent.center
@@ -466,12 +541,11 @@
                 pos_hint: {"center_x": .5, "center_y": .5}
                 on_release: lambda x: root.stop_sim()
             
-            MDLabel:
+            TextClock:
                 id: clock
                 theme_text_color: 'Primary'
                 halign: "center"
                 pos_hint: {"center_x": .5, "center_y": .5}
-                text: app.tr._("Ellapsed Time: 00:00:00")
 
             TooltipMDIconButton:
                 id: button_tray

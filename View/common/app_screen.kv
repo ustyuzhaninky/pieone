@@ -1,9 +1,9 @@
-#:import MenuCard View.MenuScreen.components.MenuCard
 
-<MenuScreenView>
-
+<BaseAppScreen>:
     MDBoxLayout:
         orientation: "vertical"
+        size_hint_y: None
+        height: self.minimum_height
 
         MDTopAppBar:
             id: bar
@@ -28,38 +28,4 @@
                 [
                 ["arrow-left", lambda x: app.return_callback(x), app.tr._("Return"), app.tr._("Return")]
                 ]
-
-        ScrollView:
-        # RecycleView:
-            id: menu_list
-            size_hint_x: None
-            width: root.width * 95 / 100
-            pos_hint: {"center_x": .5}
-            bar_width: 0
-            key_viewclass: 'viewclass'
-            key_size: 'height'
-
-            MDList:
-            # RecycleBoxLayout:
-                padding: dp(10)
-                spacing: dp(24)
-                default_size: None, dp(200)
-                default_size_hint: 1, None
-                size_hint_y: None
-                height: self.minimum_height
-                # orientation: 'vertical'
-
-                MenuCard:
-                    id: simulator_card
-                    title: app.tr._("Simulator")
-                
-                MenuCard:
-                    id: schematic_card
-                    title: app.tr._("Schematic")
-                MenuCard:
-                    id: documentation_card
-                    title: app.tr._("Documentation")
-               
-                MenuCard:
-                    id: about_card
-                    title: app.tr._("About")
+            

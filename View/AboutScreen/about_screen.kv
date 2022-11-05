@@ -2,8 +2,6 @@
 #:import os os
 #:import get_hex_from_color kivy.utils.get_hex_from_color
 #:import IconLeftWidget kivymd.uix.list.IconLeftWidget
-#:import TopBar View.TopBar
-#:import BottomBar View.BottomBar
 
 <ContactItem@OneLineAvatarListItem>
     icon: ""
@@ -21,8 +19,29 @@
     MDBoxLayout:
         orientation: "vertical"
     
-        TopBar:
-            screen: app.tr._("About")
+        MDTopAppBar:
+            id: bar
+            title: "P.I.E. ONE " + app.tr._("Menu")
+            anchor_title: "center"
+            icon: f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png"
+            elevation: 12
+            adaptive_size: True
+            opposite_colors: True
+            use_overflow: True
+            right_action_items:
+                [
+                # ["cog", lambda x: app.open_settings(), app.tr._("Settings"), app.tr._("Settings")],
+                ["theme-light-dark", lambda x: app.switch_theme_style(), app.tr._("Dark Mode"), app.tr._("Dark Mode")],
+                ["translate-variant", lambda x: app.open_language_dialog(), app.tr._("Language"), app.tr._("Language")],
+                # ["window-minimize", lambda x: Window.minimize(), app.tr._("Minimize"), app.tr._("Minimize")],
+                # ["window-maximize", lambda x: self.maximize_callback(), app.tr._("Maximize"), app.tr._("Maximize")],
+                ["close", lambda x: app.stop_callback(), app.tr._("Exit"), app.tr._("Exit")]
+                ]
+                        
+            left_action_items:
+                [
+                ["arrow-left", lambda x: app.return_callback(x), app.tr._("Return"), app.tr._("Return")]
+                ]
 
         ScrollView:
             

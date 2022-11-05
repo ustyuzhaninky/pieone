@@ -1,7 +1,7 @@
 .PHONY: po mo
 
 po:
-	xgettext -Lpython --output=assets/locales/messages.pot app.py \
+	xgettext -Lpython --output=assets/locales/messages.pot app.py app.kv \
 	View/AboutScreen/about_screen.kv View/AboutScreen/about_screen.py \
 	View/ManagerScreen/manager_screen.py \
 	View/MenuScreen/menu_screen.kv View/MenuScreen/menu_screen.py \
@@ -9,8 +9,8 @@ po:
 	View/DocumentationScreen/documentation_screen.kv View/DocumentationScreen/documentation_screen.py \
 	View/SchematicScreen/schematic_screen.kv View/SchematicScreen/schematic_screen.py \
 	View/SimulatorScreen/simulator_screen.kv View/SimulatorScreen/simulator_screen.py \
-	View/common/bars/top_bar.py View/common/bars/top_bar.kv \
-	View/SimulatorScreen/events.py
+	View/common/app_screen.py View/common/app_screen.kv \
+	View/SimulatorScreen/events.py View/SimulatorScreen/events.kv
 	msgmerge assets/locales/en/po/en.po assets/locales/messages.pot
 	msgmerge assets/locales/ru/po/ru.po assets/locales/messages.pot
 

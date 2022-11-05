@@ -1,48 +1,33 @@
 import os
 
-from kivymd.uix.screen import MDScreen
+from View.common.app_screen import BaseAppScreen
 from kivymd.app import MDApp # NOQA
 from View.MenuScreen.components import MenuCard  # NOQA
-from View import TopBar # NOQA
-from View import BottomBar # NOQA
+from kivymd.uix.screen import MDScreen
 
-class MenuScreenView(MDScreen):
+class MenuScreenView(BaseAppScreen):
     
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
         self.app = MDApp.get_running_app()
+        super().__init__(**kwargs)
     
     def on_enter(self, *args) -> None:
-        if not self.ids.menu_list.data:
-            menu_list = [
-                "simulator",
-                "schematic",
-                "documentation",
-                "about",
-            ]
-            menu_names = [
-                self.app.tr._("Simulator"),
-                self.app.tr._("Schematic"),
-                self.app.tr._("Documentation"),
-                self.app.tr._("About"),
-            ]
-            # menu_list.sort()
-            for idx, name_card in enumerate(menu_list):
-                if not self.app.darkmode:
-                    source = f"images/menu_screen/{name_card.lower()}.png"
-                else:
-                    source = f"images/menu_screen/{name_card.lower()}-dark.png"
-                self.ids.menu_list.data.append(
-                    {
-                        "viewclass": "MenuCard",
-                        "title": menu_names[idx],
-                        # "elevation": 3,
-                        "on_release": lambda x=name_card.lower(): self.manager.switch_screen(
-                            x
-                        ),
-                        "source": (
-                            f"{os.environ['PIEONE_ASSETS']}/{source}"
-                        ),
-                        "app": self.app,
-                    }
-                )
+        self.ids.simulator_card.on_release = lambda: self.manager.switch_screen('simulator')
+        self.ids.schematic_card.on_release = lambda: self.manager.switch_screen('schematic')
+        self.ids.documentation_card.on_release = lambda: self.manager.switch_screen('documentation')
+        self.ids.about_card.on_release = lambda: self.manager.switch_screen('about')
+        self.swap_images(self, self.app.darkmode)
+
+        self.app.bind(darkmode=self.swap_images)
+    
+    def swap_images(self, instance, darkmode):
+        if darkmode==True:
+            self.ids.simulator_card.source = f"{os.environ['PIEONE_ASSETS']}/images/menu_screen/simulator-dark.png"
+            self.ids.schematic_card.source = f"{os.environ['PIEONE_ASSETS']}/images/menu_screen/schematic-dark.png"
+            self.ids.documentation_card.source = f"{os.environ['PIEONE_ASSETS']}/images/menu_screen/documentation-dark.png"
+            self.ids.about_card.source = f"{os.environ['PIEONE_ASSETS']}/images/menu_screen/about-dark.png"
+        else:
+            self.ids.simulator_card.source = f"{os.environ['PIEONE_ASSETS']}/images/menu_screen/simulator.png"
+            self.ids.schematic_card.source = f"{os.environ['PIEONE_ASSETS']}/images/menu_screen/schematic.png"
+            self.ids.documentation_card.source = f"{os.environ['PIEONE_ASSETS']}/images/menu_screen/documentation.png"
+            self.ids.about_card.source = f"{os.environ['PIEONE_ASSETS']}/images/menu_screen/about.png"

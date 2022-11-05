@@ -5,9 +5,7 @@ from turtle import onclick
 # from View.DocumentationScreen.md_cefbrowser import MDCefBrowser
 # TODO: Add support of real browsing using CEF
 
-from kivymd.uix.screen import MDScreen
-from View import TopBar # NOQA
-from View import BottomBar # NOQA
+from View.common.app_screen import BaseAppScreen
 from kivymd.uix.button import MDFloatingActionButton
 from kivymd.uix.navigationdrawer import (
     MDNavigationDrawerMenu, MDNavigationDrawerLabel,
@@ -45,7 +43,7 @@ class DrawerClickableItem(BaseNavigationDrawerItem):
         self.selected_color = "#0c6c4d"
         self.file_name = file_name
 
-class DocumentationScreenView(MDScreen, EventDispatcher):
+class DocumentationScreenView(BaseAppScreen, EventDispatcher):
 
     lang_folder = OptionProperty("en", options=["en", "ru"])
     

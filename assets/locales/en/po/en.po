@@ -46,6 +46,14 @@ msgstr "Cancel"
 msgid "Settings"
 msgstr "Settings"
 
+#: app.kv:26
+msgid "Later"
+msgstr "Later"
+
+#: app.kv:30
+msgid "Yes, restart now"
+msgstr "Yes, restart now"
+
 #: app.py:306
 msgid "Restart required"
 msgstr "Restart required"

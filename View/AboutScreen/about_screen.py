@@ -1,10 +1,8 @@
 import os
 
-from kivymd.uix.screen import MDScreen
-from View import TopBar # NOQA
-from View import BottomBar # NOQA
+from View.common.app_screen import BaseAppScreen
 
-class AboutScreenView(MDScreen):
+class AboutScreenView(BaseAppScreen):
     def on_enter(self) -> None:
         if not self.ids.about_label.text:
             with open(

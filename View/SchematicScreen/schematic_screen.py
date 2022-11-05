@@ -1,11 +1,9 @@
 import os
 
-from kivymd.uix.screen import MDScreen
-from View import TopBar # NOQA
-from View import BottomBar # NOQA
+from View.common.app_screen import BaseAppScreen
 from kivymd.app import MDApp
 
-class SchematicScreenView(MDScreen):
+class SchematicScreenView(BaseAppScreen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.app = MDApp.get_running_app()

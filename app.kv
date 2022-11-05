@@ -1,0 +1,63 @@
+#:import os os
+#:import partial functools.partial
+
+<ItemConfirm>
+    on_release: root.set_icon(check)
+
+    CheckboxLeftWidget:
+        id: check
+        group: "check"
+
+<YesAndStopButton>
+    text: app.tr._("Yes")
+    text_color: app.theme_cls.primary_color
+
+<NoAndKeepButton>
+    text: app.tr._("No")
+
+<CloseApplicationDialog>
+    title: app.tr._("Exit")
+    text: app.tr._("Do you wish to close the application?")
+    type: "simple"
+    radius: [20, 7, 20, 7]
+    buttons: app.close_dialog_buttons
+
+<RestartLaterButton>
+    text: app.tr._("Later")
+    text_color: app.theme_cls.primary_color
+
+<RestartNowButton>
+    text: app.tr._("Yes, restart now")
+
+<RestartDialog>
+    title: app.tr._("Restart required")
+    text: app.tr._("For changes to take effect application has to restart.")
+    type: "simple"
+    radius: [20, 7, 20, 7]
+    buttons: app.restart_dialog_buttons
+
+<OkLanguageDialogButton>
+    text: app.tr._("Ok")
+
+<LanguageDialog>
+    title: app.tr._("Application language")
+    type: "confirmation"
+    radius: [20, 7, 20, 7]
+    size_hint: 0.8, 0.8
+    auto_dismiss: False
+    height: Window.height + dp(10)
+    buttons: app.language_dialog_buttons
+
+<YesLeaveSimulationDialogButton>
+    text: app.tr._("Yes")
+    # text_color: app.theme_cls.primary_color
+
+<CloseLeaveSimulationDialogButton>
+    text: app.tr._("No")
+
+<LeaveSimulationDialog>
+    title: app.tr._("Leaving simulation")
+    text: app.tr._("Do you wish to leave the screen? All progress will be lost.")
+    type: "simple"
+    radius: [20, 7, 20, 7]
+    buttons: app.leave_simulation_dialog_buttons

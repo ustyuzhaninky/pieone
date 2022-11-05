@@ -83,6 +83,7 @@ class ManagerScreen(MDScreenManager):
             )
             view.name = name_screen
             return view
+        print('pop')
 
     def load_common_package(self, name_screen) -> None:
         def _load_kv(path_to_kv):
@@ -127,7 +128,7 @@ class ManagerScreen(MDScreenManager):
             self.dialog_wait.dismiss()
 
         if screen_name not in self._screen_names:
-            self.open_dialog()
+            # self.open_dialog()
             Clock.schedule_once(switch_screen)
         else:
             if screen_name == "menu":
