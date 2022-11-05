@@ -140,6 +140,7 @@ class EventsList(BoxLayout):
 
 class EventListItem(ThreeLineAvatarListItem):
     
+    icon = StringProperty('close-octagon')
     header = StringProperty("")
     result = StringProperty("")
     answer = StringProperty("", nullable=True)
@@ -552,6 +553,8 @@ class SimulatorScreenView(BaseAppScreen):
         content=EventsList(
                 [
                     EventListItem(
+                        icon="check-decagram" if event.is_solved==True else "transit-skip" if event.not_attempted==True else "close-octagon",
+                        # icon_left_color=(0, 1, 0, 1) if event.is_solved==True else (0, 0, 1, 1) if event.not_attempted==True else (1, 0, 0, 1),
                         header=event.text,
                         result=event.tertiary_text,
                         answer=event.answer if event.answer else ""
