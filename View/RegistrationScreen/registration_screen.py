@@ -8,9 +8,6 @@ import tempfile
 import time
 import datetime
 
-if platform.system() == "Windows":
-    import win32api
-    import win32print
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.pagesizes import A4
