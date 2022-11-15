@@ -135,6 +135,10 @@ msgstr "Step 5"
 msgid "Step 6"
 msgstr "Step 6"
 
+#: View/SimulatorScreen/simulator_screen.kv:15
+msgid "Ellapsed Time: "
+msgstr "Ellapsed Time: "
+
 #: View/SimulatorScreen/simulator_screen.kv:90
 msgid "Simulator"
 msgstr "Simulator"
@@ -318,6 +322,28 @@ msgid ""
 "Event: {event_text}"
 msgstr "{self.tooltip_text}\nEvent: {event_text}"
 
+#: View/SimulatorScreen/simulator_screen.kv:115
+#, python-brace-format
+msgid "Total cases solved is {self.events_solved}\n"
+msgstr "Total cases solved is {self.events_solved}\n"
+
+#: View/SimulatorScreen/simulator_screen.kv:115
+#, python-brace-format
+msgid "Test time {self.total_time}\n"
+msgstr "Test time {self.total_time}\n"
+
+#: View/SimulatorScreen/simulator_screen.kv:115
+msgid "Mean response time is {round(self.mean_time, 2)} seconds\n"
+msgstr "Mean response time is {round(self.mean_time, 2)} seconds\n"
+
+#: View/SimulatorScreen/simulator_screen.kv:115
+msgid "Accuracy is {round(self.accuracy, 2)}%\n"
+msgstr "Accuracy is {round(self.accuracy, 2)}%\n"
+
+#: View/SimulatorScreen/simulator_screen.kv:115
+msgid "Confidence is {round(self.confidence, 2)}%"
+msgstr "Confidence is {round(self.confidence, 2)}%"
+
 #: View/SimulatorScreen/simulator_screen.py:54
 msgid "Skip"
 msgstr "Skip"
@@ -382,6 +408,10 @@ msgstr "Language"
 #: app.py:309
 msgid "Application language"
 msgstr "Application language"
+
+#: app.kv:59
+msgid "Leaving screen"
+msgstr "Leaving screen"
 
 #: View/common/bars/top_bar.py:28
 msgid "Return"
@@ -828,3 +858,97 @@ msgstr "Increase water removal from vessel E1"
 #: View/SimulatorScreen/events.py:309
 msgid "Decrease water removal from vessel E1"
 msgstr "Decrease water removal from vessel E1"
+
+#: View/RegistrationScreen/registration_screen.py:193
+msgid "Printing is not supported on {platform.system()} OS yet."
+msgstr "Printing is not supported on {platform.system()} OS yet."
+
+#: View/RegistrationScreen/registration_screen.kv:42
+msgid "Registering and saving the results"
+msgstr "Registering and saving the results"
+
+#: View/RegistrationScreen/registration_screen.kv:46
+msgid "Email"
+msgstr "Email"
+
+#: View/RegistrationScreen/registration_screen.kv:47
+msgid "Testee's email address (required)"
+msgstr "Testee's email address (required)"
+
+#: View/RegistrationScreen/registration_screen.kv:62
+msgid "First name"
+msgstr "First name"
+
+#: View/RegistrationScreen/registration_screen.kv:63
+msgid "Testee's actual name (required)"
+msgstr "Testee's actual name (required)"
+
+#: View/RegistrationScreen/registration_screen.kv:72
+msgid "Second name"
+msgstr "Second name"
+
+#: View/RegistrationScreen/registration_screen.kv:73
+msgid "Testee's second name (if eligible)"
+msgstr "Testee's second name (if eligible)"
+
+#: View/RegistrationScreen/registration_screen.kv:81
+msgid "Family name"
+msgstr "Family name"
+
+#: View/RegistrationScreen/registration_screen.kv:82
+msgid "Testee's family name (required)"
+msgstr "Testee's family name (required)"
+
+#: View/RegistrationScreen/registration_screen.kv:91
+msgid "Organization"
+msgstr "Organization"
+
+#: View/RegistrationScreen/registration_screen.kv:92
+msgid "Testee's employer or affiliated organization"
+msgstr "Testee's employer or affiliated organization"
+
+#: View/RegistrationScreen/registration_screen.kv:102
+msgid "Qualification"
+msgstr "Qualification"
+
+#: View/RegistrationScreen/registration_screen.kv:103
+msgid "Job qualificaton"
+msgstr "Job qualificaton"
+
+#: View/RegistrationScreen/registration_screen.kv:112
+#: View/RegistrationScreen/registration_screen.kv:113
+msgid "Job position"
+msgstr "Job position"
+
+#: View/RegistrationScreen/registration_screen.kv:126
+#, python-brace-format
+msgid "Assigned registration number: {root.registration_number}"
+msgstr "Assigned registration number: {root.registration_number}"
+
+#: View/RegistrationScreen/registration_screen.kv:133
+msgid ""
+"Warning! Only one registration number per person is eligible.\n"
+"Make sure spelling of your name is in accordance with your valid ID in ENGLISH and your "
+"email is an active one.\n"
+"Provide only names in latin characters!\n"
+"Upon closing this window your test data will disappear.\n"
+"Make sure you save your sertificate before closing."
+msgstr ""
+"Warning! Only one registration number per person is eligible.\n"
+"Make sure spelling of your name is in accordance with your valid ID in ENGLISH and your "
+"email is an active one.\n"
+"Provide only names in latin characters!\n"
+"Upon closing this window your test data will disappear.\n"
+"Make sure you save your sertificate before closing."
+
+#: View/RegistrationScreen/registration_screen.kv:143
+msgid "Back"
+msgstr "Back"
+
+#: View/RegistrationScreen/registration_screen.kv:149
+msgid "Save as PDF"
+msgstr "Save as PDF"
+
+#: View/RegistrationScreen/registration_screen.kv:156
+msgid "Print"
+msgstr "Print"

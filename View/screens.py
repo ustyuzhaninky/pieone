@@ -5,4 +5,5 @@ screens = {
     "simulator": "SimulatorScreen.simulator_screen",
     "schematic": "SchematicScreen.schematic_screen",
     "documentation": "DocumentationScreen.documentation_screen",
+    "registration": "RegistrationScreen.registration_screen",
 }    

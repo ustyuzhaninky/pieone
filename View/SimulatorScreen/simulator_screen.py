@@ -166,7 +166,7 @@ class TrackRecordDialog(MDDialog):
         self.app = MDApp.get_running_app()
         self.buttons = self.parent_widget.track_record_dialog_buttons
 
-class SaveDialogButton(MDFlatButton):
+class SaveFinishDialogButton(MDFlatButton):
     
     close_fn = ObjectProperty()
     
@@ -177,27 +177,10 @@ class SaveDialogButton(MDFlatButton):
         self.on_release = self._callback
     
     def _callback(self):
-        # TODO: Asking testee input data and saving to PDF dialog
         try:
             self.close_fn()
         except: 
-            self.app.log_callback(self, "FatalError: SaveDialogButton.close_fn could not be executed")
-
-class PrintFinishDialogButton(MDFlatButton):
-    
-    close_fn = ObjectProperty()
-    
-    def __init__(self, close_fn, **kwargs):
-        super().__init__(**kwargs)
-        self.app = MDApp.get_running_app()
-        self.close_fn = close_fn
-        self.on_release = self._callback
-    # TODO: Asking testee input data and saving to PDF dialog
-    def _callback(self):
-        try:
-            self.close_fn()
-        except: 
-            self.app.log_callback(self, "FatalError: PrintFinishDialogButton.close_fn could not be executed")
+            self.app.log_callback(self, "FatalError: SaveFinishDialogButton.close_fn could not be executed")
 
 class OkFinishDialogButton(MDRaisedButton):
     
@@ -415,10 +398,15 @@ class SimulatorScreenView(BaseAppScreen):
                 def dismiss_and_stop(*args):
                     self.finish_dialog.dismiss()
                     self.stop_sim()
+                
+                def go_to_save_dialog(*args):
+                    self.stop_sim()
+                    self.app.unsaved_progress = True
+                    self.finish_dialog.dismiss()
+                    self.app.manager_screen.switch_screen("registration")
 
                 self.finish_dialog_buttons = [
-                    SaveDialogButton(close_fn=lambda: dismiss_and_stop()),
-                    PrintFinishDialogButton(close_fn=lambda: dismiss_and_stop()),
+                    SaveFinishDialogButton(close_fn=lambda: go_to_save_dialog()),
                     OkFinishDialogButton(close_fn=lambda:  dismiss_and_stop())]
                 self.finish_dialog = FinishDialog(
                     parent_widget=self,
@@ -428,6 +416,13 @@ class SimulatorScreenView(BaseAppScreen):
                     accuracy=accuracy,
                     confidence=confidence,
                     )
+            self.app.set_user_data({
+                'events_solved': events_solved,
+                'total_time': total_time,
+                'mean_time': mean_time,
+                'accuracy': accuracy,
+                'confidence': confidence
+            })
             self.finish_dialog.open(self)
     
     def switch_event(self):

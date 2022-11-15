@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-05 18:32+0500\n"
+"POT-Creation-Date: 2022-11-15 15:36+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: app.py:277 app.kv:40 View/SimulatorScreen/simulator_screen.kv:90
-#: View/SimulatorScreen/simulator_screen.kv:110
+#: app.py:310 app.kv:40 View/SimulatorScreen/simulator_screen.kv:92
+#: View/SimulatorScreen/simulator_screen.kv:107
 msgid "Ok"
 msgstr ""
 
-#: app.py:281 app.py:286 View/SimulatorScreen/simulator_screen.kv:124
+#: app.py:314 app.py:319 View/SimulatorScreen/simulator_screen.kv:121
 msgid "Cancel"
 msgstr ""
 
-#: app.py:289
+#: app.py:322
 msgid "Settings"
 msgstr ""
 
@@ -42,7 +42,7 @@ msgstr ""
 #: View/MenuScreen/menu_screen.kv:24
 #: View/DocumentationScreen/documentation_screen.kv:29
 #: View/SchematicScreen/schematic_screen.kv:43
-#: View/SimulatorScreen/simulator_screen.kv:158 View/common/app_screen.kv:24
+#: View/SimulatorScreen/simulator_screen.kv:155 View/common/app_screen.kv:24
 msgid "Exit"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgid "Application language"
 msgstr ""
 
 #: app.kv:59
-msgid "Leaving simulation"
+msgid "Leaving screen"
 msgstr ""
 
 #: app.kv:60
@@ -81,28 +81,28 @@ msgstr ""
 #: View/AboutScreen/about_screen.kv:24 View/MenuScreen/menu_screen.kv:10
 #: View/DocumentationScreen/documentation_screen.kv:15
 #: View/SchematicScreen/schematic_screen.kv:29
-#: View/SimulatorScreen/simulator_screen.kv:144 View/common/app_screen.kv:10
+#: View/SimulatorScreen/simulator_screen.kv:141 View/common/app_screen.kv:10
 msgid "Menu"
 msgstr ""
 
 #: View/AboutScreen/about_screen.kv:34 View/MenuScreen/menu_screen.kv:20
 #: View/DocumentationScreen/documentation_screen.kv:25
 #: View/SchematicScreen/schematic_screen.kv:39
-#: View/SimulatorScreen/simulator_screen.kv:154 View/common/app_screen.kv:20
+#: View/SimulatorScreen/simulator_screen.kv:151 View/common/app_screen.kv:20
 msgid "Dark Mode"
 msgstr ""
 
 #: View/AboutScreen/about_screen.kv:35 View/MenuScreen/menu_screen.kv:21
 #: View/DocumentationScreen/documentation_screen.kv:26
 #: View/SchematicScreen/schematic_screen.kv:40
-#: View/SimulatorScreen/simulator_screen.kv:155 View/common/app_screen.kv:21
+#: View/SimulatorScreen/simulator_screen.kv:152 View/common/app_screen.kv:21
 msgid "Language"
 msgstr ""
 
 #: View/AboutScreen/about_screen.kv:43 View/MenuScreen/menu_screen.kv:29
 #: View/DocumentationScreen/documentation_screen.kv:34
 #: View/SchematicScreen/schematic_screen.kv:48
-#: View/SimulatorScreen/simulator_screen.kv:163 View/common/app_screen.kv:29
+#: View/SimulatorScreen/simulator_screen.kv:160 View/common/app_screen.kv:29
 msgid "Return"
 msgstr ""
 
@@ -203,203 +203,199 @@ msgstr ""
 msgid "Answered: "
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:93
+#: View/SimulatorScreen/simulator_screen.kv:95
 msgid "Track Record"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:101
+#: View/SimulatorScreen/simulator_screen.kv:103
 msgid "Save results"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:105
-msgid "Print results"
-msgstr ""
-
-#: View/SimulatorScreen/simulator_screen.kv:113
+#: View/SimulatorScreen/simulator_screen.kv:110
 msgid "Statistics"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:118
+#: View/SimulatorScreen/simulator_screen.kv:115
 msgid ""
 "Your work is over. Your estimates are following: \n"
 "\n"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:118
+#: View/SimulatorScreen/simulator_screen.kv:115
 #, python-brace-format
 msgid "Total cases solved is {self.events_solved}\n"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:118
+#: View/SimulatorScreen/simulator_screen.kv:115
 #, python-brace-format
 msgid "Test time {self.total_time}\n"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:118
+#: View/SimulatorScreen/simulator_screen.kv:115
 msgid "Mean response time is {round(self.mean_time, 2)} seconds\n"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:118
+#: View/SimulatorScreen/simulator_screen.kv:115
 msgid "Accuracy is {round(self.accuracy, 2)}%\n"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:118
+#: View/SimulatorScreen/simulator_screen.kv:115
 msgid "Confidence is {round(self.confidence, 2)}%"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:121
+#: View/SimulatorScreen/simulator_screen.kv:118
 msgid "Skip"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:127
+#: View/SimulatorScreen/simulator_screen.kv:124
 msgid "Controls"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:189
+#: View/SimulatorScreen/simulator_screen.kv:186
 msgid "Crude Diesel Feed"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:200
+#: View/SimulatorScreen/simulator_screen.kv:197
 msgid "Hydrogen-containing Gas Feed"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:211
+#: View/SimulatorScreen/simulator_screen.kv:208
 msgid ""
 "Hydrogen-containing Gas\n"
 "Circulation from cleaning"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:222
+#: View/SimulatorScreen/simulator_screen.kv:219
 msgid ""
 "Cold Water\n"
 "Feed"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:233
+#: View/SimulatorScreen/simulator_screen.kv:230
 msgid "Hydrogen-containing Gas Output"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:244
+#: View/SimulatorScreen/simulator_screen.kv:241
 msgid "Water steam"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:255
-#: View/SimulatorScreen/simulator_screen.kv:299
-#: View/SimulatorScreen/simulator_screen.kv:332
+#: View/SimulatorScreen/simulator_screen.kv:252
+#: View/SimulatorScreen/simulator_screen.kv:296
+#: View/SimulatorScreen/simulator_screen.kv:329
 msgid ""
 "Water to plant\n"
 "sewage"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:266
+#: View/SimulatorScreen/simulator_screen.kv:263
 msgid ""
 "Hydrocarbon Gas\n"
 "Output"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:277
+#: View/SimulatorScreen/simulator_screen.kv:274
 msgid ""
 "Distilled Gasoline\n"
 "Output"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:288
+#: View/SimulatorScreen/simulator_screen.kv:285
 msgid ""
 "Sulfide Gas\n"
 "Output"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:310
+#: View/SimulatorScreen/simulator_screen.kv:307
 msgid "Water Steam"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:321
+#: View/SimulatorScreen/simulator_screen.kv:318
 msgid ""
 "Hydrogen-purified\n"
 "Diesel Output"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:339
+#: View/SimulatorScreen/simulator_screen.kv:336
 msgid "Separator S1"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:350
+#: View/SimulatorScreen/simulator_screen.kv:347
 msgid "Tower T1"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:361
+#: View/SimulatorScreen/simulator_screen.kv:358
 msgid "Reactor R1"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:372
+#: View/SimulatorScreen/simulator_screen.kv:369
 msgid "Furnace F1"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:383
+#: View/SimulatorScreen/simulator_screen.kv:380
 msgid "Deodorator tower T2"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:394
+#: View/SimulatorScreen/simulator_screen.kv:391
 msgid "Vessel E1"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:405
+#: View/SimulatorScreen/simulator_screen.kv:402
 msgid "Coalescer CO1"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:416
+#: View/SimulatorScreen/simulator_screen.kv:413
 msgid "Coalescer CO2"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:427
+#: View/SimulatorScreen/simulator_screen.kv:424
 msgid "Separator S2"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:438
+#: View/SimulatorScreen/simulator_screen.kv:435
 msgid "Pump P1"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:449
+#: View/SimulatorScreen/simulator_screen.kv:446
 msgid "Compressor C1"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:460
+#: View/SimulatorScreen/simulator_screen.kv:457
 msgid "Compressor C2"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:471
+#: View/SimulatorScreen/simulator_screen.kv:468
 msgid "Pump P2"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:482
+#: View/SimulatorScreen/simulator_screen.kv:479
 msgid "Air Cooler AC1"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:493
+#: View/SimulatorScreen/simulator_screen.kv:490
 msgid "Air Cooler AC2"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:504
+#: View/SimulatorScreen/simulator_screen.kv:501
 msgid "Air Cooler AC3"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:519
+#: View/SimulatorScreen/simulator_screen.kv:516
 msgid "Run Simulation"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:526
+#: View/SimulatorScreen/simulator_screen.kv:523
 msgid "Pause Simulation"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:533
+#: View/SimulatorScreen/simulator_screen.kv:530
 msgid "Restart Simulation"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:540
+#: View/SimulatorScreen/simulator_screen.kv:537
 msgid "Stop simulation"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.kv:553
+#: View/SimulatorScreen/simulator_screen.kv:550
 msgid "Show Track Record"
 msgstr ""
 
@@ -408,11 +404,11 @@ msgstr ""
 msgid "Unexpected malfunction"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.py:459
+#: View/SimulatorScreen/simulator_screen.py:455
 msgid "SKIP"
 msgstr ""
 
-#: View/SimulatorScreen/simulator_screen.py:464
+#: View/SimulatorScreen/simulator_screen.py:460
 msgid "CLOSE"
 msgstr ""
 
@@ -848,4 +844,92 @@ msgstr ""
 
 #: View/SimulatorScreen/events.kv:121
 msgid "Decrease water removal from vessel E1"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.py:193
+msgid "Printing is not supported on {platform.system()} OS yet."
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:42
+msgid "Registering and saving the results"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:46
+msgid "Email"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:47
+msgid "Testee's email address (required)"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:62
+msgid "First name"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:63
+msgid "Testee's actual name (required)"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:72
+msgid "Second name"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:73
+msgid "Testee's second name (if eligible)"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:81
+msgid "Family name"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:82
+msgid "Testee's family name (required)"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:91
+msgid "Organization"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:92
+msgid "Testee's employer or affiliated organization"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:102
+msgid "Qualification"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:103
+msgid "Job qualificaton"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:112
+#: View/RegistrationScreen/registration_screen.kv:113
+msgid "Job position"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:126
+#, python-brace-format
+msgid "Assigned registration number: {root.registration_number}"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:133
+msgid ""
+"Warning! Only one registration number per person is eligible.\n"
+"Make sure spelling of your name is in accordance with your valid ID in ENGLISH and your "
+"email is an active one.\n"
+"Provide only names in latin characters!\n"
+"Upon closing this window your test data will disappear.\n"
+"Make sure you save your sertificate before closing."
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:143
+msgid "Back"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:149
+msgid "Save as PDF"
+msgstr ""
+
+#: View/RegistrationScreen/registration_screen.kv:156
+msgid "Print"
 msgstr ""

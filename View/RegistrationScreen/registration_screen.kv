@@ -1,0 +1,166 @@
+#:import os os
+#:import get_hex_from_color kivy.utils.get_hex_from_color
+#:import IconLeftWidget kivymd.uix.list.IconLeftWidget
+#:import colors kivymd.color_definitions.colors
+#:import Window kivy.core.window.Window
+#:import partial functools.partial
+
+<RegistrationScreenView>
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing: "2dp"
+        pos_hint: {"top": 1}
+
+        # MDTopAppBar:
+        #     id: bar
+        #     title: "P.I.E. ONE " + app.tr._("Menu")
+        #     anchor_title: "center"
+        #     icon: f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png"
+        #     elevation: 12
+        #     adaptive_size: True
+        #     opposite_colors: True
+        #     use_overflow: True
+        #     right_action_items:
+        #         [
+        #         # ["cog", lambda x: app.open_settings(), app.tr._("Settings"), app.tr._("Settings")],
+        #         ["theme-light-dark", lambda x: app.switch_theme_style(), app.tr._("Dark Mode"), app.tr._("Dark Mode")],
+        #         ["translate-variant", lambda x: app.open_language_dialog(), app.tr._("Language"), app.tr._("Language")],
+        #         # ["window-minimize", lambda x: Window.minimize(), app.tr._("Minimize"), app.tr._("Minimize")],
+        #         # ["window-maximize", lambda x: self.maximize_callback(), app.tr._("Maximize"), app.tr._("Maximize")],
+        #         ["close", lambda x: app.stop_callback(), app.tr._("Exit"), app.tr._("Exit")]
+        #         ]
+                        
+        #     left_action_items:
+        #         [
+        #         ["arrow-left", lambda x: app.return_callback(x, "simulator"), app.tr._("Return"), app.tr._("Return")]
+        #         ]
+
+        MDLabel:
+            id: up_label
+            font_size: "23sp"
+            text: app.tr._("Registering and saving the results")
+
+        MDTextField:
+            id: email
+            hint_text: app.tr._("Email")
+            helper_text: app.tr._("Testee's email address (required)")
+            required: True
+            helper_text_mode: "on_focus"
+            validator: "email"
+            email_format: ""
+            icon_left: "email"
+            on_text:
+                app.unsaved_progress = True
+                root.set_email(self.text)
+        
+        MDBoxLayout:
+            orientation: 'horizontal'
+            
+            MDTextField:
+                id: first_name
+                hint_text: app.tr._("First name")
+                helper_text: app.tr._("Testee's actual name (required)")
+                required: True
+                helper_text_mode: "on_focus"
+                on_text:
+                    app.unsaved_progress = True
+                    root.set_name(self.text, second_name.text, family_name.text)
+            
+            MDTextField:
+                id: second_name
+                hint_text: app.tr._("Second name")
+                helper_text: app.tr._("Testee's second name (if eligible)")
+                helper_text_mode: "on_focus"
+                on_text:
+                    app.unsaved_progress = True
+                    root.set_name(first_name.text, self.text, family_name.text)
+
+            MDTextField:
+                id: family_name
+                hint_text: app.tr._("Family name")
+                helper_text: app.tr._("Testee's family name (required)")
+                required: True
+                helper_text_mode: "on_focus"
+                on_text:
+                    app.unsaved_progress = True
+                    root.set_name(first_name.text, second_name.text, self.text)
+        
+        MDTextField:
+            id: organization
+            hint_text: app.tr._("Organization")
+            helper_text: app.tr._("Testee's employer or affiliated organization")
+            required: True
+            helper_text_mode: "on_focus"
+            icon_left: "office-building"
+            on_text:
+                app.unsaved_progress = True
+                root.set_organization(self.text)
+        
+        MDTextField:
+            id: qualification
+            hint_text: app.tr._("Qualification")
+            helper_text: app.tr._("Job qualificaton")
+            helper_text_mode: "on_focus"
+            icon_left: "star"
+            on_text:
+                app.unsaved_progress = True
+                root.set_qualification(self.text)
+
+        MDTextField:
+            id: position
+            hint_text: app.tr._("Job position")
+            helper_text: app.tr._("Job position")
+            helper_text_mode: "on_focus"
+            icon_left: "desk"
+            on_text:
+                app.unsaved_progress = True
+                root.set_position(self.text)
+        
+        MDLabel:
+            id: down_label
+
+        MDLabel:
+            allow_selection: False
+            allow_copy: False
+            text: app.tr._(f"Assigned registration number: {root.registration_number}")
+        
+        MDLabel:
+            id: down_label
+
+        MDLabel:
+            adaptive_size: True
+            text: app.tr._("Warning! Only one registration number per person is eligible.\nMake sure spelling of your name is in accordance with your valid ID in ENGLISH and your email is an active one.\n Provide only names in latin characters!\nUpon closing this window your test data will disappear.\nMake sure you save your sertificate before closing.")
+
+        MDBoxLayout:
+            orientation: "horizontal"
+
+            MDLabel:
+                id: button_label
+
+            MDFlatButton:
+                id: back_button
+                text: app.tr._("Back")
+                on_release:
+                    app.return_callback(self, "simulator")
+            
+            MDRaisedButton:
+                id: save_pdf_button
+                text: app.tr._("Save as PDF")
+                disabled: True
+                on_release:
+                    root.generate_pdf()
+
+            MDRaisedButton:
+                id: print_button
+                text: app.tr._("Print")
+                width: dp(50)
+                disabled: True
+                on_release:
+                    root.call_system_printer()
+            
+            MDLabel:
+                id: button_label
+        
+        MDLabel:
+            id: down2_label

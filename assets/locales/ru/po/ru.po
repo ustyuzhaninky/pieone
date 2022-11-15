@@ -66,6 +66,10 @@ msgstr "Для внесения изменений приложение необ
 msgid "Application language"
 msgstr "Язык приложения"
 
+#: app.kv:59
+msgid "Leaving screen"
+msgstr "Покинуть экран"
+
 #: View/AboutScreen/about_screen.kv:26
 msgid "About"
 msgstr "О приложении"
@@ -138,6 +142,10 @@ msgstr "Шаг 5"
 #: View/SchematicScreen/schematic_screen.kv:128
 msgid "Step 6"
 msgstr "Шаг 6"
+
+#: View/SimulatorScreen/simulator_screen.kv:15
+msgid "Ellapsed Time: "
+msgstr "Потраченное время: "
 
 #: View/SimulatorScreen/simulator_screen.kv:90
 msgid "Simulator"
@@ -318,6 +326,28 @@ msgid ""
 "{self.tooltip_text}\n"
 "Event: {event_text}"
 msgstr "{self.tooltip_text}\nСобытие: {event_text}"
+
+#: View/SimulatorScreen/simulator_screen.kv:115
+#, python-brace-format
+msgid "Total cases solved is {self.events_solved}\n"
+msgstr "Всего решено вопросов - {self.events_solved}\n"
+
+#: View/SimulatorScreen/simulator_screen.kv:115
+#, python-brace-format
+msgid "Test time {self.total_time}\n"
+msgstr "Время теста: {self.total_time}\n"
+
+#: View/SimulatorScreen/simulator_screen.kv:115
+msgid "Mean response time is {round(self.mean_time, 2)} seconds\n"
+msgstr "Среднее время, потраченное на ответ составило {round(self.mean_time, 2)} секунд\n"
+
+#: View/SimulatorScreen/simulator_screen.kv:115
+msgid "Accuracy is {round(self.accuracy, 2)}%\n"
+msgstr "Точность составила {round(self.accuracy, 2)}%\n"
+
+#: View/SimulatorScreen/simulator_screen.kv:115
+msgid "Confidence is {round(self.confidence, 2)}%"
+msgstr "Уверенность составила {round(self.confidence, 2)}%"
 
 #: View/SimulatorScreen/simulator_screen.py:54
 msgid "Skip"
@@ -825,3 +855,97 @@ msgstr "Повысить отвод воды из Емкости Е1"
 #: View/SimulatorScreen/events.py:309
 msgid "Decrease water removal from vessel E1"
 msgstr "Снизить отвод воды из Емкости Е1"
+
+#: View/RegistrationScreen/registration_screen.py:193
+msgid "Printing is not supported on {platform.system()} OS yet."
+msgstr "Печать на ОС {platform.system()} пока не поддердивается"
+
+#: View/RegistrationScreen/registration_screen.kv:42
+msgid "Registering and saving the results"
+msgstr "Регистрация и сохранение результатов"
+
+#: View/RegistrationScreen/registration_screen.kv:46
+msgid "Email"
+msgstr "Электронная почта"
+
+#: View/RegistrationScreen/registration_screen.kv:47
+msgid "Testee's email address (required)"
+msgstr "Электронная почта тестируемого"
+
+#: View/RegistrationScreen/registration_screen.kv:62
+msgid "First name"
+msgstr "Имя"
+
+#: View/RegistrationScreen/registration_screen.kv:63
+msgid "Testee's actual name (required)"
+msgstr "Имя тестируемого (обязательно для заполения)"
+
+#: View/RegistrationScreen/registration_screen.kv:72
+msgid "Second name"
+msgstr "Второе имя"
+
+#: View/RegistrationScreen/registration_screen.kv:73
+msgid "Testee's second name (if eligible)"
+msgstr "Второе имя (если есть)"
+
+#: View/RegistrationScreen/registration_screen.kv:81
+msgid "Family name"
+msgstr "Фамилия"
+
+#: View/RegistrationScreen/registration_screen.kv:82
+msgid "Testee's family name (required)"
+msgstr "Фамилия тестируемого (обязательно для заполения)"
+
+#: View/RegistrationScreen/registration_screen.kv:91
+msgid "Organization"
+msgstr "Организация"
+
+#: View/RegistrationScreen/registration_screen.kv:92
+msgid "Testee's employer or affiliated organization"
+msgstr "Работодатель тестируемого или аффилированная организация - если есть"
+
+#: View/RegistrationScreen/registration_screen.kv:102
+msgid "Qualification"
+msgstr "Квалификация"
+
+#: View/RegistrationScreen/registration_screen.kv:103
+msgid "Job qualificaton"
+msgstr "Квалификация (Джуниор, Диддл, Сениор, студент, магистрант, кандидат, PhD, профессор, и.т.д.) - если есть "
+
+#: View/RegistrationScreen/registration_screen.kv:112
+#: View/RegistrationScreen/registration_screen.kv:113
+msgid "Job position"
+msgstr "Должность"
+
+#: View/RegistrationScreen/registration_screen.kv:126
+#, python-brace-format
+msgid "Assigned registration number: {root.registration_number}"
+msgstr "Выданный регистрационный номер: {root.registration_number}"
+
+#: View/RegistrationScreen/registration_screen.kv:133
+msgid ""
+"Warning! Only one registration number per person is eligible.\n"
+"Make sure spelling of your name is in accordance with your valid ID in ENGLISH and your "
+"email is an active one.\n"
+"Provide only names in latin characters!\n"
+"Upon closing this window your test data will disappear.\n"
+"Make sure you save your sertificate before closing."
+msgstr ""
+"Внимание! Только один регистрационный номер для одного пользователя является валидным.\n"
+"Убедитесь, что ваше имя соответствует указанному в действующем ID (Паспорт, ВНЖ) на АНГЛИЙСКОМ"
+"и ваш e-mail активен.\n"
+"Приводите только имена и названия латинскими буквами (на английском)\n"
+"При закытии этого окна все выши тестовые данные пропадут.\n"
+"Убедитесь, что вы сохранили ваш сертификат перед закрытием."
+
+#: View/RegistrationScreen/registration_screen.kv:143
+msgid "Back"
+msgstr "Назад"
+
+#: View/RegistrationScreen/registration_screen.kv:149
+msgid "Save as PDF"
+msgstr "Сохранить как PDF"
+
+#: View/RegistrationScreen/registration_screen.kv:156
+msgid "Print"
+msgstr "печать"

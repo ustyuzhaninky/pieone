@@ -83,7 +83,6 @@ class ManagerScreen(MDScreenManager):
             )
             view.name = name_screen
             return view
-        print('pop')
 
     def load_common_package(self, name_screen) -> None:
         def _load_kv(path_to_kv):
@@ -118,30 +117,18 @@ class ManagerScreen(MDScreenManager):
                 self.open_dialog()
                 screen = self.create_screen(screen_name)
                 self.add_screen(screen)
-
             if self.current == "menu":
                 self.transition.direction = 'right'
-                self.current = screen_name
             else:
                 self.transition.direction = 'left'
-                self.current = screen_name
-            self.dialog_wait.dismiss()
-
-        if screen_name not in self._screen_names:
-            # self.open_dialog()
-            Clock.schedule_once(switch_screen)
-        else:
-            if screen_name == "menu":
-                self.transition.direction = 'right'
-                self.current = screen_name
-            else:
-                self.transition.direction = 'left'
-                self.current = screen_name
+            self.current = screen_name
+            Clock.schedule_once(self.dialog_wait.dismiss, 1.5)
+        Clock.schedule_once(switch_screen)
 
     def open_dialog(self) -> None:
         if not self.dialog_wait:
             spinner = MDSpinner(
-                size=(0.15, 0.15),
+                size=(75, 75),
                 size_hint=(None, None),
                 pos_hint={'center_x': .5, 'center_y': .5},
                 active=True,

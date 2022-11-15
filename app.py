@@ -23,6 +23,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 """
 
+from dataclasses import dataclass
 import sys
 import os
 import gettext
@@ -69,6 +70,27 @@ os.environ["PIEONE_ASSETS"] = os.path.join(
 )
 Window.softinput_mode = "below_target"
 # Window.borderless = True
+
+@dataclass
+class TestData:
+    events_solved = None
+    total_time = None
+    mean_time = None
+    accuracy = None
+    confidence = None
+
+    def __init__(
+        self,
+        events_solved,
+        total_time,
+        mean_time,
+        accuracy,
+        confidence) -> None:
+        self.events_solved = events_solved
+        self.total_time = total_time
+        self.mean_time = mean_time
+        self.accuracy = accuracy
+        self.confidence = confidence
 
 class Lang(Observable):
     observers = []
@@ -202,6 +224,7 @@ class SimulatorApp(MDApp):
 
     # One-session properties and objects
     unsaved_progress = BooleanProperty(False)
+    user_data = ObjectProperty()
         
     # UI suppliments
     close_dialog_buttons = ListProperty([])
@@ -267,6 +290,15 @@ class SimulatorApp(MDApp):
         
         return self.manager_screen
     
+    def set_user_data(self, data:dict):
+        self.user_data = TestData(
+            events_solved=data['events_solved'],
+            total_time=data['total_time'],
+            mean_time=data['mean_time'],
+            accuracy=data['accuracy'],
+            confidence=data['confidence']
+            )
+
     def stop_callback(self):
         self.close_dialog_buttons = [YesAndStopButton(), NoAndKeepButton()]
         self.close_application_dialog = CloseApplicationDialog()
@@ -334,16 +366,6 @@ class SimulatorApp(MDApp):
             self.theme_cls.theme_style = "Dark"
             self.theme_cls.accent_palette = "Yellow"
         self.tr.switch_lang(self.locale)
-
-    def set_theme_style(self, darkmode):
-        if darkmode:
-             self.theme_cls.primary_palette = "Orange"
-             self.theme_cls.theme_style = "Dark"
-             self.theme_cls.accent_palette = "Yellow"
-        else:
-            self.theme_cls.primary_palette = "Blue"
-            self.theme_cls.theme_style = "Light"
-            self.theme_cls.accent_palette = "LightBlue"
 
     def switch_theme_style(self):
         if self.darkmode==True:
@@ -444,7 +466,7 @@ class SimulatorApp(MDApp):
             ]
         self.snackbar.open()
 
-    def return_callback(self, widget):
+    def return_callback(self, widget, return_to='menu'):
         if self.unsaved_progress == True:
             if not self.leave_simulation_dialog:
                 yes_button = YesLeaveSimulationDialogButton()
@@ -456,13 +478,14 @@ class SimulatorApp(MDApp):
                 
                 def yes_callback(*args):
                     self.leave_simulation_dialog.dismiss()
+                    self.unsaved_progress = False
+                    self.manager_screen.switch_screen(return_to)
                 yes_button.on_release = yes_callback
-            
             self.leave_simulation_dialog.open()
-            self.manager_screen.switch_screen("menu")
+            
             return self.manager_screen.current
         else:
-            self.manager_screen.switch_screen("menu")
+            self.manager_screen.switch_screen(return_to)
             return self.manager_screen.current
 
     def maximize_callback(self):
