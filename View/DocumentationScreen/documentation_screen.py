@@ -1,7 +1,7 @@
 from genericpath import isfile
 import os
 import pathlib
-from turtle import onclick
+# from turtle import onclick
 # from View.DocumentationScreen.md_cefbrowser import MDCefBrowser
 # TODO: Add support of real browsing using CEF
 

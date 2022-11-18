@@ -910,7 +910,7 @@ msgstr "Квалификация"
 
 #: View/RegistrationScreen/registration_screen.kv:103
 msgid "Job qualificaton"
-msgstr "Квалификация (Джуниор, Диддл, Сениор, студент, магистрант, кандидат, PhD, профессор, и.т.д.) - если есть "
+msgstr "Квалификация (Джуниор, Миддл, Сениор, студент, магистрант, кандидат, PhD, профессор, и.т.д.) - если есть "
 
 #: View/RegistrationScreen/registration_screen.kv:112
 #: View/RegistrationScreen/registration_screen.kv:113
