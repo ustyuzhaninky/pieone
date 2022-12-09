@@ -2,6 +2,7 @@
 #:import os os
 #:import get_hex_from_color kivy.utils.get_hex_from_color
 #:import IconLeftWidget kivymd.uix.list.IconLeftWidget
+#:import resource_find kivy.resources.resource_find
 
 <ContactItem@OneLineAvatarListItem>
     icon: ""
@@ -23,7 +24,7 @@
             id: bar
             title: "P.I.E. ONE " + app.tr._("Menu")
             anchor_title: "center"
-            icon: f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png"
+            icon: resource_find(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png")
             elevation: 12
             adaptive_size: True
             opposite_colors: True
@@ -60,8 +61,8 @@
                         size_hint: None, None
                         size: "72dp", "72dp"
                         source:
-                            f"{os.environ['PIEONE_ROOT']}\\" \
-                            f"assets\\images\\about_screen\\logo.png"
+                            resource_find(f"{os.environ['PIEONE_ROOT']}\\" \
+                            f"assets\\images\\about_screen\\logo.png")
 
                     MDBoxLayout:
                         orientation: "vertical"

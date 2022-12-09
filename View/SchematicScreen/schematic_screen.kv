@@ -6,6 +6,7 @@
 #:import sin math.sin
 #:import radians math.radians
 #:import Window kivy.core.window.Window
+#:import resource_find kivy.resources.resource_find
 
 <ContactItem@OneLineAvatarListItem>
     icon: ""
@@ -28,7 +29,7 @@
             id: bar
             title: "P.I.E. ONE " + app.tr._("Menu")
             anchor_title: "center"
-            icon: f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png"
+            icon: resource_find(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png")
             elevation: 12
             adaptive_size: True
             opposite_colors: True
@@ -61,7 +62,7 @@
                             id: image
                             pos_hint: {"top": 1}
                             allow_stretch: False
-                            source: f"{os.environ['PIEONE_ROOT']}\\assets\\images\\schematic_screen\\mnemo_st0.png"
+                            source: resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\schematic_screen\\mnemo_st0.png")
 
                 MDBottomNavigation:
                     size_hint_y: None

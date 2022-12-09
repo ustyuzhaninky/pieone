@@ -3,6 +3,7 @@ import os
 import random
 from functools import partial
 
+from kivy.resources import resource_add_path, resource_find
 from View.common.app_screen import BaseAppScreen
 from kivymd.uix.toolbar import MDTopAppBar
 from kivymd.app import MDApp
@@ -323,7 +324,7 @@ class SimulatorScreenView(BaseAppScreen):
         total_time = self.max_time - self.event_remaining_time
         event.update(node, command, total_time)
         self.solved_events.append(event)
-        self.ids.image.source = f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\mnemo_bare.png"
+        self.ids.image.source = resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\mnemo_bare.png")
     
     def on_enter(self) -> None:
         self.app.theme_cls.sync_theme_styles()
@@ -528,7 +529,7 @@ class SimulatorScreenView(BaseAppScreen):
         self.ids.button_pause.disabled = True
         self.ids.button_restart.disabled = True
         self.ids.button_stop.disabled = True
-        self.ids.image.source = f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\mnemo_bare.png"
+        self.ids.image.source = resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\mnemo_bare.png")
         self.app.unsaved_progress = False
     
     def command_callback(self, node, command) -> None:

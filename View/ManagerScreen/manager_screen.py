@@ -1,6 +1,5 @@
 
 import os
-from turtle import width
 
 from kivy.metrics import dp
 from kivy.clock import Clock
@@ -9,6 +8,7 @@ from kivy.uix.image import Image
 from kivy.uix.modalview import ModalView
 from kivy.uix.screenmanager import NoTransition, SlideTransition
 from kivy.utils import get_color_from_hex
+from kivy.resources import resource_add_path, resource_find
 from kivymd.app import MDApp
 from kivymd.utils.set_bars_colors import set_bars_colors
 from kivymd.color_definitions import colors
@@ -16,6 +16,12 @@ from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.spinner import MDSpinner
 
 from View.screens import screens
+from View.MenuScreen.menu_screen import MenuScreenView
+from View.RegistrationScreen.registration_screen import RegistrationScreenView
+from View.SchematicScreen.schematic_screen import SchematicScreenView
+from View.SimulatorScreen.simulator_screen import SimulatorScreenView
+from View.AboutScreen.about_screen import AboutScreenView
+from View.DocumentationScreen.documentation_screen import DocumentationScreenView
 
 
 class ManagerScreen(MDScreenManager):
@@ -133,9 +139,7 @@ class ManagerScreen(MDScreenManager):
                 pos_hint={'center_x': .5, 'center_y': .5},
                 active=True,
             )
-            self.dialog_wait = ModalView(
-                background="assets/images/modal-bg.png",
-            )
+            self.dialog_wait = ModalView()
             self.dialog_wait.add_widget(spinner)
         self.dialog_wait.open()
 

@@ -44,9 +44,17 @@ test:
 	-rm -rf kivy/tests/build
 	$(NOSETESTS) tests
 
+build:
+	python -m PyInstaller --noconfirm --log-level=WARN pieone.spec
+
+release:
+	python -m PyInstaller --noconfirm --log-level=WARN pieone.spec
+
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  hook           add Pep-8 checking as a git precommit hook"
 	@echo "  style          to check Python code for style hints."
 	@echo "  style-report   make html version of style hints"
 	@echo "  testing        make unittest (nosetests)"
+	@echo "  build 			make a build with PyInstaller"
+	@echo "  release		make a release package with PyInstaller"

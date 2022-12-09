@@ -140,7 +140,6 @@ class SetupToolsHelper(object):
             packages=find_packages(exclude=['docs']),  # Required
             package_data={'pieone': ['*.rst', '*.kv', '*.ini', '*.json',
                                'assets/data/*',
-                               'assets/fonts/*',
                                'assets/images/*',
                                'assets/locales/*',
                                'configs/*',

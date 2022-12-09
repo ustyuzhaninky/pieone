@@ -1,5 +1,6 @@
 import os
 
+from kivy.resources import resource_add_path, resource_find
 from View.common.app_screen import BaseAppScreen
 from kivymd.app import MDApp
 
@@ -23,11 +24,11 @@ class SchematicScreenView(BaseAppScreen):
         for i, label in enumerate(labels):
             if not label.text:
                 with open(
-                    f"{os.environ['PIEONE_ROOT']}/assets/data/schematic_screen/sc{i+1}_desc.txt",
+                    resource_find(f"{os.environ['PIEONE_ROOT']}/assets/data/schematic_screen/sc{i+1}_desc.txt"),
                     "rt",
                     encoding="utf-8") as screen_label_text:
                     labels[i].text = screen_label_text.read()
         
     def set_stage_image(self, stage, *args):
-        self.ids.image.source = f"{os.environ['PIEONE_ROOT']}\\assets\\images\\schematic_screen\\mnemo_st{stage}.png"
+        self.ids.image.source = resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\schematic_screen\\mnemo_st{stage}.png")
         self.ids.image.reload()

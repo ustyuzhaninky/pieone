@@ -32,6 +32,7 @@ os.environ["KIVY_GL_BACKEND"]= "angle_sdl2"
 import kivy
 kivy.require('2.1.0')
 
+from kivy.resources import resource_add_path, resource_find
 from random import randint
 from kivy.graphics import Color, Ellipse, Line
 from kivy.properties import (
@@ -119,7 +120,7 @@ class Lang(Observable):
 
     def switch_lang(self, lang):
         # get the right locales directory, and instanciate a gettext
-        locale_dir = os.path.join(os.environ["PIEONE_ROOT"], 'assets', 'locales')
+        locale_dir = resource_find(os.path.join(os.environ["PIEONE_ROOT"], 'assets', 'locales'))
         locales = gettext.translation('pieone', locale_dir, languages=[lang])
         self.ugettext = locales.gettext
         self.lang = lang
@@ -241,7 +242,7 @@ class SimulatorApp(MDApp):
         super().__init__(**kwargs)
         self.tr = Lang("en")
         self.tr.switch_lang(self.locale)
-        self.icon = f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png"
+        self.icon = resource_find(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png")
         self.theme_cls.material_style = "M3"
         self.theme_cls.primary_palette = "Indigo"
         self.snackbar = None
@@ -268,7 +269,7 @@ class SimulatorApp(MDApp):
         self.manager_screen.add_widget(self.manager_screen.create_screen("menu"))
         # Window.custom_titlebar = True
         # Window.set_custom_titlebar(TopBar())
-        Window.set_icon(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png")
+        Window.set_icon(resource_find(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png"))
         Window.maximize()
 
         self.config = ConfigParser(name='simulator')
@@ -497,6 +498,9 @@ class SimulatorApp(MDApp):
         pass
 
 def main(*args, **kwargs):
+    if hasattr(sys, '_MEIPASS'):
+        resource_add_path(os.path.join(sys._MEIPASS))
+    resource_add_path(os.environ["PIEONE_ROOT"])
     SimulatorApp().run()
 
 if __name__ == '__main__':

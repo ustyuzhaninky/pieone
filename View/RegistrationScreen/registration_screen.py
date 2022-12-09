@@ -20,6 +20,7 @@ from kivy.metrics import dp
 from kivy.properties import (
     StringProperty, NumericProperty,
     BooleanProperty, StringProperty)
+from kivy.resources import resource_add_path, resource_find
 
 class RegistrationScreenView(BaseAppScreen):
 
@@ -97,7 +98,7 @@ class RegistrationScreenView(BaseAppScreen):
         styles.add(ParagraphStyle(name='Center', alignment=TA_CENTER))
 
         Story = []
-        logo = f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png"
+        logo = resource_find(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png")
         formatted_time = time.ctime()
         formatted_date = datetime.datetime.today()
 

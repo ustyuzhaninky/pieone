@@ -1,9 +1,9 @@
 
 #:import os os
-#:import markdown markdown
 #:import get_hex_from_color kivy.utils.get_hex_from_color
 #:import IconLeftWidget kivymd.uix.list.IconLeftWidget
 #:import RstDocument kivy.uix.rst.RstDocument
+#:import resource_find kivy.resources.resource_find
 
 <DocumentationScreenView>
 
@@ -14,7 +14,7 @@
             id: bar
             title: "P.I.E. ONE " + app.tr._("Menu")
             anchor_title: "center"
-            icon: f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png"
+            icon: resource_find(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png")
             elevation: 12
             adaptive_size: True
             opposite_colors: True
@@ -69,7 +69,7 @@
                     MDNavigationDrawerHeader:
                         title: app.tr._("Documentation")
                         title_font_size: "23sp"
-                        source: f"{os.environ['PIEONE_ROOT']}\\assets\\images\\logo256.png"
+                        source: resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\logo256.png")
                         text: app.tr._("P.I.E. ONE intergrated\nuser manual")
                         spacing: "4dp"
                         padding: "12dp", 0, 0, "56dp"

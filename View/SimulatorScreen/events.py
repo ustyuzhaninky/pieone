@@ -4,6 +4,7 @@ import os
 from kivymd.app import MDApp # NOQA
 from kivymd.uix.widget import MDWidget
 from kivy.properties import ListProperty, StringProperty
+from kivy.resources import resource_add_path, resource_find
 
 app = MDApp.get_running_app()
 
@@ -82,203 +83,203 @@ class EventManager(MDWidget):
                 self.event_subheaders[0],
                 'p1_feed',
                 'slower',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\reactor_1.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\reactor_1.gif")
             ),
             Event(
                 self.event_headers[1],
                 self.event_subheaders[1],
                 'p1_feed',
                 'faster',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\reactor_1.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\reactor_1.gif")
             ),
             Event(
                 self.event_headers[2],
                 self.event_subheaders[2],
                 'fuel',
                 'less',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\furnace.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\furnace.gif")
             ),
             Event(
                 self.event_headers[3],
                 self.event_subheaders[3],
                 'fuel',
                 'more',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\furnace.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\furnace.gif")
             ),
             Event(
                 self.event_headers[4],
                 self.event_subheaders[3],
                 'all',
                 'stop',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\pump_1.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\pump_1.gif")
             ),
             Event(
                 self.event_headers[5],
                 self.event_subheaders[5],
                 'reserve_pump',
                 'engage',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\pump_1.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\pump_1.gif")
             ),
             Event(
                 self.event_headers[6],
                 self.event_subheaders[6],
                 'water_co1',
                 'open',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\CO_1_high_level.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\CO_1_high_level.gif")
             ),
             Event(
                 self.event_headers[7],
                 self.event_subheaders[7],
                 'water_co1',
                 'close',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\CO_1_low_level.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\CO_1_low_level.gif")
             ),
             Event(
                 self.event_headers[8],
                 self.event_subheaders[8],
                 'water_co1',
                 'open',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\CO_2_high_level.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\CO_2_high_level.gif")
             ),
             Event(
                 self.event_headers[9],
                 self.event_subheaders[9],
                 'water_co2',
                 'close',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\CO_2_low_level.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\CO_2_low_level.gif")
             ),
             Event(
                 self.event_headers[10],
                 self.event_subheaders[10],
                 'reserve_compressor',
                 'engage',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\compressor_1.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\compressor_1.gif")
             ),
             Event(
                 self.event_headers[11],
                 self.event_subheaders[11],
                 'reserve_compressor',
                 'engage',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\compressor_2.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\compressor_2.gif")
             ),
             Event(
                 self.event_headers[12],
                 self.event_subheaders[12],
                 'reserve_pump',
                 'engage',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\pump_2.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\pump_2.gif")
             ),
             Event(
                 self.event_headers[13],
                 self.event_subheaders[13],
                 'reserve_cooler',
                 'engage',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\vent_1.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\vent_1.gif")
             ),
             Event(
                 self.event_headers[14],
                 self.event_subheaders[14],
                 'reserve_cooler',
                 'engage',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\vent_2.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\vent_2.gif")
             ),
             Event(
                 self.event_headers[15],
                 self.event_subheaders[15],
                 'reserve_cooler',
                 'engage',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\vent_3.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\vent_3.gif")
             ),
             Event(
                 self.event_headers[16],
                 self.event_subheaders[16],
                 'water_t2',
                 'open',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\reactor_2.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\reactor_2.gif")
             ),
             Event(
                 self.event_headers[17],
                 self.event_subheaders[17],
                 'water_t2',
                 'close',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\reactor_2.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\reactor_2.gif")
             ),
             Event(
                 self.event_headers[18],
                 self.event_subheaders[18],
                 't1_bottom',
                 'open',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\tower_1.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\tower_1.gif")
             ),
             Event(
                 self.event_headers[19],
                 self.event_subheaders[19],
                 't1_bottom',
                 'close',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\tower_1.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\tower_1.gif")
             ),
             Event(
                 self.event_headers[20],
                 self.event_subheaders[20],
                 'hcg_s1',
                 'open',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\separator_1_high_pressure.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\separator_1_high_pressure.gif")
             ),
             Event(
                 self.event_headers[21],
                 self.event_subheaders[21],
                 'sulfide_s2',
                 'open',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\separator_2_high_pressure.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\separator_2_high_pressure.gif")
             ),
             Event(
                 self.event_headers[22],
                 self.event_subheaders[22],
                 'e1_gas',
                 'open',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\vessel_1_high_pressure.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\vessel_1_high_pressure.gif")
             ),
             Event(
                 self.event_headers[23],
                 self.event_subheaders[23],
                 'water_s1',
                 'close',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\separator_1_low_level.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\separator_1_low_level.gif")
             ),
             Event(
                 self.event_headers[24],
                 self.event_subheaders[24],
                 'water_s1',
                 'open',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\separator_1_overflow.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\separator_1_overflow.gif")
             ),
             Event(
                 self.event_headers[25],
                 self.event_subheaders[25],
                 'water_s2',
                 'open',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\separator_2_overflow.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\separator_2_overflow.gif")
             ),
             Event(
                 self.event_headers[26],
                 self.event_subheaders[26],
                 'water_s2',
                 'close',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\separator_2_low_level.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\separator_2_low_level.gif")
             ),
             Event(
                 self.event_headers[27],
                 self.event_subheaders[27],
                 'e1_water',
                 'close',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\vessel_1_low_level.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\vessel_1_low_level.gif")
             ),
             Event(
                 self.event_headers[28],
                 self.event_subheaders[28],
                 'e1_water',
                 'open',
-                f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\vessel_1_overflow.gif"
+                resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\vessel_1_overflow.gif")
             )
         ]
     

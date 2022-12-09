@@ -1,4 +1,5 @@
 #:import MenuCard View.MenuScreen.components.MenuCard
+#:import resource_find kivy.resources.resource_find
 
 <MenuScreenView>
 
@@ -9,7 +10,7 @@
             id: bar
             title: "P.I.E. ONE " + app.tr._("Menu")
             anchor_title: "center"
-            icon: f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png"
+            icon: resource_find(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png")
             elevation: 12
             adaptive_size: True
             opposite_colors: True
