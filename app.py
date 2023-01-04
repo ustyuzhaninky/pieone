@@ -255,7 +255,7 @@ class SimulatorApp(MDApp):
         """
 
         self.theme_cls.theme_style_switch_animation = True
-        self.theme_cls.theme_style_switch_animation_duration = 0.8
+        self.theme_cls.theme_style_switch_animation_duration = 0.1
         self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "Orange"
         self.theme_cls.accent_palette = "Yellow"
@@ -266,6 +266,7 @@ class SimulatorApp(MDApp):
         self.use_kivy_settings = False
 
         self.load_kv(os.path.join(self.directory, "app.kv"))
+        self.load_kv(os.path.join(self.directory, "View", "common", "app_screen.kv"))
         self.manager_screen.add_widget(self.manager_screen.create_screen("menu"))
         # Window.custom_titlebar = True
         # Window.set_custom_titlebar(TopBar())

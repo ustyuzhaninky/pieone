@@ -129,37 +129,13 @@
     height: Window.height - dp(40)
     buttons: self.parent_widget.decisions_dialog_buttons
 
-<SimulatorScreenView>
-    
+<SimulatorContent>
+
     MDBoxLayout:
         id: box
         orientation: "vertical"
         spacing: "2dp"
         pos_hint: {"top": 1}
-    
-        MDTopAppBar:
-            id: bar
-            title: "P.I.E. ONE " + app.tr._("Menu")
-            anchor_title: "center"
-            icon: resource_find(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png")
-            elevation: 12
-            adaptive_size: True
-            opposite_colors: True
-            use_overflow: True
-            right_action_items:
-                [
-                # ["cog", lambda x: app.open_settings(), app.tr._("Settings"), app.tr._("Settings")],
-                ["theme-light-dark", lambda x: app.switch_theme_style(), app.tr._("Dark Mode"), app.tr._("Dark Mode")],
-                ["translate-variant", lambda x: app.open_language_dialog(), app.tr._("Language"), app.tr._("Language")],
-                # ["window-minimize", lambda x: Window.minimize(), app.tr._("Minimize"), app.tr._("Minimize")],
-                # ["window-maximize", lambda x: self.maximize_callback(), app.tr._("Maximize"), app.tr._("Maximize")],
-                ["close", lambda x: app.stop_callback(), app.tr._("Exit"), app.tr._("Exit")]
-                ]
-                        
-            left_action_items:
-                [
-                ["arrow-left", lambda x: app.return_callback(x), app.tr._("Return"), app.tr._("Return")]
-                ]
 
         ScrollView:
             MDFloatLayout:
@@ -340,6 +316,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [11, 12, 41, 42, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
 
                     TouchHoverArea:
                         id: BLOB2
@@ -351,6 +330,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [7, 8, 15, 16, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB3
@@ -362,6 +344,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB4
@@ -373,6 +358,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [1, 2, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB5
@@ -384,6 +372,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [19, 20, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB6
@@ -395,6 +386,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [7, 8, 13, 14, 45, 46, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB7
@@ -406,6 +400,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [3, 4, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB8
@@ -417,6 +414,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [5, 6, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB9
@@ -428,6 +428,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [24, 25, 43, 44, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB10
@@ -439,6 +442,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [27, 28, 21, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB11
@@ -450,6 +456,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [31, 32, 22, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB12
@@ -461,6 +470,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [33, 34, 22, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB13
@@ -472,6 +484,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [29, 30, 21, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB14
@@ -483,6 +498,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [35, 36, 26, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB15
@@ -494,6 +512,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [37, 38, 26, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
                     
                     TouchHoverArea:
                         id: BLOB16
@@ -505,6 +526,9 @@
                         center: self.parent.center
                         disabled: True
                         controls: [39, 40, 26, 23]
+                        screen: root
+                        on_release:
+                            self.open_command_panel_dialog()
         
         MDBoxLayout:
             orientation: "horizontal"
@@ -516,28 +540,32 @@
                 icon: "run"
                 tooltip_text: app.tr._("Run Simulation")
                 pos_hint: {"center_x": .5, "center_y": .5}
-                on_release: lambda x: root.run_sim()
+                on_release:
+                    root.run_sim()
             
             TooltipMDIconButton:
                 id: button_pause
                 icon: "pause"
                 tooltip_text: app.tr._("Pause Simulation")
                 pos_hint: {"center_x": .5, "center_y": .5}
-                on_release: lambda x: self.pause_sim()
+                on_release:
+                    root.pause_sim()
             
             TooltipMDIconButton:
                 id: button_restart
                 icon: "restart"
                 tooltip_text: app.tr._("Restart Simulation")
                 pos_hint: {"center_x": .5, "center_y": .5}
-                on_release: lambda x: root.restart_sim()
+                on_release:
+                    root.restart_sim()
 
             TooltipMDIconButton:
                 id: button_stop
                 icon: "stop"
                 tooltip_text: app.tr._("Stop simulation")
                 pos_hint: {"center_x": .5, "center_y": .5}
-                on_release: lambda x: root.stop_sim()
+                on_release:
+                    root.stop_sim()
             
             TextClock:
                 id: clock
@@ -550,4 +578,5 @@
                 icon: "tray-full"
                 tooltip_text: app.tr._("Show Track Record")
                 pos_hint: {"center_x": .5, "center_y": .5}
-                on_release: lambda x: root.show_track_record()
+                on_release:
+                    root.show_track_record()

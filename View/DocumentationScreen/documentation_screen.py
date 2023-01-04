@@ -1,23 +1,19 @@
 from genericpath import isfile
 import os
 import pathlib
-# from turtle import onclick
-# from View.DocumentationScreen.md_cefbrowser import MDCefBrowser
-# TODO: Add support of real browsing using CEF
 
-from View.common.app_screen import BaseAppScreen
-from kivymd.uix.button import MDFloatingActionButton
+from kivy.resources import resource_find
 from kivymd.uix.navigationdrawer import (
-    MDNavigationDrawerMenu, MDNavigationDrawerLabel,
-    MDNavigationDrawerDivider, MDNavigationDrawerHeader,
+    MDNavigationDrawerHeader,
     MDNavigationDrawerItem, 
 )
-from kivy.properties import OptionProperty, DictProperty
+from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.app import MDApp # NOQA
+from kivy.properties import OptionProperty
 from kivy.event import EventDispatcher
-# import markdown
-from kivy.clock import Clock
-from functools import partial
 from kivy.uix.rst import RstDocument
+
+from View.common.app_screen import BaseAppScreen
 
 class BaseNavigationDrawerItem(MDNavigationDrawerItem):
     def __init__(self, **kwargs):
@@ -43,15 +39,17 @@ class DrawerClickableItem(BaseNavigationDrawerItem):
         self.selected_color = "#0c6c4d"
         self.file_name = file_name
 
-class DocumentationScreenView(BaseAppScreen, EventDispatcher):
+class DocumentationContent(MDBoxLayout, EventDispatcher):
 
     lang_folder = OptionProperty("en", options=["en", "ru"])
     
     def __init__(self, **kwargs):
+        self.app = MDApp.get_running_app()
         super().__init__(**kwargs)
-        doc_folder = os.path.join(f"{os.environ['PIEONE_ROOT']}", "docs")
 
-        def parse_folder(path):
+    def parse_folder(self, path: str, lang: str):
+        
+        def fn_parse(path):
             for it in sorted(os.listdir(path)):
                 if os.path.isfile(os.path.join(path, it)):
                     self.ids.nav_drawer_menu.add_widget(
@@ -69,32 +67,41 @@ class DocumentationScreenView(BaseAppScreen, EventDispatcher):
                             text=it.split('.')[0].replace('_', ' ').split('-')[-1],
                         )
                     )
-                    parse_folder(os.path.join(path, it))
-        parse_folder(os.path.join(doc_folder, next(self.get_lang())))
-
-    def lang_callback(self, control, item):
-            return control.current_active_segment.text
-    
-    def get_lang(self):
-        if self.ids.lang_segments.current_active_segment:
-            yield self.ids.lang_segments.current_active_segment.text
-        else:
-            yield 'en'
-
-    def on_enter(self) -> None:
-        self.show_md_file(
-            os.path.join(
-                f"{os.environ['PIEONE_ROOT']}",
-                "docs", next(self.get_lang()),
-                "1-Getting_Started.rst"))
+                    fn_parse(os.path.join(path, it))
         
-        self.ids.box.add_widget(
-                MDFloatingActionButton(
-                    icon="menu",
-                    type='small',
-                    on_release=lambda x: self.ids.nav_drawer.set_state("open"),
-                ))
+        if len(self.ids.nav_drawer_menu.children[0].children)==0:
+            self.ids.nav_drawer_menu.add_widget(
+                MDNavigationDrawerHeader(
+                    title=self.app.tr._("Documentation"),
+                    title_font_size="23sp",
+                    # source=resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\logo32.png"),
+                    text=self.app.tr._("P.I.E. ONE intergrated\nuser manual"),
+                    spacing="4dp",
+                    padding=("12dp", 0, 0, "56dp"),
+                    size=(2, 2),
+                )
+            )
+            fn_parse(os.path.join(
+                    f"{os.environ['PIEONE_ROOT']}",
+                    "docs", self.lang_folder))
+            self.show_md_file(
+                os.path.join(
+                    f"{os.environ['PIEONE_ROOT']}",
+                    "docs", self.lang_folder,
+                    "1-Getting_Started.rst"))
+    
+    def set_language(self, segmented_control, segmented_item):
+        # doc_folder = os.path.join(f"{os.environ['PIEONE_ROOT']}", "docs", self.lang_folder)
+        self.lang_folder = segmented_item.text
+        self.ids.nav_drawer_menu.children[0].children.clear_widgets()
+        doc_folder = os.path.join(f"{os.environ['PIEONE_ROOT']}", "docs", self.lang_folder)
+        self.parse_folder(doc_folder, self.lang_folder)
 
+    def populate_drawer(self, *args):
+        doc_folder = os.path.join(f"{os.environ['PIEONE_ROOT']}", "docs", self.lang_folder)
+        self.parse_folder(doc_folder, self.lang_folder)
+        self.ids.nav_drawer.set_state("open")
+    
     def show_md_file(self, widget) -> None:
         if isinstance(widget, str):
             path = widget
@@ -103,14 +110,13 @@ class DocumentationScreenView(BaseAppScreen, EventDispatcher):
             path = os.path.join(
                 f"{os.environ['PIEONE_ROOT']}",
                 "docs",
-                next(self.get_lang()),
+                self.lang_folder,
                 *pathlib.Path(path).parts[
                     len(pathlib.Path(f"{os.environ['PIEONE_ROOT']}").parts) + 2:
                 ])
-        # path = os.path.join(path, pathlib.Path(widget.file_name).parts[:len])
         if os.path.isfile(path):
             with open(
-                path,
+                resource_find(path),
                 'rt',
                 encoding="utf-8",
                 ) as md_file:
@@ -120,5 +126,11 @@ class DocumentationScreenView(BaseAppScreen, EventDispatcher):
                 document.render()
                 self.ids.browser.add_widget(document)
         else:
-            print(f"Path `{path}` is not a file")
-                
+            self.app.log_callback(self, f"Path `{path}` is not a file")
+
+class DocumentationScreenView(BaseAppScreen):
+    screen_content = DocumentationContent
+
+    def __init__(self, **kwargs):
+        self.app = MDApp.get_running_app()
+        super().__init__(**kwargs)

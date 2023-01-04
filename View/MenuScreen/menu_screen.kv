@@ -1,66 +1,42 @@
 #:import MenuCard View.MenuScreen.components.MenuCard
 #:import resource_find kivy.resources.resource_find
 
-<MenuScreenView>
+<MenuContent>
+    orientation: "vertical"
 
-    MDBoxLayout:
-        orientation: "vertical"
+    ScrollView:
+        id: menu_list
+        size_hint_x: None
+        width: root.width * 95 / 100
+        pos_hint: {"center_x": .5}
+        bar_width: 0
+        key_viewclass: 'viewclass'
+        key_size: 'height'
 
-        MDTopAppBar:
-            id: bar
-            title: "P.I.E. ONE " + app.tr._("Menu")
-            anchor_title: "center"
-            icon: resource_find(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png")
-            elevation: 12
-            adaptive_size: True
-            opposite_colors: True
-            use_overflow: True
-            right_action_items:
-                [
-                # ["cog", lambda x: app.open_settings(), app.tr._("Settings"), app.tr._("Settings")],
-                ["theme-light-dark", lambda x: app.switch_theme_style(), app.tr._("Dark Mode"), app.tr._("Dark Mode")],
-                ["translate-variant", lambda x: app.open_language_dialog(), app.tr._("Language"), app.tr._("Language")],
-                # ["window-minimize", lambda x: Window.minimize(), app.tr._("Minimize"), app.tr._("Minimize")],
-                # ["window-maximize", lambda x: self.maximize_callback(), app.tr._("Maximize"), app.tr._("Maximize")],
-                ["close", lambda x: app.stop_callback(), app.tr._("Exit"), app.tr._("Exit")]
-                ]
-                        
-            left_action_items:
-                [
-                ["arrow-left", lambda x: app.return_callback(x), app.tr._("Return"), app.tr._("Return")]
-                ]
+        MDList:
+            padding: dp(10)
+            spacing: dp(24)
+            default_size: None, dp(200)
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
 
-        ScrollView:
-        # RecycleView:
-            id: menu_list
-            size_hint_x: None
-            width: root.width * 95 / 100
-            pos_hint: {"center_x": .5}
-            bar_width: 0
-            key_viewclass: 'viewclass'
-            key_size: 'height'
-
-            MDList:
-            # RecycleBoxLayout:
-                padding: dp(10)
-                spacing: dp(24)
-                default_size: None, dp(200)
-                default_size_hint: 1, None
-                size_hint_y: None
-                height: self.minimum_height
-                # orientation: 'vertical'
-
-                MenuCard:
-                    id: simulator_card
-                    title: app.tr._("Simulator")
+            MenuCard:
+                id: simulator_card
+                title: app.tr._("Simulator")
+                on_release: app.manager_screen.switch_screen('simulator')
                 
-                MenuCard:
-                    id: schematic_card
-                    title: app.tr._("Schematic")
-                MenuCard:
-                    id: documentation_card
-                    title: app.tr._("Documentation")
+            MenuCard:
+                id: schematic_card
+                title: app.tr._("Schematic")
+                on_release: self.app.manager_screen.switch_screen('schematic')
+
+            MenuCard:
+                id: documentation_card
+                title: app.tr._("Documentation")
+                on_release: self.app.manager_screen.switch_screen('documentation')
                
-                MenuCard:
-                    id: about_card
-                    title: app.tr._("About")
+            MenuCard:
+                id: about_card
+                title: app.tr._("About")
+                on_release: self.app.manager_screen.switch_screen('about')

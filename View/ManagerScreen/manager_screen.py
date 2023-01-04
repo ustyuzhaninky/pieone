@@ -128,7 +128,6 @@ class ManagerScreen(MDScreenManager):
             else:
                 self.transition.direction = 'left'
             self.current = screen_name
-            Clock.schedule_once(self.dialog_wait.dismiss, 1.5)
         Clock.schedule_once(switch_screen)
 
     def open_dialog(self) -> None:
@@ -142,6 +141,7 @@ class ManagerScreen(MDScreenManager):
             self.dialog_wait = ModalView()
             self.dialog_wait.add_widget(spinner)
         self.dialog_wait.open()
+        Clock.schedule_once(self.dialog_wait.dismiss, 1.5)
 
     def add_screen(self, view) -> None:
         self.add_widget(view)

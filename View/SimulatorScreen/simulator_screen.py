@@ -25,6 +25,7 @@ from kivymd.uix.scrollview import MDScrollView
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.banner import MDBanner
 from kivymd.uix.label import MDLabel
+from kivymd.uix.widget import MDWidget
 from kivy.clock import Clock
 import time
 from datetime import datetime
@@ -254,8 +255,7 @@ class DecisionDialog(MDDialog):
         self.app = MDApp.get_running_app()
         self.buttons = self.parent_widget.decisions_dialog_buttons
 
-class SimulatorScreenView(BaseAppScreen):
-
+class SimulatorContent(MDBoxLayout):
     # One-session properties
     solved_events = ListProperty([])
     scheduled_events = ListProperty([])
@@ -284,36 +284,7 @@ class SimulatorScreenView(BaseAppScreen):
         super().__init__(**kwargs)
         self.app = MDApp.get_running_app()
         
-        self.ids.button_start.on_release = lambda: self.run_sim()
-        self.ids.button_pause.on_release = lambda: self.pause_sim()
-        self.ids.button_restart.on_release = lambda: self.restart_sim()
-        self.ids.button_stop.on_release = lambda: self.stop_sim()
-        self.ids.button_tray.on_release = lambda: self.show_track_record()
         self.event_remaining_time = self.max_time
-        self.blobs = [
-            self.ids.BLOB1,
-            self.ids.BLOB2,
-            self.ids.BLOB3,
-            self.ids.BLOB4,
-            self.ids.BLOB5,
-            self.ids.BLOB6,
-            self.ids.BLOB7,
-            self.ids.BLOB8,
-            self.ids.BLOB9,
-            self.ids.BLOB10,
-            self.ids.BLOB11,
-            self.ids.BLOB12,
-            self.ids.BLOB13,
-            self.ids.BLOB14,
-            self.ids.BLOB15,
-            self.ids.BLOB16,
-        ]
-
-        for idx, bl in enumerate(self.blobs):
-            bl.screen = self
-            bl.bind(on_release=bl.open_command_panel_dialog)
-
-        self.__disable_touch_areas()
 
     def create_schedule(self):
         for event in EventManager().build().events:
@@ -325,10 +296,6 @@ class SimulatorScreenView(BaseAppScreen):
         event.update(node, command, total_time)
         self.solved_events.append(event)
         self.ids.image.source = resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\simulator_screen\\mnemo_bare.png")
-    
-    def on_enter(self) -> None:
-        self.app.theme_cls.sync_theme_styles()
-        self.stop_sim()
 
     def timer_callback(self, dt=None) -> None:
         if self.emitted_event:
@@ -560,3 +527,10 @@ class SimulatorScreenView(BaseAppScreen):
         
         self.track_record_dialog = TrackRecordDialog(parent_widget=self, content_cls=content)
         self.track_record_dialog.open(self)
+
+class SimulatorScreenView(BaseAppScreen):
+    screen_content = SimulatorContent
+
+    def __init__(self, **kwargs):
+        self.app = MDApp.get_running_app()
+        super().__init__(**kwargs)

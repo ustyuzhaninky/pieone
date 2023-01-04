@@ -21,8 +21,9 @@ from kivy.properties import (
     StringProperty, NumericProperty,
     BooleanProperty, StringProperty)
 from kivy.resources import resource_add_path, resource_find
+from kivymd.uix.boxlayout import MDBoxLayout
 
-class RegistrationScreenView(BaseAppScreen):
+class RegistrationContent(MDBoxLayout):
 
     registration_number = StringProperty()
     email = StringProperty()
@@ -30,14 +31,10 @@ class RegistrationScreenView(BaseAppScreen):
     organization = StringProperty()
     qualification = StringProperty()
     position = StringProperty()
-    # is_checked = BooleanProperty()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.app = MDApp.get_running_app()
-        self.ids.back_button.on_release = lambda: self.app.return_callback(self, "simulator")
-    
-    def on_enter(self, *args) -> None:
         self.registration_number = self.genertate_registration_number()
 
     def check_fields(self):
@@ -199,3 +196,10 @@ class RegistrationScreenView(BaseAppScreen):
             'qualification': self.qualification,
             'position': self.position
             }
+
+class RegistrationScreenView(BaseAppScreen):
+    screen_content = RegistrationContent
+
+    def __init__(self, **kwargs):
+        self.app = MDApp.get_running_app()
+        super().__init__(**kwargs)
