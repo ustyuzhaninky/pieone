@@ -22,6 +22,8 @@ added_files = [
          ( 'View/SimulatorScreen/simulator_screen.kv', 'View/SimulatorScreen/' ),
          ( 'View/SimulatorScreen/events.kv', 'View/SimulatorScreen/' ),
          ( 'View/common/app_screen.kv', 'View/common/' ),
+         ( 'View/common/tbr_screen.kv', 'View/common/' ),
+         ( 'View/common/error_screen.kv', 'View/common/' ),
          ( 'View/common/dots/dots.kv', 'View/common/dots/' ),
          ( 'View/MenuScreen/menu_screen.kv', 'View/MenuScreen/' ),
          ( 'View/MenuScreen/components/card/card.kv', 'View/MenuScreen/components/card/' ),
@@ -38,6 +40,7 @@ added_files = [
          ( 'assets/locales/ru/LC_MESSAGES/pieone.mo', 'assets/locales/ru/LC_MESSAGES/' ),
          ## Images
          ( 'assets/images/loading.gif', 'assets/images/' ),
+         ( 'assets/images/image-broken.png', 'assets/images/'),
          ( 'assets/images/logo32.png', 'assets/images/' ),
          ( 'assets/images/logo64.png', 'assets/images/' ),
          ( 'assets/images/logo256.png', 'assets/images/' ),
@@ -88,7 +91,7 @@ added_files = [
          ## icons
          ( 'assets/icons/logo32.ico', 'assets/icons/' ),
          ( 'assets/icons/logo64.ico', 'assets/icons/' ),
-         ( 'assets/icons/logo256.ico', 'assets/icons/' ),\
+         ( 'assets/icons/logo256.ico', 'assets/icons/' ),
 
          ## data
          ( 'assets/data/about_screen/about.txt', 'assets/data/about_screen/' ),

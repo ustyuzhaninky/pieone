@@ -1,11 +1,4 @@
-kivy >= 2.1.0
-kivy-deps.angle == 0.3.2
-kivy-deps.glew == 0.3.1
-kivy-deps.glew-dev == 0.3.1
-kivy-deps.gstreamer == 0.3.3
-kivy-deps.gstreamer-dev == 0.3.3
-kivy-deps.sdl2 == 0.4.5
-kivy-deps.sdl2-dev == 0.4.5
+kivy[full, sdl2] >= 2.1.0
 Markdown >= 3.4.1
 MarkupSafe >= 2.1.1
 kivymd >= 1.0.2

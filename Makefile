@@ -20,8 +20,10 @@ po:
 	View/common/app_screen.py View/common/app_screen.kv \
 	View/SimulatorScreen/events.py View/SimulatorScreen/events.kv \
 	View/RegistrationScreen/registration_screen.py View/RegistrationScreen/registration_screen.kv
-	msgmerge assets/locales/en/po/en.po assets/locales/messages.pot
-	msgmerge assets/locales/ru/po/ru.po assets/locales/messages.pot
+	touch assets/locales/en/po/en.po
+	touch assets/locales/ru/po/ru.po
+	msgmerge --output-file=assets/locales/en/po/en.po assets/locales/en/po/en.po assets/locales/messages.pot
+	msgmerge --output-file=assets/locales/ru/po/ru.po assets/locales/ru/po/ru.po assets/locales/messages.pot
 
 mo:
 	mkdir -p assets/locales/en/LC_MESSAGES
