@@ -1,5 +1,4 @@
 #:import MenuCard View.MenuScreen.components.MenuCard
-#:import resource_find kivy.resources.resource_find
 
 <MenuContent>
     orientation: "vertical"
@@ -24,19 +23,23 @@
             MenuCard:
                 id: simulator_card
                 title: app.tr._("Simulator")
+                source: app.asset(f"{os.environ['PIEONE_ASSETS']}/images/menu_screen/simulator-dark.png")
                 on_release: app.manager_screen.switch_screen('simulator')
                 
             MenuCard:
                 id: schematic_card
                 title: app.tr._("Schematic")
+                source: app.asset(f"{os.environ['PIEONE_ASSETS']}/images/menu_screen/schematic-dark.png")
                 on_release: self.app.manager_screen.switch_screen('schematic')
 
             MenuCard:
                 id: documentation_card
                 title: app.tr._("Documentation")
+                source: app.asset(f"{os.environ['PIEONE_ASSETS']}/images/menu_screen/documentation-dark.png")
                 on_release: self.app.manager_screen.switch_screen('documentation')
                
             MenuCard:
                 id: about_card
                 title: app.tr._("About")
+                source: app.asset(f"{os.environ['PIEONE_ASSETS']}/images/menu_screen/about-dark.png")
                 on_release: self.app.manager_screen.switch_screen('about')

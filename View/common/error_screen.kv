@@ -1,0 +1,35 @@
+#:import sys sys
+#:import format_tb traceback.format_tb 
+#:import Clipboard kivy.core.clipboard.Clipboard
+#:import toast kivymd.toast.toast
+
+<TooltipMDIconButton@MDIconButton+MDTooltip>
+
+<ErrorContent>:
+    orientation: "vertical"
+    MDIcon:
+        icon: "robot-dead"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        font_size: 50
+    MDLabel:
+        text: "An error encountered during content loading:"
+        halign: 'center'
+        adaptive_height: True
+        font_style: "H5"
+        padding_x: "24dp"
+    MDScrollView:
+        MDLabel:
+            id: traceback
+            text: "\n".join([str(sys.exc_info()[0]), str(sys.exc_info()[1])]+format_tb(sys.exc_info()[2]))
+            halign: 'left'
+            adaptive_height: True
+            allow_selection: True
+            padding_x: "24dp"
+    TooltipMDIconButton:
+        icon: "content-copy"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        icon_size: "64sp"
+        tooltip_text: "Copy error traceback"
+        on_release:
+            Clipboard.copy(traceback.text)
+            toast("Copied")

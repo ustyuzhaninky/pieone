@@ -1,31 +1,43 @@
-#:import resource_find kivy.resources.resource_find
-
 <BaseAppScreen>:
+    returntool:
+        [
+        "arrow-left",
+        lambda x: app.return_callback(x),
+        app.tr._("Return"),
+        app.tr._("Return")
+        ]
     MDBoxLayout:
         orientation: "vertical"
-        # size_hint_y: None
-        # height: self.minimum_height
 
         MDTopAppBar:
             id: bar
-            title: "P.I.E. ONE " + app.tr._("Menu")
+            title: "P.I.E. ONE"
             anchor_title: "center"
-            icon: resource_find(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png")
             elevation: 12
             adaptive_size: True
             opposite_colors: True
             use_overflow: True
             right_action_items:
                 [
-                ["theme-light-dark", lambda x: app.switch_theme_style(), app.tr._("Dark Mode"), app.tr._("Dark Mode")],
-                ["translate-variant", lambda x: app.open_language_dialog(), app.tr._("Language"), app.tr._("Language")],
-                ["close", lambda x: app.stop_callback(), app.tr._("Exit"), app.tr._("Exit")]
+                ["theme-light-dark",
+                lambda x: app.switch_theme_style(),
+                app.tr._("Dark Mode"),
+                app.tr._("Dark Mode")],
+                ["translate-variant",
+                lambda x: app.open_language_dialog(),
+                app.tr._("Language"),
+                app.tr._("Language")],
+                ["close",
+                lambda x:
+                app.stop_callback(),
+                app.tr._("Exit"),
+                app.tr._("Exit")]
                 ]
                         
             left_action_items:
                 [
-                ["arrow-left", lambda x: app.return_callback(x), app.tr._("Return"), app.tr._("Return")]
+                root.get_left_button(),
                 ]
     
         Placeholder:
-            id: content 
+            id: content

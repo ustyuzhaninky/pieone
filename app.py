@@ -28,7 +28,7 @@ import gettext
 from pathlib import Path
 from random import random
 from functools import partial
-os.environ["KIVY_GL_BACKEND"]= "angle_sdl2"
+os.environ["KIVY_GL_BACKEND"]= "sdl2"
 import kivy
 kivy.require('2.1.0')
 
@@ -59,7 +59,7 @@ from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
 from View.ManagerScreen.manager_screen import ManagerScreen
 from View.SettingsScreen.settings_screen import MDSettingsWithExpansionPanels
 
-if getattr(sys, "frozen", False):
+if getattr(sys, "frozen", False) and hasattr(sys, '_MEIPASS'):
     os.environ["PIEONE_ROOT"] = sys._MEIPASS
 else:
     sys.path.append(os.path.abspath(__file__).split("demos")[0])
@@ -208,7 +208,7 @@ class SimulatorApp(MDApp):
 
     # Multi-session savables
     darkmode = ConfigParserProperty(
-        False,
+        True,
         'Graphics', 'darkmode',
         'simulator',
         val_type=bool,
@@ -266,8 +266,7 @@ class SimulatorApp(MDApp):
         self.use_kivy_settings = False
 
         self.load_kv(os.path.join(self.directory, "app.kv"))
-        self.load_kv(os.path.join(self.directory, "View", "common", "app_screen.kv"))
-        self.manager_screen.add_widget(self.manager_screen.create_screen("menu"))
+        self.manager_screen.add_screen(self.manager_screen.create_screen("menu"))
         # Window.custom_titlebar = True
         # Window.set_custom_titlebar(TopBar())
         Window.set_icon(resource_find(f"{os.environ['PIEONE_ROOT']}/assets/images/pieone-logo.png"))
@@ -285,7 +284,6 @@ class SimulatorApp(MDApp):
         else:
             self.config.read(
                 f"{os.environ['PIEONE_ROOT']}/simulator.ini")
-
         self._restore_app_state()
         
         return self.manager_screen
@@ -358,13 +356,20 @@ class SimulatorApp(MDApp):
             pass # Settings popup doesn't exist
     
     def _restore_app_state(self):
-        self.darkmode = self.config.get('Graphics', 'darkmode')
+        self.darkmode = self.config.getboolean('Graphics', 'darkmode')
         self.locale = self.config.get('System', 'locale')
+        self.config.write()
 
         if self.darkmode==True:
             self.theme_cls.primary_palette = "Orange"
             self.theme_cls.theme_style = "Dark"
             self.theme_cls.accent_palette = "Yellow"
+            self.darkmode = True
+        else:
+            self.theme_cls.primary_palette = "Blue"
+            self.theme_cls.theme_style = "Light"
+            self.theme_cls.accent_palette = "LightBlue"
+            self.darkmode = False
         self.tr.switch_lang(self.locale)
 
     def switch_theme_style(self):
@@ -497,6 +502,14 @@ class SimulatorApp(MDApp):
 
     def menu_callback(self):
         pass
+    
+    def asset(self, asset_path:str) -> str:
+        if resource_find(asset_path):
+            return resource_find(asset_path)
+        else:
+            return resource_find(
+                f"{os.environ['PIEONE_ASSETS']}/images/image-broken.png"
+            )
 
 def main(*args, **kwargs):
     if hasattr(sys, '_MEIPASS'):
