@@ -57,7 +57,9 @@ class DocumentationContent(MDBoxLayout, EventDispatcher):
                             icon='file-document',
                             text=it.split('.')[0].replace('_', ' ').split('-')[-1],
                             on_release=self.show_md_file,
-                            file_name=os.path.join(path, it)
+                            file_name=os.path.join(path, it),
+                            theme_text_color="Custom",
+                            text_color=self.app.theme_cls.text_color
                             )
                     )
                 else:

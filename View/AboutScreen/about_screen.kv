@@ -13,6 +13,8 @@
     IconLeftWidget:
         icon: root.icon
         user_font_size: "18sp"
+        theme_text_color: "Custom"
+        text_color: app.theme_cls.text_color
 
 
 <AboutContent>
@@ -55,12 +57,16 @@
                                 app.tr._("Petrochem Imitator Example, edition [color={}]ONE[/color]").format( \
                                 get_hex_from_color(app.theme_cls.primary_color) \
                                 )
+                            theme_text_color: "Custom"
+                            text_color: app.theme_cls.text_color
 
                         MDLabel:
                             adaptive_height: True
                             bold: True
                             text: app.tr._("Open-source simulator example")
                             theme_text_color: "Hint"
+                            theme_text_color: "Custom"
+                            text_color: app.theme_cls.text_color
 
                 MDSeparator:
 
@@ -70,6 +76,8 @@
                     adaptive_height: True
                     font_size: "13sp"
                     text: root.get_about_text()
+                    theme_text_color: "Custom"
+                    text_color: app.theme_cls.text_color
 
                 MDLabel:
                     adaptive_height: True
@@ -77,6 +85,8 @@
                     markup: True
                     text: app.tr._("Contaсts")
                     font_style: "H5"
+                    theme_text_color: "Custom"
+                    text_color: app.theme_cls.text_color
 
                 MDBoxLayout:
                     adaptive_height: True
@@ -85,14 +95,20 @@
                     ContactItem:
                         icon: "youtube"
                         text: app.tr._("[size=14]Official YouTube channel[/size]")
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.text_color
 
                     ContactItem:
                         icon: "twitter"
                         text: app.tr._("[size=14]Twitter channel[/size]")
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.text_color
 
                     ContactItem:
                         icon: "email"
                         text: app.tr._("[size=14]ustyuzhaninky@hotmail.com[/size]")
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.text_color
 
                 Widget:
                     size_hint_y: None

@@ -16,6 +16,8 @@
             id: up_label
             font_size: "23sp"
             text: app.tr._("Registering and saving the results")
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.text_color
 
         MDTextField:
             id: email
@@ -26,6 +28,13 @@
             validator: "email"
             email_format: ""
             icon_left: "email"
+            theme_text_color: "Custom"
+            text_color_normal: app.theme_cls.secondary_text_color
+            hint_text_color_normal: app.theme_cls.secondary_text_color
+            icon_right_color_normal: app.theme_cls.opposite_bg_light
+            icon_left_color_normal: app.theme_cls.opposite_bg_light
+            helper_text_color_normal: app.theme_cls.secondary_text_color
+            line_color_normal: app.theme_cls.opposite_bg_light
             on_text:
                 app.unsaved_progress = True
                 root.set_email(self.text)
@@ -39,6 +48,13 @@
                 helper_text: app.tr._("Testee's actual name (required)")
                 required: True
                 helper_text_mode: "on_focus"
+                theme_text_color: "Custom"
+                text_color_normal: app.theme_cls.secondary_text_color
+                hint_text_color_normal: app.theme_cls.secondary_text_color
+                icon_right_color_normal: app.theme_cls.opposite_bg_light
+                icon_left_color_normal: app.theme_cls.opposite_bg_light
+                helper_text_color_normal: app.theme_cls.secondary_text_color
+                line_color_normal: app.theme_cls.opposite_bg_light
                 on_text:
                     app.unsaved_progress = True
                     root.set_name(self.text, second_name.text, family_name.text)
@@ -48,6 +64,13 @@
                 hint_text: app.tr._("Second name")
                 helper_text: app.tr._("Testee's second name (if eligible)")
                 helper_text_mode: "on_focus"
+                theme_text_color: "Custom"
+                text_color_normal: app.theme_cls.secondary_text_color
+                hint_text_color_normal: app.theme_cls.secondary_text_color
+                icon_right_color_normal: app.theme_cls.opposite_bg_light
+                icon_left_color_normal: app.theme_cls.opposite_bg_light
+                helper_text_color_normal: app.theme_cls.secondary_text_color
+                line_color_normal: app.theme_cls.opposite_bg_light
                 on_text:
                     app.unsaved_progress = True
                     root.set_name(first_name.text, self.text, family_name.text)
@@ -58,6 +81,13 @@
                 helper_text: app.tr._("Testee's family name (required)")
                 required: True
                 helper_text_mode: "on_focus"
+                theme_text_color: "Custom"
+                text_color_normal: app.theme_cls.secondary_text_color
+                hint_text_color_normal: app.theme_cls.secondary_text_color
+                icon_right_color_normal: app.theme_cls.opposite_bg_light
+                icon_left_color_normal: app.theme_cls.opposite_bg_light
+                helper_text_color_normal: app.theme_cls.secondary_text_color
+                line_color_normal: app.theme_cls.opposite_bg_light
                 on_text:
                     app.unsaved_progress = True
                     root.set_name(first_name.text, second_name.text, self.text)
@@ -69,6 +99,13 @@
             required: True
             helper_text_mode: "on_focus"
             icon_left: "office-building"
+            theme_text_color: "Custom"
+            text_color_normal: app.theme_cls.secondary_text_color
+            hint_text_color_normal: app.theme_cls.secondary_text_color
+            icon_right_color_normal: app.theme_cls.opposite_bg_light
+            icon_left_color_normal: app.theme_cls.opposite_bg_light
+            helper_text_color_normal: app.theme_cls.secondary_text_color
+            line_color_normal: app.theme_cls.opposite_bg_light
             on_text:
                 app.unsaved_progress = True
                 root.set_organization(self.text)
@@ -79,6 +116,13 @@
             helper_text: app.tr._("Job qualificaton")
             helper_text_mode: "on_focus"
             icon_left: "star"
+            theme_text_color: "Custom"
+            text_color_normal: app.theme_cls.secondary_text_color
+            hint_text_color_normal: app.theme_cls.secondary_text_color
+            icon_right_color_normal: app.theme_cls.opposite_bg_light
+            icon_left_color_normal: app.theme_cls.opposite_bg_light
+            helper_text_color_normal: app.theme_cls.secondary_text_color
+            line_color_normal: app.theme_cls.opposite_bg_light
             on_text:
                 app.unsaved_progress = True
                 root.set_qualification(self.text)
@@ -89,6 +133,13 @@
             helper_text: app.tr._("Job position")
             helper_text_mode: "on_focus"
             icon_left: "desk"
+            theme_text_color: "Custom"
+            text_color_normal: app.theme_cls.secondary_text_color
+            hint_text_color_normal: app.theme_cls.secondary_text_color
+            icon_right_color_normal: app.theme_cls.opposite_bg_light
+            icon_left_color_normal: app.theme_cls.opposite_bg_light
+            helper_text_color_normal: app.theme_cls.secondary_text_color
+            line_color_normal: app.theme_cls.opposite_bg_light
             on_text:
                 app.unsaved_progress = True
                 root.set_position(self.text)
@@ -100,6 +151,8 @@
             allow_selection: False
             allow_copy: False
             text: app.tr._(f"Assigned registration number: {root.registration_number}")
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.text_color
         
         MDLabel:
             id: down_label
@@ -107,6 +160,8 @@
         MDLabel:
             adaptive_size: True
             text: app.tr._("Warning! Only one registration number per person is eligible.\nMake sure spelling of your name is in accordance with your valid ID in ENGLISH and your email is an active one.\n Provide only names in latin characters!\nUpon closing this window your test data will disappear.\nMake sure you save your sertificate before closing.")
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.text_color
 
         MDBoxLayout:
             orientation: "horizontal"

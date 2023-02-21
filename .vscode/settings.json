@@ -1,3 +1,5 @@
 {
-    "materialkv.pythonFile": "main.py"
+    "materialkv.pythonFile": "main.py",
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": false
 }

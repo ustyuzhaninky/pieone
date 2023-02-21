@@ -7,6 +7,8 @@
 #:import resource_find kivy.resources.resource_find
 
 <TooltipMDIconButton@MDIconButton+MDTooltip>
+    theme_text_color: "Custom"
+    text_color: app.theme_cls.text_color
 
 <TooltipLabel@MDLabel+MDTooltip>
 
@@ -32,6 +34,8 @@
             theme_text_color: 'Primary'
             shorten: True
             shorten_from: 'right'
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.text_color
         
         MDLabel:
             id: text
@@ -40,6 +44,8 @@
             theme_text_color: 'Hint'
             shorten: True
             shorten_from: 'right'
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.text_color
 
 <EventsList>:
     id: event_list
@@ -68,11 +74,13 @@
     height: Window.height // 2 + dp(100)
     width: self.width
     
-    Label:
+    MDLabel:
         text: app.tr._("Case: ") + root.event_str[0] + app.tr._("\nEvent: ") + root.event_str[1]
         adaptive_height: True
         size_hint_y: None
         height: 50
+        theme_text_color: "Custom"
+        text_color: app.theme_cls.text_color
     
     GridLayout:
         id: keypad
@@ -114,6 +122,8 @@
     auto_dismiss: False
     buttons: self.parent_widget.finish_dialog_buttons
     text: app.tr._("Your work is over. Your estimates are following: \n\n") + app.tr._(f"Total cases solved is {self.events_solved}\n") + app.tr._(f"Test time {self.total_time}\n") + app.tr._(f"Mean response time is {round(self.mean_time, 2)} seconds\n") + app.tr._(f"Accuracy is {round(self.accuracy, 2)}%\n") + app.tr._(f"Confidence is {round(self.confidence, 2)}%")
+    theme_text_color: "Custom"
+    text_color: app.theme_cls.text_color
 
 <SkipDecisionDialogButton>
     text: app.tr._("Skip")
@@ -569,8 +579,9 @@
             
             TextClock:
                 id: clock
-                theme_text_color: 'Primary'
                 halign: "center"
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.text_color
                 pos_hint: {"center_x": .5, "center_y": .5}
 
             TooltipMDIconButton:

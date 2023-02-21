@@ -17,6 +17,9 @@
         adaptive_height: True
         font_style: "H5"
         padding_x: "24dp"
+        theme_text_color: "Custom"
+        text_color: app.theme_cls.text_color
+        
     MDScrollView:
         MDLabel:
             id: traceback
@@ -25,6 +28,8 @@
             adaptive_height: True
             allow_selection: True
             padding_x: "24dp"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.text_color
     TooltipMDIconButton:
         icon: "content-copy"
         pos_hint: {"center_x": .5, "center_y": .5}
