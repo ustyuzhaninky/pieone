@@ -9,12 +9,13 @@ from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.spinner import MDSpinner
 
 from View.screens import screens
-from View.MenuScreen.menu_screen import MenuScreenView
-from View.RegistrationScreen.registration_screen import RegistrationScreenView
-from View.SchematicScreen.schematic_screen import SchematicScreenView
-from View.SimulatorScreen.simulator_screen import SimulatorScreenView
-from View.AboutScreen.about_screen import AboutScreenView
-from View.DocumentationScreen.documentation_screen import DocumentationScreenView
+from View.MenuScreen.menu_screen import MenuScreenView # NOQA
+from View.RegistrationScreen.registration_screen import RegistrationScreenView # NOQA
+from View.SchematicScreen.schematic_screen import SchematicScreenView # NOQA
+from View.SimulatorScreen.simulator_screen import SimulatorScreenView # NOQA
+from View.AboutScreen.about_screen import AboutScreenView # NOQA
+from View.DocumentationScreen.documentation_screen import ( # NOQA
+    DocumentationScreenView)
 from View.common.error_screen import ErrorScreenView
 from View.common.tbr_screen import TbrScreenView
 
@@ -34,18 +35,21 @@ class ManagerScreen(MDScreenManager):
             self.load_common_package()
             view = TbrScreenView()
             view.name = name_screen
-            if not name_screen in screens.keys():
+            if name_screen not in screens.keys():
                 return view
             try:
                 exec(f"import View.{screens[name_screen]}")
                 self.app.load_all_kv_files(
-                    os.path.join(self.app.directory, "View", screens[name_screen].split(".")[0])
+                    os.path.join(self.app.directory,
+                                 "View",
+                                 screens[name_screen].split(".")[0])
                 )
                 view = eval(
-                    f'View.{screens[name_screen]}.{screens[name_screen].split(".")[0]}View()'
+                    f'View.{screens[name_screen]}'
+                    f'.{screens[name_screen].split(".")[0]}View()'
                 )
                 view.name = name_screen
-            except:
+            except Exception:
                 view = ErrorScreenView()
                 view.name = name_screen
             return view
@@ -62,7 +66,7 @@ class ManagerScreen(MDScreenManager):
                             break
                     if not kv_loaded:
                         if os.path.join(
-                            common_path, it).lower().endswith(".kv"):
+                           common_path, it).lower().endswith(".kv"):
                             self.app.load_kv(os.path.join(common_path, it))
                 else:
                     _load_kv(os.path.join(common_path, it))

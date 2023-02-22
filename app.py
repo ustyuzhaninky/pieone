@@ -21,33 +21,32 @@
 
 # @author: Konstantin Ustyuzhanin
 
-
-from dataclasses import dataclass
-import sys
-import os
 import gettext
+import os
+import sys
+from dataclasses import dataclass
 from pathlib import Path
+
 os.environ["KIVY_GL_BACKEND"] = "sdl2"
 import kivy
-kivy.require('2.1.0')
 
-from kivy.resources import resource_add_path, resource_find
-from kivy.properties import (
-    ConfigParserProperty, ConfigParser,
-    ObjectProperty, BooleanProperty, ListProperty)
-from kivy.core.window import Window
-from kivymd.app import MDApp
-from kivymd.uix.snackbar import Snackbar
+kivy.require('2.1.0')
 from kivy.animation import Animation
 from kivy.clock import Clock
-from kivy.metrics import dp
-from kivy.uix.settings import Settings
+from kivy.core.window import Window
 from kivy.lang import Observable
+from kivy.metrics import dp
+from kivy.properties import (BooleanProperty, ConfigParser,
+                             ConfigParserProperty, ListProperty,
+                             ObjectProperty)
+from kivy.resources import resource_add_path, resource_find
+from kivy.uix.settings import Settings
+from kivymd.app import MDApp
+from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.button import MDFlatButton, MDRaisedButton
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.list import OneLineAvatarIconListItem
-from kivymd.uix.button import (
-    MDFlatButton, MDRaisedButton)
-from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.snackbar import Snackbar
 
 from View.ManagerScreen.manager_screen import ManagerScreen
 

@@ -1,9 +1,10 @@
 import os
 
-from kivy.resources import resource_add_path, resource_find
+from kivy.resources import resource_find
 from View.common.app_screen import BaseAppScreen
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.app import MDApp
+
 
 class SchematicContent(MDBoxLayout):
     def __init__(self, **kwargs):
@@ -12,14 +13,19 @@ class SchematicContent(MDBoxLayout):
 
     def get_text(self, slide_index) -> str:
         with open(
-                resource_find(f"{os.environ['PIEONE_ROOT']}/assets/data/schematic_screen/sc{slide_index+1}_desc.txt"),
+                resource_find(
+                    f"{os.environ['PIEONE_ROOT']}/assets"
+                    "/data/schematic_screen/sc{slide_index+1}_desc.txt"),
                 "rt",
                 encoding="utf-8") as screen_label_text:
             return screen_label_text.read()
-        
+
     def set_stage_image(self, stage, *args):
-        self.ids.image.source = resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\schematic_screen\\mnemo_st{stage}.png")
+        self.ids.image.source = resource_find(
+            f"{os.environ['PIEONE_ROOT']}\\assets\\"
+            "images\\schematic_screen\\mnemo_st{stage}.png")
         self.ids.image.reload()
+
 
 class SchematicScreenView(BaseAppScreen):
     screen_content = SchematicContent

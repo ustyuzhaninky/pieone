@@ -1,25 +1,26 @@
 # coding=utf-8
 # Copyright (c) 2022, Konstantin Usiuzhanin
 
-# Permission is hereby granted, free of charge, to any person obtaining a copy 
-# of this software and associated documentation files (the "Software"), to deal 
-# in the Software without restriction, including without limitation the rights 
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
-# copies of the Software, and to permit persons to whom the Software is 
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
 
-# The above copyright notice and this permission notice shall be included in 
+# The above copyright notice and this permission notice shall be included in
 # all copies or substantial portions of the Software.
 
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
-# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
-# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
-# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
 
 # @author: Konstantin Ustyuzhanin
-# 
+#
 """Setup script for PIEONE-keras.
 
 This script will install PIEONE-keras as a Python module.
@@ -34,10 +35,8 @@ import datetime
 import fnmatch
 import os
 import sys
-from os import path
 from setuptools import find_packages
 from setuptools import setup
-import codecs
 
 from setuptools.command.install import install as InstallCommandBase
 from setuptools.dist import Distribution
@@ -53,6 +52,7 @@ class BinaryDistribution(Distribution):
 
     def has_ext_modules(self):
         return True
+
 
 def find_files(pattern, root):
     """Return all the files matching pattern below root dir."""
@@ -71,6 +71,7 @@ class InstallCommand(InstallCommandBase):
         self.install_lib = self.install_platlib
         return ret
 
+
 class SetupToolsHelper(object):
     """Helper to execute `setuptools.setup()`."""
 
@@ -78,7 +79,8 @@ class SetupToolsHelper(object):
         """Initialize ReleaseBuilder class.
         Args:
         release: True to do a release build. False for a nightly build.
-        nodev: True to skip a development environment setup (i.e. packaging). False for full setup.
+        nodev: True to skip a development environment setup (i.e. packaging).
+               False for full setup.
         md_version_override: Set to override the kivymd_version dependency.
         """
         self.release = release
@@ -111,10 +113,10 @@ class SetupToolsHelper(object):
         """Returns list of required packages if using PIEONE."""
         kivy_packages = []
         if self.release:
-            kivy_version = KIVY_VERSION
+            # kivy_version = KIVY_VERSION
             kivymd_version = KIVYMD_VERSION
         else:
-            kivy_version = 'kivy-nightly'
+            # kivy_version = 'kivy-nightly'
             kivymd_version = 'kivymd-nightly'
 
         # Overrides required versions if md_version_override is set.
@@ -128,9 +130,10 @@ class SetupToolsHelper(object):
     def run_setup(self):
         # Builds the long description from the README.
         root_path = os.path.abspath(os.path.dirname(__file__))
-        with codecs.open(os.path.join(root_path, 'README.rst'), encoding='utf-8') as f:
+        with codecs.open(
+                os.path.join(root_path, 'README.rst'),
+                encoding='utf-8') as f:
             long_description = f.read()
-
 
         version, project_name = self._get_version()
         setup(
@@ -139,11 +142,11 @@ class SetupToolsHelper(object):
             include_package_data=True,
             packages=find_packages(exclude=['docs']),  # Required
             package_data={'pieone': ['*.rst', '*.kv', '*.ini', '*.json',
-                               'assets/data/*',
-                               'assets/images/*',
-                               'assets/locales/*',
-                               'configs/*',
-                               'docs/*']},
+                                     'assets/data/*',
+                                     'assets/images/*',
+                                     'assets/locales/*',
+                                     'configs/*',
+                                     'docs/*']},
             install_requires=self._get_required_packages(),
             extras_require={
                 'pieone': self._get_kivy_packages(),
@@ -153,7 +156,8 @@ class SetupToolsHelper(object):
                 'install': InstallCommand,
             },
             headers=list(find_files('*.proto', 'PIEONE')),
-            description='PIEONE: A simple Section 300 Hydrogen Treatment Unit Simulator for students',
+            description='PIEONE: A simple Section 300 Hydrogen '
+                        'Treatment Unit Simulator for students',
             long_description=long_description,
             long_description_content_type='text/markdown',
             url='https://github.com/ustyuzhaninky/pieone',  # Optional
@@ -174,16 +178,15 @@ class SetupToolsHelper(object):
                 'Programming Language :: Python :: 3.9',
                 'Programming Language :: Python :: 3.10',
 
-                'Topic :: Software Development',
-
-            ],
+                'Topic :: Software Development'],
             project_urls={  # Optional
                 'Documentation': 'https://github.com/ustyuzhaninky/pieone',
-                'Bug Reports': 'https://github.com/ustyuzhaninky/pieone/issues',
-                'Source': 'https://github.com/ustyuzhaninky/pieone',
-            },
+                'Bug Reports': 'https://github.com/ustyuzhaninky/'
+                               'pieone/issues',
+                'Source': 'https://github.com/ustyuzhaninky/pieone'},
             license='MIT',
-            keywords='kivy kivymd section_300 simulator testing app example educational'
+            keywords='kivy kivymd section_300 simulator '
+                     'testing app example educational'
         )
 
 
@@ -204,15 +207,17 @@ if __name__ == '__main__':
         '--md-version',
         type=str,
         default=None,
-        help='Overrides for kivymd version required when PIEONE is installed, e.g.'
+        help='Overrides for kivymd version '
+             'required when PIEONE is installed, e.g.'
         'kivy>=2.1.0')
     FLAGS, unparsed = parser.parse_known_args()
     # Go forward with only non-custom flags.
     sys.argv.clear()
-    # Downstream `setuptools.setup` expects args to start at the second element.
+    # Downstream `setuptools.setup` expects args
+    # to start at the second element.
     unparsed.insert(0, 'foo')
     sys.argv.extend(unparsed)
     setup_tools_helper = SetupToolsHelper(release=FLAGS.release,
-                                          nodev=FLAGS.nodev, 
+                                          nodev=FLAGS.nodev,
                                           md_version_override=FLAGS.md_version)
     setup_tools_helper.run_setup()
