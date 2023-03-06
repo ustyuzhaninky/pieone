@@ -9,7 +9,8 @@ NOSETESTS = $(PYTHON) -m nose.core
 .PHONY: po mo hook style stylereport test help
 
 po:
-	xgettext -Lpython --output=assets/locales/messages.pot app.py app.kv \
+	xgettext -Lpython --output=assets/locales/messages.pot app.py \
+	View/common/app.kv \
 	View/AboutScreen/about_screen.kv View/AboutScreen/about_screen.py \
 	View/ManagerScreen/manager_screen.py \
 	View/MenuScreen/menu_screen.kv View/MenuScreen/menu_screen.py \

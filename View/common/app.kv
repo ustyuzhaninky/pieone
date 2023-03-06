@@ -3,17 +3,24 @@
 
 <ItemConfirm>
     on_release: root.set_icon(check)
+    theme_text_color: "Custom"
+    text_color: app.theme_cls.text_color
 
     CheckboxLeftWidget:
         id: check
         group: "check"
+        theme_text_color: "Custom"
+        text_color: app.theme_cls.text_color
 
 <YesAndStopButton>
     text: app.tr._("Yes")
-    text_color: app.theme_cls.primary_color
+    theme_text_color: "Custom"
+    text_color: app.theme_cls.text_color
 
 <NoAndKeepButton>
     text: app.tr._("No")
+    theme_text_color: "Custom"
+    text_color: app.theme_cls.text_color
 
 <CloseApplicationDialog>
     title: app.tr._("Exit")
@@ -24,7 +31,8 @@
 
 <RestartLaterButton>
     text: app.tr._("Later")
-    text_color: app.theme_cls.primary_color
+    theme_text_color: "Custom"
+    text_color: app.theme_cls.text_color
 
 <RestartNowButton>
     text: app.tr._("Yes, restart now")
@@ -38,6 +46,8 @@
 
 <OkLanguageDialogButton>
     text: app.tr._("Ok")
+    theme_text_color: "Custom"
+    text_color: app.theme_cls.text_color
 
 <LanguageDialog>
     title: app.tr._("Application language")
@@ -50,10 +60,13 @@
 
 <YesLeaveSimulationDialogButton>
     text: app.tr._("Yes")
-    # text_color: app.theme_cls.primary_color
+    theme_text_color: "Custom"
+    text_color: app.theme_cls.text_color
 
 <CloseLeaveSimulationDialogButton>
     text: app.tr._("No")
+    theme_text_color: "Custom"
+    text_color: app.theme_cls.text_color
 
 <LeaveSimulationDialog>
     title: app.tr._("Leaving screen")

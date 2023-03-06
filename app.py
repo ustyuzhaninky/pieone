@@ -275,7 +275,6 @@ class SimulatorApp(MDApp):
         # self.settings_cls = MDSettingsWithExpansionPanels
         self.use_kivy_settings = False
 
-        self.load_kv(os.path.join(self.directory, "app.kv"))
         self.manager_screen.add_screen(
             self.manager_screen.create_screen("menu"))
         # Window.custom_titlebar = True
@@ -312,8 +311,9 @@ class SimulatorApp(MDApp):
         )
 
     def stop_callback(self):
-        self.close_dialog_buttons = [YesAndStopButton(), NoAndKeepButton()]
-        self.close_application_dialog = CloseApplicationDialog()
+        if not self.close_application_dialog:
+            self.close_dialog_buttons = [YesAndStopButton(), NoAndKeepButton()]
+            self.close_application_dialog = CloseApplicationDialog()
         self.close_application_dialog.open()
 
     def display_settings(self, settings):
