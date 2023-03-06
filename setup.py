@@ -37,6 +37,7 @@ import os
 import sys
 from setuptools import find_packages
 from setuptools import setup
+import platform
 
 from setuptools.command.install import install as InstallCommandBase
 from setuptools.dist import Distribution
@@ -101,8 +102,12 @@ class SetupToolsHelper(object):
 
     def _get_required_packages(self):
         """Returns list of required packages."""
-        with open('requirements.txt', 'rt') as file:
-            required_packages = file.readlines()
+        if platform.system() == "Windows":
+            with open('requirements-win.txt', 'rt') as file:
+                required_packages = file.readlines()
+        else:
+            with open('requirements.txt', 'rt') as file:
+                required_packages = file.readlines()
         if self.dev is True:
             with open('requirements-dev.txt', 'rt') as file:
                 for line in file.readlines():
