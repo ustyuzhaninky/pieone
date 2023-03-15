@@ -15,7 +15,8 @@ class SchematicContent(MDBoxLayout):
         with open(
                 resource_find(
                     f"{os.environ['PIEONE_ROOT']}/assets"
-                    f"/data/schematic_screen/sc{slide_index+1}_desc.txt"),
+                    f"/data/schematic_screen/sc{slide_index+1}"
+                    f"_desc_{self.app.locale}.txt"),
                 "rt",
                 encoding="utf-8") as screen_label_text:
             return screen_label_text.read()
@@ -23,7 +24,7 @@ class SchematicContent(MDBoxLayout):
     def set_stage_image(self, stage, *args):
         self.ids.image.source = resource_find(
             f"{os.environ['PIEONE_ROOT']}\\assets\\"
-            f"images\\schematic_screen\\mnemo_st{stage}.png")
+            f"images\\schematic_screen\\mnemo_st{stage}_{self.app.locale}.png")
         self.ids.image.reload()
 
 

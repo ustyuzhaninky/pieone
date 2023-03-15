@@ -1,0 +1,3 @@
+A mixture of hydrocarbons and water vapor from the top of the column [b][color=#d32f2f]CO1[/color][/b] through the air-cooling condenser AC2 enters the reflux tank [b][color=#d32f2f]E1[/color][/b].
+Gasoline distillate from the bottom of the tank [b][color=#d32f2f]E1[/color][/b] pump [b][color=#d32f2f]P2[/color][/b] goes to the irrigation of the top of the column [b][color=#d32f2f]T1[/color][/b], and the balance surplus [b][color=#f57c00]IX[/color][/b] goes to the plants
+LCH-24/7, AGFU-1 and into commercial production. The hydrocarbon gas [b][color=#f57c00]VIII[/color][/b] goes to the purification from hydrogen sulfide unit from the top of the tank [b][color=#d32f2f]E1[/color][/b].

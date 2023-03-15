@@ -1,27 +1,10 @@
 
 #:import os os
-#:import get_hex_from_color kivy.utils.get_hex_from_color
-#:import IconLeftWidget kivymd.uix.list.IconLeftWidget
-#:import cos math.cos
-#:import sin math.sin
-#:import radians math.radians
 #:import Window kivy.core.window.Window
 #:import resource_find kivy.resources.resource_find
 
-<ContactItem@OneLineAvatarListItem>
-    icon: ""
-    _txt_top_pad: "8dp"
-    _txt_bot_pad: "8dp"
-    height: "36dp"
-
-    IconLeftWidget:
-        icon: root.icon
-        user_font_size: "18sp"
-
-<TooltipLabel@MDLabel+MDTooltip>
-
 <SchematicContent>
-    
+
     MDBoxLayout:
         orientation: "vertical"
 
@@ -38,7 +21,7 @@
                             id: image
                             pos_hint: {"top": 1}
                             allow_stretch: False
-                            source: resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\schematic_screen\\mnemo_st0.png")
+                            source: resource_find(f"{os.environ['PIEONE_ROOT']}\\assets\\images\\schematic_screen\\mnemo_st0_{app.locale}.png")
 
                 MDBottomNavigation:
                     size_hint_y: None
@@ -50,7 +33,7 @@
                         icon: "flag-checkered"
                         text: app.tr._("Beginning")
                         on_tab_release: root.set_stage_image(0)
-                        
+
                         MDLabel:
                             id: screen_1_label
                             markup: True
@@ -65,7 +48,7 @@
                         icon: "numeric-1-circle"
                         text: app.tr._("Step 1")
                         on_tab_release: root.set_stage_image(1)
-                                
+
                         MDLabel:
                             id: screen_2_label
                             markup: True
@@ -95,7 +78,7 @@
                         icon: "numeric-3-circle"
                         text: app.tr._("Step 3")
                         on_tab_release: root.set_stage_image(3)
-                                
+
                         MDLabel:
                             id: screen_4_label
                             markup: True
@@ -104,13 +87,13 @@
                             text: root.get_text(3)
                             theme_text_color: "Custom"
                             text_color: app.theme_cls.text_color
-                            
+
                     MDBottomNavigationItem:
                         name: "screen 5"
                         icon: "numeric-4-circle"
                         text: app.tr._("Step 4")
                         on_tab_release: root.set_stage_image(4)
-                                
+
                         MDLabel:
                             id: screen_5_label
                             markup: True
@@ -119,13 +102,13 @@
                             text: root.get_text(4)
                             theme_text_color: "Custom"
                             text_color: app.theme_cls.text_color
-                            
+
                     MDBottomNavigationItem:
                         name: "screen 6"
                         icon: "numeric-5-circle"
                         text: app.tr._("Step 5")
                         on_tab_release: root.set_stage_image(5)
-                                
+
                         MDLabel:
                             id: screen_6_label
                             markup: True
@@ -134,13 +117,13 @@
                             text: root.get_text(5)
                             theme_text_color: "Custom"
                             text_color: app.theme_cls.text_color
-                            
+
                     MDBottomNavigationItem:
                         name: "screen 7"
                         icon: "numeric-6-circle"
                         text: app.tr._("Step 6")
                         on_tab_release: root.set_stage_image(6)
-                                
+
                         MDLabel:
                             id: screen_7_label
                             markup: True

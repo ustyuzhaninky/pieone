@@ -1,0 +1,3 @@
+From the bottom of the column [b][color=#d32f2f]T1[/color][/b] the stabilized diesel fraction goes through the heat exchanger [b][color=#d32f2f]H5[/color][/b] and enters the AC3 sections, then goes to the coalescers [b][color=#d32f2f]CO1[/color][/b] and [b][color=#d32f2f]CO2[/color][/b].
+In coalescers [b][color=#d32f2f]CO1[/color][/b] and [b][color=#d32f2f]CO2[/color][/b], moisture separates from diesel fuel. Water [b][color=#f57c00]XIV[/color][/b] from the bottom of coalescers [b][color=#d32f2f]CO1[/color][/b] and [b][color=#d32f2f]CO2[/color][/b] goes into the industrial sewer.
+From the top of the coalescers [b][color=#d32f2f]CO1[/color][/b] and [b][color=#d32f2f]CO2[/color][/b] hydrotreated diesel [b][color=#f57c00]XIII[/color][/b] fuel goes to production storage.

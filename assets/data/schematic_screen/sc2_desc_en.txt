@@ -1,0 +1,3 @@
+Diesel fraction [b][color=#f57c00]I[/color][/b] from the production storage enters the reception of pumps [b][color=#d32f2f]P1[/color][/b] together
+with hydrogen-containing gas (HCG) [b][color=#f57c00]II[/color][/b] supplied by the compressor [b][color=#d32f2f]C1[/color][/b]. The compressor [b][color=#d32f2f]C2[/color][/b] carries out the circulating HCG [b][color=#f57c00]III[/color][/b] from
+the gasoline pretreatment unit to the compressor ejector [b][color=#d32f2f]C1[/color][b].

@@ -1,0 +1,6 @@
+The gas-product mixture enters the heat exchanger [b][color=#d32f2f]H4[/color][/b], then enters the AC1 sections, then passes the water
+cooler [b][color=#d32f2f]WC1[/color][/b] and enters the separator [b][color=#d32f2f]S1[/color][/b]. From the separator [b][color=#d32f2f]S1[/color][/b] HCG [color=#f57c00]V[/color][/b] enters the gas purification unit with a monoethanolamine solution.
+The steam [color=#f57c00]VI[/color][/b] goes to the bottom of the column [b][color=#d32f2f]T1[/color][/b]. The hydrocarbon liquid phase (hydrogenesate from the bottom of the separator [b][color=#d32f2f]S1[/color][/b] passes through the pipe space
+heat exchanger [b][color=#d32f2f]H5[/color][/b], in which the hydrotreated diesel fraction from the bottom of the stabilization column [b][color=#d32f2f]K1[/color][/b] heats it,
+then it passes through the tube space of the heat exchanger [b][color=#d32f2f]H4[/color][/b], in which it takes heat from products from the reactor [b][color=#d32f2f]R1[/color][/b] and enters the 20th
+plate of the stabilization column [b][color=#d32f2f]T1[/color][/b].

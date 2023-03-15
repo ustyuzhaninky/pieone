@@ -1,0 +1,8 @@
+The raw gas mixture flows through the tube space of the heat exchangers [b][color=#d32f2f]H1[/color][/b], [b][color=#d32f2f]H2[/color][/b], [b][color=#d32f2f]H3[/color][/b], where
+reaction products from the reactor [b][color=#d32f2f]R1[/color][/b] heat it. Then it sent to the furnace [b][color=#d32f2f]F1[/color][/b].
+The raw material heated in the furnace [b][color=#d32f2f]F1[/color][/b] to a temperature of 320-280 C enters the reactor [b][color=#d32f2f]R1[/color][/b] and passes down
+the catalyst layer, where the processes of hydro desulfurization and enriching of diesel fuel.
+To lower the temperature, as well as to reduce the process of coke formation and prolong the service
+life of the catalyst, a supply of cold circulating HCG from the compressor outlet [b][color=#d32f2f]C1[/color][/b] goes to the middle part
+of the reactor [b][color=#d32f2f]R1[/color][/b] (between the catalyst layers). The product from the reactor [b][color=#d32f2f]R1[/color][/b] passes sequentially through the tube
+space of the heat exchangers [b][color=#d32f2f]H1[/color][/b], [b][color=#d32f2f]H2[/color][/b], [b][color=#d32f2f]H3[/color][/b].

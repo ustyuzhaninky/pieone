@@ -12,7 +12,7 @@ added_files = [
          # Basic
          ( 'README.rst', '.' ),
          ( 'LICENSE', '.' ),
-         
+
          # Application Screens
          ( 'app.kv', '.' ),
          ( 'View/AboutScreen/about_screen.kv', 'View/AboutScreen/' ),
@@ -55,13 +55,20 @@ added_files = [
          ( 'assets/images/menu_screen/schematic.png', 'assets/images/menu_screen/' ),
          ( 'assets/images/menu_screen/simulator-dark.png', 'assets/images/menu_screen/' ),
          ( 'assets/images/menu_screen/simulator.png', 'assets/images/menu_screen/' ),
-         ( 'assets/images/schematic_screen/mnemo_st0.png', 'assets/images/schematic_screen/' ),
-         ( 'assets/images/schematic_screen/mnemo_st1.png', 'assets/images/schematic_screen/' ),
-         ( 'assets/images/schematic_screen/mnemo_st2.png', 'assets/images/schematic_screen/' ),
-         ( 'assets/images/schematic_screen/mnemo_st3.png', 'assets/images/schematic_screen/' ),
-         ( 'assets/images/schematic_screen/mnemo_st4.png', 'assets/images/schematic_screen/' ),
-         ( 'assets/images/schematic_screen/mnemo_st5.png', 'assets/images/schematic_screen/' ),
-         ( 'assets/images/schematic_screen/mnemo_st6.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st0_ru.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st1_ru.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st2_ru.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st3_ru.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st4_ru.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st5_ru.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st6_ru.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st0_en.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st1_en.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st2_en.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st3_en.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st4_en.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st5_en.png', 'assets/images/schematic_screen/' ),
+         ( 'assets/images/schematic_screen/mnemo_st6_en.png', 'assets/images/schematic_screen/' ),
          ( 'assets/images/simulator_screen/CO_1_high_level.gif', 'assets/images/simulator_screen/' ),
          ( 'assets/images/simulator_screen/CO_1_low_level.gif', 'assets/images/simulator_screen/' ),
          ( 'assets/images/simulator_screen/CO_2_high_level.gif', 'assets/images/simulator_screen/' ),
@@ -87,7 +94,7 @@ added_files = [
          ( 'assets/images/simulator_screen/vessel_1_high_pressure.gif', 'assets/images/simulator_screen/' ),
          ( 'assets/images/simulator_screen/vessel_1_low_level.gif', 'assets/images/simulator_screen/' ),
          ( 'assets/images/simulator_screen/vessel_1_overflow.gif', 'assets/images/simulator_screen/' ),
-         
+
          ## icons
          ( 'assets/icons/logo32.ico', 'assets/icons/' ),
          ( 'assets/icons/logo64.ico', 'assets/icons/' ),
@@ -102,6 +109,13 @@ added_files = [
          ( 'assets/data/schematic_screen/sc5_desc.txt', 'assets/data/schematic_screen/' ),
          ( 'assets/data/schematic_screen/sc6_desc.txt', 'assets/data/schematic_screen/' ),
          ( 'assets/data/schematic_screen/sc7_desc.txt', 'assets/data/schematic_screen/' ),
+         ( 'assets/data/schematic_screen/sc1_desc_en.txt', 'assets/data/schematic_screen/' ),
+         ( 'assets/data/schematic_screen/sc2_desc_en.txt', 'assets/data/schematic_screen/' ),
+         ( 'assets/data/schematic_screen/sc3_desc_en.txt', 'assets/data/schematic_screen/' ),
+         ( 'assets/data/schematic_screen/sc4_desc_en.txt', 'assets/data/schematic_screen/' ),
+         ( 'assets/data/schematic_screen/sc5_desc_en.txt', 'assets/data/schematic_screen/' ),
+         ( 'assets/data/schematic_screen/sc6_desc_en.txt', 'assets/data/schematic_screen/' ),
+         ( 'assets/data/schematic_screen/sc7_desc_en.txt', 'assets/data/schematic_screen/' ),
 
          # Configs
          ( 'configs/default.ini', 'configs/' ),

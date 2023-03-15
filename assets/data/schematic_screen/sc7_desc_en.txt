@@ -1,0 +1,5 @@
+Condensed water from the bottom of the separator [b][color=#d32f2f]S1[/color][/b] and the tank [b][color=#d32f2f]E1[/color][/b] discharges through the heat exchanger [b][color=#d32f2f]H6[/color][/b] into the deodorizer [b][color=#d32f2f]T2[/color][/b], where the
+final separation of water from hydrogen sulfide and hydrocarbons occurs due to steam stripping [b][color=#f57c00]XII[/color][/b].
+Hydrocarbon gases from the deodorizer [b][color=#d32f2f]T2[/color][/b] and through the separator [b][color=#d32f2f]S2[/color][/b] discharges into the chimney of the furnace [b][color=#d32f2f]F1[/color][/b]. Water [b][color=#f57c00]VII[/color][/b] from the bottom [b][color=#d32f2f]R2[/color][/b] through
+the heat exchanger [b][color=#d32f2f]H6[/color][/b] goes to the industrial sewer. Hydrogen sulfide gas [b][color=#f57c00]X[/color][/b] discharges from the top of the separator [b][color=#d32f2f]S2[/color][/b], which also serves as
+a raw material for sulfur production.
